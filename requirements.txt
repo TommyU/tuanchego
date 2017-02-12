@@ -1,0 +1,12 @@
+django==1.6.5
+MySQL-python
+South
+django-crispy-forms==1.4.0
+django-debug-toolbar
+django-simple-captcha
+django-xadmin
+simplejson
+django-mptt
+django-cron
+pytz
+xlwt
