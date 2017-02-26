@@ -1,0 +1,283 @@
+/* SG
+# Tables #
+
+This file contains all styling for our tables. The default table that should be used
+is the `.hl-table`. Below is an example of how it should be applied. There is also
+the option to make the rows stripped by using `<table class="hl-table striped">` instead.
+
+```
+<div class="hl-table-container">
+    <table class="hl-table">
+        <thead>
+            <tr>
+                <th class="hl-table-column">Name</th>
+                <th class="hl-table-column">Priority</th>
+                <th class="hl-table-column">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="hl-table-column">Luuk Hartsema</td>
+                <td class="hl-table-column">Critical</td>
+                <td class="hl-table-column">Remove</td>
+            </tr>
+            <tr>
+                <td class="hl-table-column">Luuk Hartsema</td>
+                <td class="hl-table-column">Critical</td>
+                <td class="hl-table-column">Remove</td>
+            </tr>
+            <tr>
+                <td class="hl-table-column">Luuk Hartsema</td>
+                <td class="hl-table-column">Critical</td>
+                <td class="hl-table-column">Remove</td>
+            </tr>
+            <tr>
+                <td class="hl-table-column">Luuk Hartsema</td>
+                <td class="hl-table-column">Critical</td>
+                <td class="hl-table-column">Remove</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+```
+*/
+
+.hl-table-container {
+    overflow-x: auto;
+    border: 1px $app-border-color solid;
+}
+
+.hl-table {
+    width: 100%;
+    background: #fff;
+    border-spacing: none;
+    border-collapse: collapse;
+
+    &.striped {
+        tbody {
+            tr {
+                &:nth-child(2n+1) {
+                    background: $lily-white-tone;
+                }
+
+                &:nth-child(2n+1):hover {
+                    background: $lily-white-tone-hover;
+                }
+            }
+        }
+    }
+
+    thead {
+        tr:last-child {
+            th {
+                &.hl-table-column {
+                    border-bottom: 2px $app-border-color solid;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr:hover {
+            background: $lily-white-tone-hover;
+        }
+
+        tr:last-child {
+            td {
+                &.hl-table-column {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    th {
+        &.hl-table-column {
+            text-align: left;
+            text-transform: uppercase;
+            white-space: nowrap;
+            color: $app-color-grey;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 5px 12px;
+        }
+    }
+
+    td {
+        &.hl-table-column {
+            font-size: 13px;
+            padding: 12px;
+        }
+    }
+
+    .hl-table-column {
+        border-bottom: 1px $app-border-color solid;
+        vertical-align: top;
+    }
+}
+
+
+
+.widget-table {
+    width: 100%;
+    line-height: 20px;
+    font-size: 14px;
+    color: $app-color-darkblue;
+
+    thead {
+        th {
+            text-align: left;
+            padding: 5px 15px;
+            background: #fff;
+            border-top: 1px #fff solid;
+            border-bottom: 2px $light-border-color solid;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 11px;
+            color: $app-color-grey;
+        }
+    }
+
+    tbody {
+        tr {
+            &:hover {
+                background: lighten($sky-grey, 3);
+            }
+
+            &.widget-table-sub-heading {
+                td {
+                    padding: 5px 15px;
+                    background: lighten($sky-grey, 2);
+                }
+            }
+
+            &.newly-assigned {
+                td {
+                    padding: 6px 15px;
+                }
+            }
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px lighten($base-border-color, 12) solid;
+        }
+
+        &.align-center {
+            td {
+                text-align: center;
+            }
+        }
+    }
+
+    &.vertical-top-align {
+        td:first-child {
+            vertical-align: top;
+            padding-top: 18px;
+        }
+    }
+
+    &.align-table {
+        // /* Set width of the table cells based on the amount of cells. */
+        td:first-child:nth-last-child(1) {
+            width: 100%;
+        }
+
+        td:first-child:nth-last-child(2),
+        td:first-child:nth-last-child(2) ~ td {
+            width: 50%;
+        }
+
+        td:first-child:nth-last-child(3),
+        td:first-child:nth-last-child(3) ~ td {
+            width: 33.3333%;
+        }
+
+        td:first-child:nth-last-child(4),
+        td:first-child:nth-last-child(4) ~ td {
+            width: 25%;
+        }
+    }
+}
+
+.scrollable-table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    border: $app-border-color 1px solid;
+
+    .table {
+        margin-bottom: 0;
+        border: none !important;
+    }
+}
+
+.table-bordered {
+    border-color: $app-border-color;
+
+    thead {
+        th {
+            text-align: left;
+            padding: 5px 15px !important;
+            background: #fff;
+            border-top: 1px #fff solid;
+            border-bottom: 2px $light-border-color solid !important;
+            font-weight: 400 !important;
+            text-transform: uppercase;
+            font-size: 11px !important;
+            color: $app-color-grey;
+
+            border-left-width: 0 !important;
+            border-right-width: 0 !important;
+
+            &:first-child {
+                border-left-width: 1px;
+            }
+
+            &:last-child {
+                border-right-width: 1px;
+            }
+        }
+    }
+
+    tr:hover {
+        background: $lily-white-tone-hover;
+    }
+
+    tbody tr td {
+        border-bottom-width: 0;
+        border-top-width: 1px;
+        border-top-color: $light-border-color;
+        padding: 12px 15px;
+        line-height: 28px;
+        vertical-align: middle;
+    }
+
+    tr:nth-of-type(even) {
+        background: $lily-white-tone;
+
+        &:hover {
+            background: $lily-white-tone-hover;
+        }
+    }
+
+    tr {
+        td {
+            border-left-width: 0 !important;
+            border-right-width: 0 !important;
+
+            &:first-child {
+                border-left-width: 1px;
+            }
+
+            &:last-child {
+                border-right-width: 1px;
+            }
+        }
+    }
+}
+
+.priority-cell {
+    i {
+        font-size: 18px;
+    }
+}

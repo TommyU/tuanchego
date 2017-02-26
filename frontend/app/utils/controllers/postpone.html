@@ -1,0 +1,35 @@
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <p ng-bind-html="$root.messages.alerts.postpone[vm.type.toLowerCase()]"></p>
+            <div>
+                <a ng-click="vm.postponeWithDays()" class="btn btn-default margin-top-10">Set to today ({{ vm.getFutureDate() | date }})</a>
+            </div>
+            <div ng-repeat="amount in [1, 2]">
+                <a ng-click="vm.postponeWithDays(amount)" class="btn btn-default margin-top-10">
+                    Add {{ amount }} <ng-pluralize count="amount" when="{1: ' day', 'other': ' days'}"></ng-pluralize> ({{ vm.getFutureDate(amount) | date }})
+                </a>
+            </div>
+            <div>
+                <a ng-click="vm.postponeWithDays(7)" class="btn btn-default margin-top-10">Add 7 days ({{ vm.getFutureDate(7) | date }})</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 margin-top-10">
+            <p ng-bind-html="$root.messages.alerts.postpone.datepicker"></p>
+            <div class="input-group form-datepicker">
+                <input type="text"
+                       class="form-control"
+                       ng-model="vm.date"
+                       uib-datepicker-popup="dd MMMM yyyy"
+                       datepicker-options="vm.datepickerOptions"
+                       is-open="vm.pickerIsOpen"
+                       date-disabled="vm.disabledDates(date, mode)" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.pickerIsOpen = !vm.pickerIsOpen"><i class="lilicon hl-calendar-icon"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,200 @@
+// Function that can be used to determine if the text-color should be black or white based on input color
+
+@mixin notification-icon($color) {
+    color: text-color($color);
+    background: $color;
+    padding: 3px;
+    border-radius: $base-border-radius;
+
+    &:hover {
+        background: darken($color, 10);
+        color: text-color(darken($color, 10));
+    }
+}
+
+.danger-icon {
+    @include notification-icon($critical-prio-color);
+}
+
+.warning-icon {
+    @include notification-icon($high-prio-color);
+}
+
+.normal-icon {
+    @include notification-icon($medium-prio-color);
+}
+
+.succes-icon {
+    @include notification-icon($low-prio-color);
+}
+
+.hl-prio-icon-low {
+    color: $low-prio-color;
+}
+
+.hl-prio-icon-medium {
+    color: $medium-prio-color;
+}
+
+.hl-prio-icon-high {
+    color: $high-prio-color;
+}
+
+.hl-prio-icon-critical {
+    color: $critical-prio-color;
+}
+
+.step-type {
+    &.position-0 {
+        @include colored-bullet(10px, $bullet-color-1)
+    }
+
+    &.position-1 {
+        @include colored-bullet(10px, $bullet-color-2)
+    }
+
+    &.position-2 {
+        @include colored-bullet(10px, $bullet-color-3)
+    }
+
+    &.position-3 {
+        @include colored-bullet(10px, $bullet-color-4)
+    }
+
+    &.position-4 {
+        @include colored-bullet(10px, $bullet-color-5)
+    }
+
+    &.position-5 {
+        @include colored-bullet(10px, $bullet-color-6)
+    }
+}
+
+.step-type-label {
+    &.position-0 {
+        @include colored-label(24px, $bullet-color-1)
+    }
+
+    &.position-1 {
+        @include colored-label(24px, $bullet-color-2)
+    }
+
+    &.position-2 {
+        @include colored-label(24px, $bullet-color-3)
+    }
+
+    &.position-3 {
+        @include colored-label(24px, $bullet-color-4)
+    }
+
+    &.position-4 {
+        @include colored-label(24px, $bullet-color-5)
+    }
+
+    &.position-5 {
+        @include colored-label(24px, $bullet-color-6)
+    }
+}
+
+i {
+    &.green {
+        color: $app-color-mint;
+    }
+
+    &.grey {
+        color: $app-color-grey;
+    }
+
+    &.yellow {
+        color: $app-color-yellow;
+    }
+
+    &.red {
+        color: $app-color-red;
+    }
+
+    &.aqua {
+        color: $app-color-aqua;
+    }
+
+    &.darkblue {
+        color: $app-color-darkblue;
+    }
+}
+
+.base-icon {
+    float: left;
+    padding: 0 3px;
+    margin: 0;
+    color: $app-color-grey;
+    border-radius: $base-border-radius;
+    font-size: 12px;
+    height: 21px;
+    width: 30px;
+    line-height: 21px;
+    text-align: center;
+    background: $light-border-color;
+    margin-right: 8px;
+    border: 1px $app-border-color solid;
+
+    &:hover {
+        color: $app-color-aqua;
+        text-decoration: none;
+    }
+}
+
+.page-toolbar .lilicon {
+    color: $app-color-grey;
+}
+
+.hl-entity-status-active-icon {
+    position: relative;
+    display: inline-block;
+
+    &:before {
+        content: $hl-entity-b-icon;
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-right: 5px;
+    }
+
+    &:after {
+        color: $app-color-mint;
+        content: $hl-entity-active-icon;
+        position: absolute;
+        top: 0;
+        left: -4px;
+        font-size: 150%;
+        line-height: 100% / (150 / 100); // Make first number within () same percentage as the font-size
+    }
+}
+
+.hl-entity-status-inactive-icon {
+    position: relative;
+    display: inline-block;
+
+    &:before {
+        content: $hl-entity-b-icon;
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-right: 5px;
+    }
+
+    &:after {
+        color: $app-color-red;
+        content: $hl-entity-inactive-icon;
+        position: absolute;
+        top: 0;
+        left: -3px;
+        font-size: 150%;
+        line-height: 100% / (150 / 100); // Make first number within () same percentage as the font-size
+    }
+}
+
+.sort-icons {
+    .fa {
+        line-height: 11px;
+    }
+}

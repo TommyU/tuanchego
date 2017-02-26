@@ -1,0 +1,245 @@
+/* SG
+
+# Dropdown #
+
+Dropdown menu's are frequently used user interface elements. We would like to use the same ones consistently.
+
+*/
+
+$dropdown-arrow-size: 8px;
+$dropdown-menu-color: #fff;
+
+.hl-dropdown {
+    list-style: none;
+    min-width: 200px;
+    margin: 10px 0;
+    padding: 0;
+    background: #fff;
+    border: 1px $base-border-color solid;
+    border-radius: $base-border-radius;
+    display: none;
+    position: absolute;
+    left: -1px;
+    z-index: 998;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+
+    &.aligned-to-right {
+        right: -1px;
+        left: auto;
+
+        &:before {
+            left: auto;
+            right: 10px;
+        }
+
+        &:after {
+            left: auto;
+            right: 10px;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: 20;
+        left: 10px;
+        top: -$dropdown-arrow-size;
+        width: 0;
+        height: 0;
+        border-width: 0 $dropdown-arrow-size $dropdown-arrow-size;
+        border-color: transparent transparent #fff;
+        border-style: solid;
+    }
+
+    &:after {
+        content: "";
+        z-index: 19;
+        position: absolute;
+        top: - ($dropdown-arrow-size + 1px);
+        left: 10px;
+        border-width: 0 $dropdown-arrow-size $dropdown-arrow-size;
+        border-color: transparent transparent $base-border-color;
+        border-style: solid;
+    }
+}
+
+.hl-dropdown-item {
+    cursor: pointer;
+    line-height: 20px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    position: relative;
+    border-bottom: 1px lighten($base-border-color, 10) solid;
+
+    &:first-child {
+        .hl-dropdown-item-link {
+            border-top-left-radius: $base-border-radius;
+            border-top-right-radius: $base-border-radius;
+        }
+    }
+
+    &:last-child {
+        border-bottom: 0;
+
+        .hl-dropdown-item-link {
+            border-bottom-left-radius: $base-border-radius;
+            border-bottom-right-radius: $base-border-radius;
+        }
+    }
+
+    .hl-dropdown-item-link {
+        text-decoration: none;
+        display: block;
+        margin: -5px -10px;
+        padding: 5px 10px;
+
+        &:hover {
+            background: $sky-grey;
+        }
+    }
+}
+
+/* OLD STUFF */
+
+.drop-down {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .drop-down-item {
+        z-index: 999;
+    }
+
+    .drop-down-sub-menu {
+        display: none;
+    }
+
+    &.open {
+        .drop-down-sub-menu {
+            position: absolute;
+            z-index: 1000;
+            display: block;
+        }
+    }
+
+    > .header-user-menu {
+        &.open {
+            .drop-down-sub-menu {
+                position: absolute;
+                z-index: 1000;
+                display: block;
+            }
+        }
+    }
+}
+
+.drop-down-sub-menu {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: $base-border-radius;
+    border: 1px $app-border-color solid;
+    background: $dropdown-menu-color;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+
+    &.right-aligned {
+        right: 0;
+
+        &:before {
+            right: 9px;
+        }
+
+        &:after {
+            right: 10px;
+        }
+    }
+
+    &.left-aligned {
+        left: 0;
+
+        &:before {
+            left: 9px;
+        }
+
+        &:after {
+            left: 10px;
+        }
+    }
+
+    &:before {
+        position: absolute;
+        top: -8px;
+        right: auto;
+        display: inline-block !important;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid $app-border-color;
+        border-left: 8px solid transparent;
+        content: "";
+    }
+
+    &:after {
+        position: absolute;
+        top: -7px;
+        right: auto;
+        display: inline-block !important;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid $dropdown-menu-color;
+        border-left: 7px solid transparent;
+        content: "";
+    }
+
+    li {
+        margin-left: -1px;
+        margin-right: -1px;
+        z-index: 3;
+        position: relative;
+
+        &:first-child {
+            margin-top: -1px;
+
+            a {
+                border-top-left-radius: $base-border-radius;
+                border-top-right-radius: $base-border-radius;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: -1px;
+
+            a {
+                border-bottom-left-radius: $base-border-radius;
+                border-bottom-right-radius: $base-border-radius;
+            }
+        }
+    }
+
+    .divider {
+        margin: 5px 10px;
+        border-bottom: 1px $light-border-color solid;
+    }
+}
+
+.drop-down-sub-menu-item a {
+    width: 100%;
+    padding: 0 30px 0 10px;
+    display: block;
+    text-decoration: none;
+    color: $app-color-darkblue;
+    white-space: nowrap;
+
+    &:hover {
+        background: $app-color-aqua;
+    }
+}
+
+.drop-down-sub-menu-icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}

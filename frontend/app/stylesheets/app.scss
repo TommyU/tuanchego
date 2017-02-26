@@ -1,0 +1,102 @@
+//Fonts
+@import "vendor";
+@import "fonts/lilicon";
+// Primary requirements
+@import "variables";
+@import "mixins";
+@import "contacts/users";
+@import "base/avatars";
+@import "base/branding";
+@import "base/inputs";
+@import "base/icons";
+@import "base/header";
+@import "base/dropdown";
+@import "base/empty-states";
+@import "base/historylist";
+@import "base/lists";
+@import "base/mainnav";
+@import "base/labels";
+@import "base/buttons";
+@import "base/button-group";
+@import "base/checkbox";
+@import "base/forms";
+@import "base/filters";
+@import "base/widget";
+@import "base/cards";
+@import "base/filter-group";
+@import "base/tables";
+@import "base/tags";
+@import "cases/cases";
+@import "deals/deals";
+@import "mail/inbox";
+@import "mail/email";
+@import "base/errors";
+@import "base/generic";
+@import "preferences/preferences";
+
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+    background: $app-bg-color;
+}
+
+small {
+    text-transform: lowercase;
+}
+
+table {
+    .table.table-bordered.table-striped.flip-content {
+        td,
+        th {
+            min-height: 38px;
+        }
+    }
+
+    th {
+        vertical-align: top !important;
+    }
+}
+
+a {
+    color: $app-link-color;
+
+    &:hover {
+        color: $app-color-darkblue;
+    }
+
+    &.link-no-decoration {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+@media (min-width: $breakpoint-laptop) {
+    .page-container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1800px;
+    }
+}
+
+.btn-group {
+    &.btn-group-devided {
+        .btn {
+            min-width: 4em;
+        }
+    }
+}
+
+// Overwrite bootstrap class for specific checkbox fields
+.form-horizontal .form-group {
+    &.form-group-checkbox-field {
+        @media (min-width: $breakpoint-laptop) {
+            margin-left: 17.2%;
+        }
+    }
+}
+
+// scss-lint:disable all
+.blockOverlay {
+    background: lighten($app-color-darkblue, 30) !important;
+    opacity: 0.1 !important;
+}

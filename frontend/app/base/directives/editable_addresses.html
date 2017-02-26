@@ -1,0 +1,92 @@
+<i class="lilicon hl-entity-icon margin-right-10" ng-if="er.type === 'Contact' && !er.items.length" uib-tooltip="{{ $root.messages.contact.contactInfoTooltip }}"></i>
+<span ng-show="!er.formVisible" class="editable editable-click addable-click" ng-dblclick="er.showForm()">
+    <div class="form-inline-section" ng-repeat="address in er.items">
+        {{ address.address }}
+        <br />
+        {{ address.postal_code }}, {{ address.city }}
+        <br />
+        {{ address.country }}
+    </div>
+    <div ng-if="!er.items.length">
+        <span ng-if="er.type !== 'Contact'">No address</span>
+        <span ng-if="er.type === 'Contact'">No personal address</span>
+    </div>
+
+    <div class="editable-icons" ng-class="{'no-edit': !er.items.length}">
+        <span ng-if="er.items.length" class="editable-icon js-edit"><i class="lilicon hl-edit-icon"></i></span>
+        <span class="editable-icon js-add"><i class="fa fa-plus"></i></span>
+    </div>
+</span>
+
+<form name="{{ er.formName }}" class="form-inline js-form-prolyfill" ng-if="er.formVisible">
+    <div class="form-inline-section" ng-repeat="address in er.items">
+        <div class="row hl-row-xs">
+            <div class="col-md-7">
+                <div class="form-inline-input">
+                    <input class="form-control"
+                           maxlength="255"
+                           placeholder="Address"
+                           type="text"
+                           ng-model="address.address"
+                           ng-readonly="address.is_deleted"
+                           ng-class="{'hl-form-input-deleted': address.is_deleted}"
+                           autofocus-if="$index == 0" />
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-inline-input">
+                    <input class="form-control"
+                           maxlength="255"
+                           placeholder="Postal code"
+                           type="text"
+                           ng-model="address.postal_code"
+                           ng-readonly="address.is_deleted"
+                           ng-class="{'hl-form-input-deleted': address.is_deleted}">
+                </div>
+            </div>
+        </div>
+        <div class="row hl-row-xs">
+            <div class="col-md-7">
+                <div class="form-inline-input">
+                    <input class="form-control"
+                           maxlength="255"
+                           placeholder="City"
+                           type="text"
+                           ng-model="address.city"
+                           ng-readonly="address.is_deleted"
+                           ng-class="{'hl-form-input-deleted': address.is_deleted}">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-inline-input">
+                    <country-selector address="address" ng-class="{'hl-form-input-deleted': address.is_deleted}"></country-selector>
+                </div>
+             </div>
+         </div>
+        <div class="hl-flex-container">
+            <div class="form-inline-input hl-flex-1">
+                <select class="form-control"
+                        ng-model="address.type"
+                        ng-options="type.key as type.value for type in er.addressTypes"
+                        ng-readonly="address.is_deleted"
+                        ng-class="{'hl-form-input-deleted': address.is_deleted}">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <a class="hl-primary-btn hl-form-input-btn" ng-click="er.removeRelatedField(address)">
+                    <i class="form-inline-icon" ng-class="{'lilicon hl-trashcan-icon': !address.is_deleted, 'fa fa-undo': address.is_deleted}"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="editable-related-actions">
+        <button type="button" class="btn" ng-click="er.addRelatedField()"><i class="fa fa-plus"></i></button>
+
+        <div class="pull-right">
+            <button type="submit" class="btn" ng-click="er.submit()"><i class="fa fa-check"></i></button>
+            <button type="button" class="btn" ng-click="er.closeForm()"><i class="fa fa-close"></i></button>
+        </div>
+    </div>
+</form>

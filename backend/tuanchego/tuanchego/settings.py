@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
+def local_path(path):
+    return os.path.join(os.path.dirname(__file__), os.pardir, path)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -74,7 +75,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'zh-cn'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Chongqing'
 
 USE_I18N = True
 
@@ -89,3 +90,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 XADMIN_CONF = 'tuanchego.xsite'
+
+STATIC_ROOT = os.environ.get('STATIC_ROOT', local_path('static/'))

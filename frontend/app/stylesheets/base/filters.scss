@@ -1,0 +1,75 @@
+// Fix to make sure the filters in the widgets don't reposition because of the
+// 50% width their parent col-md-6 has.
+.tools {
+    @media (min-width: 992px) {
+        width: 65%;
+    }
+}
+
+.due-date-filter-toggle ,
+.user-status-filter-toggle {
+    display: none;
+
+    i:first-child {
+        margin-right: 5px;
+    }
+
+    i {
+        margin-top: 0;
+        pointer-events: none;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        display: inline-block;
+        font-size: 12px;
+        line-height: 28px;
+        padding: 0 6px;
+        border: 1px #e1e6ef solid;
+        border-bottom-width: 2px;
+        border-radius: $base-border-radius;
+        color: $app-color-darkblue;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: none;
+            color: $app-color-aqua;
+        }
+    }
+}
+
+.due-date-filter-container,
+.user-status-filter-container {
+    display: inline;
+
+    @media (max-width: $breakpoint-tablet) {
+        background-color: #fff;
+        display: none;
+
+        &.is-open {
+            display: block;
+            position: absolute;
+            z-index: 99;
+            left: 1px;
+            right: 1px;
+            padding-top: 10px;
+            border-bottom: 1px solid $lily-border-dark;
+            margin-top: 11px;
+
+            label {
+                display: block;
+                line-height: 30px;
+                text-align: center;
+
+                &.active {
+                    color: $lily-blue;
+                    background: #fff;
+                    border: 1px solid transparent;
+                }
+
+                &:hover {
+                    border: 1px solid transparent;
+                }
+            }
+        }
+    }
+}

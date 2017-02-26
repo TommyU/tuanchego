@@ -1,0 +1,256 @@
+$header-height: 80px;
+
+.sub-header {
+    padding: 15px 20px;
+    background: #fff;
+    border-bottom: 1px $base-border-color solid;
+}
+
+.hl-page-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: $app-color-darkblue;
+    margin: 0;
+    float: left;
+
+    .large-header {
+        font-size: 25px;
+        top: 2px;
+        position: relative;
+    }
+}
+
+.page-header-logo-container {
+    float: left;
+    padding: 0 10px 0 20px;
+    margin-right: 20px;
+
+    @media (max-width: $breakpoint-mobile) {
+        margin-right: 0;
+    }
+}
+
+.page-header.navbar {
+    background: $app-color-darkblue;
+
+    &.navbar-fixed-top {
+        z-index: 999;
+    }
+}
+
+.page-header-logo {
+    color: #fff;
+    font-size: 46px;
+    line-height: $header-height;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.page-head {
+    margin-bottom: 15px;
+
+    .page-title > h1 {
+        color: $navy-blue;
+        font-size: 24px;
+        font-weight: 500;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.page-title {
+    .editable {
+        color: inherit;
+    }
+}
+
+.main-nav-item a {
+    &.active {
+        @media (max-width: $breakpoint-mobile) {
+            border-bottom: 0 transparent solid;
+            border-left: 3px $lily-blue solid;
+            margin-top: -1px;
+            margin-bottom: -1px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+    }
+}
+
+.header-user-menu {
+    position: relative;
+    margin-right: 20px;
+    line-height: $header-height;
+
+    a {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+        text-decoration: none;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    @media (max-width: 510px) {
+        margin-right: 5px;
+    }
+}
+
+.header-user-menu-username-container {
+    display: inline-block;
+    line-height: 12px;
+}
+
+.header-user-menu-username {
+    display: inline-block;
+
+    @media (max-width: $breakpoint-laptop) {
+        display: block;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        display: none;
+    }
+}
+
+.header-user-menu-item {
+    top: 70px;
+    line-height: 40px;
+}
+
+.header-user-menu-link {
+    height: 40px;
+    padding: 20px 0;
+    line-height: 40px;
+    display: block;
+
+    &:after {
+        clear: both;
+        display: block;
+        content: "";
+    }
+}
+
+.sub-header-action-menu .drop-down-item {
+    color: #fff;
+    display: block;
+    background: $lily-blue;
+    line-height: 28px;
+    border-radius: 4px;
+    padding: 0 10px;
+    text-decoration: none;
+
+    &:hover {
+        background: darken($lily-blue, 10);
+    }
+}
+
+.sub-header-action-menu.open {
+    .drop-down-item {
+        background: darken($lily-blue, 10);
+    }
+}
+
+.sub-header-action-menu-item {
+    line-height: 40px;
+}
+
+.sub-header-action-submenu {
+    margin-top: 7px !important;
+}
+
+.notification-container {
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+    font-weight: bold;
+    position: relative;
+
+    a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: #fff;
+    }
+
+    &.is-error {
+        background-color: $critical-prio-color;
+    }
+
+    &.is-alert {
+        background-color: $alert-warning-color;
+    }
+
+    &.is-success {
+        background-color: $lily-green;
+    }
+}
+
+.notification-inline {
+    padding: 0 5px;
+    background: $alert-warning-color;
+    color: #fff;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 10px;
+    width: auto;
+    text-align: center;
+    margin-top: 10px;
+    min-height: 21px;
+    line-height: 21px;
+
+    i,
+    &:hover {
+        color: #fff;
+    }
+}
+
+.header-rainbow {
+    display: none;
+    margin: 0;
+    width: 100%;
+    min-height: 5px;
+
+    .yellow {
+        background: $app-color-yellow;
+    }
+
+    .purple {
+        background: $app-color-purple;
+    }
+
+    .mint {
+        background: $app-color-mint;
+    }
+
+    .aqua {
+        background: $app-color-aqua;
+    }
+
+    .red {
+        background: $app-color-red;
+    }
+}
+
+.page-header-fixed .page-container {
+    margin-top: 160px;
+}
+
+.header-account-info {
+    display: block;
+    font-size: 16px;
+    margin-top: 5px;
+}

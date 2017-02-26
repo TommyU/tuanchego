@@ -1,0 +1,248 @@
+/* SG
+# Buttons/Button group #
+
+In this file you will find all the styling for button groups. Button groups are
+a collection of related buttons. We currently use the button group in the email
+inbox to display buttons like reply, delete, archive etc.
+
+```
+<div class="hl-button-group-container">
+    <ul class="hl-button-group">
+        <li class="hl-button-group-btn">
+            <a class="hl-button-group-btn-link" href="#">
+                Email
+            </a>
+        </li>
+        <li class="hl-button-group-btn">
+            <a class="hl-button-group-btn-link" href="#">
+                Email
+            </a>
+        </li>
+        <li class="hl-button-group-btn">
+            <a class="hl-button-group-btn-link" href="#">
+                Email
+            </a>
+        </li>
+    </ul>
+
+    <ul class="hl-button-group">
+        <li class="hl-button-group-btn selected">
+            <a class="hl-button-group-btn-link" href="#">
+                Email
+            </a>
+        </li>
+        <li class="hl-button-group-btn disabled">
+            <a class="hl-button-group-btn-link" href="#">
+                Email
+            </a>
+        </li>
+        <li class="hl-button-group-btn">
+            <a class="hl-button-group-btn-link" href="#">
+                Email
+            </a>
+        </li>
+    </ul>
+
+    <ul class="hl-button-group">
+        <li class="hl-button-group-btn">
+            <a class="hl-button-group-btn-link" href="#">
+                Refresh
+            </a>
+            <span class="hl-button-group-btn-clear">X</span>
+        </li>
+    </ul>
+
+    <ul class="hl-button-group pull-right">
+        <li class="hl-button-group-btn">
+            <a class="hl-button-group-btn-link" href="#">
+                Email
+            </a>
+        </li>
+        <li class="hl-button-group-btn">
+            <a class="hl-button-group-btn-link" href="#">
+                Email
+            </a>
+        </li>
+    </ul>
+</div>
+```
+*/
+
+.hl-button-group-container {
+    &:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+}
+
+.hl-button-group {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-right: 10px;
+    float: left;
+
+    &.pull-right {
+        margin-right: 0;
+        margin-left: 10px;
+
+        .hl-dropdown {
+            left: auto;
+            right: -1px;
+
+            &:before {
+                left: auto;
+                right: 8px;
+            }
+
+            &:after {
+                left: auto;
+                right: 8px;
+            }
+        }
+    }
+
+    .hl-button-group-btn {
+        display: inline-block;
+        position: relative;
+        line-height: $button-height - 4px;
+        font-weight: 400;
+        background: #fff;
+        border: 1px $app-border-color solid;
+        border-bottom-width: 2px;
+        border-left: 0;
+
+        &:first-child {
+            border-left: 1px $app-border-color solid;
+            border-top-left-radius: $base-border-radius;
+            border-bottom-left-radius: $base-border-radius;
+
+            .hl-button-group-btn-link {
+                border-top-left-radius: $base-border-radius;
+                border-bottom-left-radius: $base-border-radius;
+            }
+        }
+
+        &:last-child {
+            border-top-right-radius: $base-border-radius;
+            border-bottom-right-radius: $base-border-radius;
+
+            .hl-button-group-btn-link {
+                border-top-right-radius: $base-border-radius;
+                border-bottom-right-radius: $base-border-radius;
+            }
+        }
+
+        &:hover,
+        &.selected {
+            .hl-button-group-btn-link {
+                color: $app-color-aqua;
+            }
+        }
+
+        &.disabled {
+            pointer-events: none;
+
+            .hl-button-group-btn-link {
+                opacity: 0.3;
+                pointer-events: none;
+                cursor: not-allowed;
+            }
+
+            &.selected {
+                background: #fff;
+
+                .hl-button-group-btn-link {
+                    color: $app-color-darkblue;
+                }
+            }
+
+            &:hover {
+                background: $sky-grey;
+            }
+        }
+
+        &.open {
+            .hl-button-group-btn-link {
+                color: $app-color-aqua;
+            }
+
+            .hl-dropdown {
+                display: block;
+            }
+        }
+
+        .hl-button-group-btn-link {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-block;
+            border-bottom: 1px transparent solid;
+            padding: 0 10px;
+            text-decoration: none;
+            color: $app-color-darkblue;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button {
+            background-color: transparent !important;
+            border-width: 0;
+        }
+
+        .hl-button-group-btn-clear {
+            cursor: pointer;
+            width: 26px;
+            text-align: center;
+            position: relative;
+            float: right;
+            background: $critical-prio-color;
+            color: #fff;
+            border-style: solid;
+            border-color: $critical-prio-color;
+            border-width: 1px;
+            border-bottom-width: 2px;
+            border-top-right-radius: $base-border-radius;
+            border-bottom-right-radius: $base-border-radius;
+            margin: -1px -1px -2px;
+            line-height: $button-height - 2px;
+            transition: background, 0.25s;
+
+            &:hover {
+                background: darken($critical-prio-color, 20);
+                border-color: darken($critical-prio-color, 20);
+            }
+        }
+    }
+
+    &.primary-actions-group {
+        float: right;
+        margin-right: 0;
+
+        .hl-button-group-btn-link {
+            display: inline;
+            line-height: 30px;
+        }
+    }
+}
+
+.widget-filters {
+    .hl-button-group-btn-clear {
+        float: none !important;
+        padding: 6px 2px;
+    }
+}
+
+.due-date-filter {
+    border: 0;
+
+    li {
+        border: 0;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+}

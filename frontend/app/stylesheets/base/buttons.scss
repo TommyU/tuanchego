@@ -1,0 +1,188 @@
+/* SG
+# Buttons / Button #
+
+This are the standard buttons that can be used.
+
+```
+<button class="hl-primary-btn">button</div>
+```
+*/
+
+
+.dropdown-toggle {
+    .fa-angle-down {
+        margin-left: 10px;
+    }
+
+    i:first-child {
+        margin-right: 2px;
+    }
+
+    &.no-primary-icon {
+        i {
+            margin: 0;
+        }
+    }
+}
+
+/* SG
+# Buttons/Radio Buttons #
+
+Radio buttons can be used to offer the user a selection range.
+```
+<div class="radio-button-group">
+    <label class="radio-button">
+        <div class="radio-button-inset">
+            <input type="radio">
+            Option 1
+        </div>
+    </label>
+
+    <label class="radio-button no-radio-bullets">
+        <div class="radio-button-inset">
+            <input type="radio">
+            Option 2
+        </div>
+    </label>
+
+    <label class="radio-button active">
+        <div class="radio-button-inset">
+            <input type="radio" checked>
+            Option 3
+        </div>
+    </label>
+</div>
+```
+
+By adding the class *.no-radio-bullets* the radio bullets are not being shown.
+*/
+
+.radio-button-group {
+    display: inline-block;
+
+    .radio-button {
+        line-height: 30px;
+        border: 1px solid $base-border-color;
+        border-left: 0;
+        background: $lily-header-bg;
+        margin: 0;
+        display: inline-block;
+
+        &:hover,
+        &.active {
+            background: $lily-white-tone-hover;
+
+            .radio-button-inset {
+                border-top: 1px $lily-header-bg solid;
+            }
+        }
+
+        &.disabled {
+            background: darken($lily-header-bg, 3);
+            pointer-events: none;
+
+            .radio-button-inset {
+                border-top: 1px transparent solid;
+                color: darken($lily-header-bg, 10);
+                cursor: not-allowed;
+            }
+        }
+
+        &:first-child {
+            border-top-left-radius: $base-border-radius;
+            border-bottom-left-radius: $base-border-radius;
+            border-left: 1px solid $base-border-color;
+
+            .radio-button-inset {
+                border-top-left-radius: $base-border-radius;
+            }
+        }
+
+        &:last-child {
+            border-top-right-radius: $base-border-radius;
+            border-bottom-right-radius: $base-border-radius;
+
+            .radio-button-inset {
+                border-top-right-radius: $base-border-radius;
+            }
+        }
+
+        &.no-radio-bullets {
+            input {
+                &[type="radio"] {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .radio-button-inset {
+        cursor: pointer;
+        padding: 0 10px;
+        border-top: 1px #fff solid;
+        border-bottom: 3px transparent solid;
+
+        input {
+            cursor: pointer;
+        }
+    }
+}
+
+$small-button: 20px;
+$large-button: 30px;
+
+@mixin hl-button($button-size) {
+    box-sizing: border-box;
+    display: inline-block;
+    border-width: 1px;
+    border-bottom-width: 2px;
+    border-color: $app-border-color;
+    border-style: solid;
+    line-height: $button-size;
+    padding: 0 ($button-size / 4);
+    color: $app-color-darkblue;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    background: #fff;
+    white-space: nowrap;
+    margin: 0 3px;
+
+    &:hover {
+        color: $app-color-aqua;
+        text-decoration: none;
+    }
+
+    &:focus {
+        color: $app-color-darkblue;
+        text-decoration: none;
+    }
+}
+
+.hl-primary-btn {
+    @include hl-button($large-button);
+
+    .fa-plus {
+        font-size: 10px;
+    }
+
+    &.round {
+        margin: 0;
+        border-radius: 50%;
+    }
+
+    i {
+        font-size: 14px;
+    }
+}
+
+.hl-primary-btn-smll {
+    @include hl-button($small-button);
+    font-size: 11px;
+
+    i {
+        font-size: 12px;
+    }
+}
