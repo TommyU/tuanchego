@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from django.db import models
 from data.models import BaseModel, City
 # Create your models here.
@@ -5,22 +6,41 @@ class Brand(BaseModel):
 	"""
 	品牌
 	"""
-	initial = models.CharField(max_length=1,null = True, blank=True,index=True, verbose_name=u'首字母' )
-    name = models.CharField(max_length=64, null = True, blank=True,   verbose_name=u'名称' )
-    logo_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'log uri')
-    city = model.ManyToManyField(City, verbose_name=u'城市')
-    def __str__(self):
-    	return self.name
+	initial = models.CharField(max_length=1,null = True, blank=True,db_index=True, verbose_name=u'首字母' )
+	name = models.CharField(max_length=64, null = True, blank=True,   verbose_name=u'名称' )
+	logo_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'log uri')
+	city = models.ManyToManyField(City, verbose_name=u'城市')
+	def __str__(self):
+		return self.name
+	class Meta:
+		verbose_name=u'品牌'
+		verbose_name_plural=u'品牌'
 
 class Serie(BaseModel):
 	"""
 	型号
 	"""
-	brand = models.ForeignKey(Brand, null=True, index=True, verbose_name=u'品牌')
+	brand = models.ForeignKey(Brand, null=True, db_index=True, verbose_name=u'品牌')
 	name = models.CharField(max_length=64, null = True, blank=True,   verbose_name=u'名称' )
 
 	def __str__(self):
 		return self.name
+	class Meta:
+		verbose_name=u'型号'
+		verbose_name_plural=u'型号'
+
+class Version(BaseModel):
+	"""
+	版本
+	"""
+	serie = models.ForeignKey(Serie, null=True, db_index=True, verbose_name=u'型号')
+	name = models.CharField(max_length=64, null = True, blank=True,   verbose_name=u'名称' )
+
+	def __str__(self):
+		return self.name
+	class Meta:
+		verbose_name=u'版本'
+		verbose_name_plural=u'版本'
 
 class Car(BaseModel):
 	"""
@@ -71,5 +91,8 @@ class Car(BaseModel):
 
 	def __str__(self):
 		return self.name
+	class Meta:
+		verbose_name=u'汽车'
+		verbose_name_plural=u'汽车'
 
 
