@@ -91,4 +91,9 @@ STATIC_URL = '/static/'
 
 XADMIN_CONF = 'tuanchego.xsite'
 
-STATIC_ROOT = os.environ.get('STATIC_ROOT', local_path('static/'))
+#STATIC_ROOT ='/home/yu/tuanchego/tuanchego/backend/tuanchego/static'# os.environ.get('STATIC_ROOT', local_path('static/'))
+STATICFILES_DIRS = (
+  os.environ.get('STATIC_ROOT', local_path('static/')),
+)
+#import pdb
+#pdb.set_trace()

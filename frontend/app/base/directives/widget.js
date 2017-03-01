@@ -1,4 +1,5 @@
-angular.module('app.dashboard.directives').directive('widget', widget);
+//angular.module('app.dashboard.directives').directive('widget', widget);
+angular.module('app.directives').directive('widget', widget);
 
 function widget() {
     return {

@@ -4,6 +4,7 @@
 {% block html-tag %}<html lang="en" ng-app="app" ng-controller="BaseController">{% endblock html-tag %}
     <!-- BEGIN HEAD -->
     <head>
+    <script type="text/javascript" src="{% static 'vendor/vendor.js' %}" charset="utf-8"></script>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -19,13 +20,15 @@
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
     {% block html-body %}
-        <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load page-sidebar-fixed">
+        <body>
+        <h1>fuck</h1>
     {% endblock html-body %}
 
 
         {% block page-header %}
             <div ng-include="'base/header.html'" ng-controller="headerController" class="page-header navbar navbar-fixed-top">
             </div>
+
         {% endblock page-header %}
 
         <div class="clearfix"></div>
@@ -37,7 +40,7 @@
                 <div class="page-content">
                     {% block page-content %}
                     {% verbatim %}
-
+                        1+2={{1+2}}
                     <!-- BEGIN PAGE HEAD -->
                     <div class="page-head">
                         <!-- BEGIN PAGE TITLE -->
@@ -67,13 +70,14 @@
         </div>
         <!-- END CONTAINER -->
         {% block page-footer %}
-            <div ng-include="'base/footer.html'" ng-controller="footerController" class="page-footer">
+        <h1>fuck footer</h1>
+
+            <div ng-include="'base/footer.html'"   ng-controller="footerController" class="page-footer">
             </div>
         {% endblock page-footer %}
 
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-        <script type="text/javascript" src="{% static 'vendor/vendor.js' %}" charset="utf-8"></script>
-        <script type="text/javascript" src="{% static 'app/analytics.js' %}" charset="utf-8"></script>
+        
 
         {% block page-scripts %}
             <script type="text/javascript" src="{% static 'app/templates.js' %}" charset="utf-8"></script>

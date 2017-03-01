@@ -66,7 +66,7 @@ var config = {
         },
     },
     vendor: {
-        buildDir: 'lily/static/vendor/',
+        buildDir: 'backend/tuanchego/static/vendor/',
         js: {
             src: [
                 'frontend/vendor/**/*jquery.min.js',
@@ -110,7 +110,7 @@ var config = {
             multipass: true,
         },
     },
-    env: process.env.NODE_ENV || 'production',
+    env: 'dev',// process.env.NODE_ENV || 'production',
 };
 
 var isProduction = (config.env === 'production');
@@ -133,7 +133,7 @@ gulp.src = function() {
  */
 gulp.task('clean', [], function() {
     return del([
-        'lily/static/',
+        'backend/tuanchego/static/',
     ]);
 });
 
@@ -269,23 +269,11 @@ gulp.task('vendor-assets', [], function() {
         .pipe(ifElse(isWatcher, livereload));
 });
 
-gulp.task('analytics', [], function() {
-    // TODO: please remove this in the future
-    return gulp.src(config.app.js.analytics.src)
-        .pipe(rename(config.app.js.analytics.fileName))
-        .pipe(gulp.dest(config.app.buildDir));
-});
-
-gulp.task('heroku-assets', [], function() {
-    return gulp.src(config.heroku.assets.src)
-        .pipe(gulp.dest(config.heroku.buildDir));
-});
 
 /**
  * Concatenate, minify and make source maps of all js and css.
  */
-gulp.task('build', ['app-js', 'app-css', 'app-templates', 'app-assets', 'vendor-js', 'vendor-css', 'vendor-assets',
-    'analytics', 'heroku-assets'], function() {});
+gulp.task('build', ['app-js', 'app-css', 'app-templates', 'app-assets', 'vendor-js', 'vendor-css', 'vendor-assets'], function() {});
 
 /**
  * Watch for changes

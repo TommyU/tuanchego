@@ -22,37 +22,15 @@ angular.module('app', [
     'ncy-angular-breadcrumb',
     'xeditable',
     'angular-cache',
-    'ngFileUpload',
+    //'ngFileUpload',
     'monospaced.elastic',
 
     // Modules
-    'app.accounts',
     'app.base',
-    'app.calls',
-    'app.cases',
-    'app.contacts',
-    'app.dashboard',
-    'app.deals',
-    'app.email',
-    'app.integrations',
-    'app.preferences',
-    'app.stats',
-    'app.tags',
-    'app.templates',
-    'app.utils',
-    'app.tenants',
 
     // Directives
     'app.directives',
-    'app.accounts.directives',
-    'app.cases.directives',
-    'app.contacts.directives',
-    'app.deals.directives',
     'app.utils.directives',
-
-    // Google Analytics
-    'angulartics',
-    'angulartics.google.analytics',
 
     // Services
     'app.services',

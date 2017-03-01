@@ -4,7 +4,6 @@
 // Primary requirements
 @import "variables";
 @import "mixins";
-@import "contacts/users";
 @import "base/avatars";
 @import "base/branding";
 @import "base/inputs";
@@ -26,13 +25,10 @@
 @import "base/filter-group";
 @import "base/tables";
 @import "base/tags";
-@import "cases/cases";
-@import "deals/deals";
 @import "mail/inbox";
 @import "mail/email";
 @import "base/errors";
 @import "base/generic";
-@import "preferences/preferences";
 
 
 body {
