@@ -85,11 +85,11 @@ function BaseController($scope, $state, $http, AppHash, Settings, HLShortcuts) {
     function _contentLoadedActions() {
         Metronic.unblockUI();
         Metronic.initComponents(); // init core components
-        HLSelect2.init();
-        HLFormsets.init();
+        //HLSelect2.init();
+        //HLFormsets.init();
         autosize($('textarea'));
 
-        $scope.loadNotifications();
+        //$scope.loadNotifications();
         $scope.toolbar = Settings.page.toolbar.data;
     }
 

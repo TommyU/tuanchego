@@ -21,7 +21,6 @@
     <!-- BEGIN BODY -->
     {% block html-body %}
         <body>
-        <h1>fuck</h1>
     {% endblock html-body %}
 
 
@@ -40,7 +39,7 @@
                 <div class="page-content">
                     {% block page-content %}
                     {% verbatim %}
-                        1+2={{1+2}}
+                        
                     <!-- BEGIN PAGE HEAD -->
                     <div class="page-head">
                         <!-- BEGIN PAGE TITLE -->
@@ -70,10 +69,10 @@
         </div>
         <!-- END CONTAINER -->
         {% block page-footer %}
-        <h1>fuck footer</h1>
+        <h1>footer</h1>
 
-            <div ng-include="'base/footer.html'"   ng-controller="footerController" class="page-footer">
-            </div>
+            <!-- <div ng-include="'base/footer.html'"   ng-controller="footerController" class="page-footer">
+            </div> -->
         {% endblock page-footer %}
 
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
@@ -82,6 +81,26 @@
         {% block page-scripts %}
             <script type="text/javascript" src="{% static 'app/templates.js' %}" charset="utf-8"></script>
             <script type="text/javascript" src="{% static 'app/app.js' %}" charset="utf-8"></script>
+             <script>
+                var currentUser = {
+                    id: parseInt('22'),
+                    firstName: 'Job',
+                    lastName: 'Kathagen',
+                    picture: 'https://secure.gravatar.com/avatar/0cfa10da860f62694734ca1e5b09b128?s%3D200%26d%3Dmm',
+                    email: 'superuser1@lily.com',
+                    internalNumber: parseInt('None') || false,
+                    fullName: 'Job Kathagen',
+                    isSuperUser: 'True' == 'True',
+                    displayEmailWarning: 'False' == 'True',
+                    country: 'ET',
+                    company: 'Hehl Inc',
+                    tenant: '1'
+                };
+
+                window.intercomAppId = '';
+                window.sentryPublicDsn = '';
+                window.debug = 'True' == 'True';
+            </script>
         {% endblock page-scripts %}
         <!-- END JAVASCRIPTS -->
     </body>

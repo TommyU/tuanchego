@@ -83,28 +83,28 @@ angular.module('app').factory('$exceptionHandler', ['$log', function($log) {
 /* Init global settings and run the app. */
 angular.module('app').run(runApp);
 
-runApp.$inject = ['$rootScope', '$state', 'editableOptions', 'HLMessages', 'HLSockets', 'HLNotifications', 'Tenant', 'UserTeams'];
-function runApp($rootScope, $state, editableOptions, HLMessages, HLSockets, HLNotifications, Tenant, UserTeams) {
+runApp.$inject = ['$rootScope', '$state', 'editableOptions', 'HLMessages', 'HLSockets', 'HLNotifications'];
+function runApp($rootScope, $state, editableOptions, HLMessages, HLSockets, HLNotifications, UserTeams) {
     $rootScope.$state = $state; // State to be accessed from view.
     $rootScope.currentUser = currentUser;
     $rootScope.messages = HLMessages;
     window.messages = HLMessages;
 
     // Get tenant name to set custom dimension for GA.
-    Tenant.query({}, function(tenant) {
+    /*Tenant.query({}, function(tenant) {
         ga('set', 'dimension1', tenant.name);
-    });
+    });*/
 
     // Get team name to set custom dimension for GA.
-    UserTeams.mine(function(teams) {
+    /*UserTeams.mine(function(teams) {
         if (teams[0]) {
             ga('set', 'dimension2', teams[0].name);
         }
-    });
+    });*/
 
     editableOptions.theme = 'bs3';
 
-    new window.Intercom('boot', {
+    /*new window.Intercom('boot', {
         app_id: intercomAppId,
         user_id: currentUser.id,
         name: currentUser.fullName,
@@ -113,14 +113,14 @@ function runApp($rootScope, $state, editableOptions, HLMessages, HLSockets, HLNo
         widget: {
             activator: '#IntercomDefaultWidget',
         },
-    });
+    });*/
 
     // Only setup if we're in the live app.
-    if (!window.debug) {
+    /*if (!window.debug) {
         // Setup Raven for global JS error logging.
         Raven.config(window.sentryPublicDsn).addPlugin(require('raven-js/plugins/angular'), angular).install();
         Raven.setUserContext({
             id: currentUser.id,
         });
-    }
+    }*/
 }
