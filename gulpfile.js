@@ -302,11 +302,6 @@ gulp.task('watch', [], function() {
         gulp.start('app-assets');
     });
 
-    // Watch google analytics script.
-    watch(config.app.js.analytics.src, function() {
-        gulp.start('analytics');
-    });
-
     // Recompile all vendor js.
     watch(config.vendor.js.src, function() {
         gulp.start('vendor-js');
