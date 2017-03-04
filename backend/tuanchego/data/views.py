@@ -11,5 +11,5 @@ class LoginRequiredMixin(object):
     def as_view(cls, *args, **kwargs):
         return login_required(super(LoginRequiredMixin, cls).as_view(*args, **kwargs))
 
-class BaseView(LoginRequiredMixin, TemplateView):
+class BaseView(TemplateView):
     template_name = 'base.html'

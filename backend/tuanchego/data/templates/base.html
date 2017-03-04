@@ -15,6 +15,7 @@
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="{% static 'vendor/vendor.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'app/app.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'tc.css' %}" rel="stylesheet" type="text/css">
         <!-- END GLOBAL STYLES -->
     </head>
     <!-- END HEAD -->
@@ -69,8 +70,6 @@
         </div>
         <!-- END CONTAINER -->
         {% block page-footer %}
-        <h1>footer</h1>
-
         <div ng-include="'base/footer.html'"   ng-controller="footerController" class="page-footer">
             </div>
         {% endblock page-footer %}
