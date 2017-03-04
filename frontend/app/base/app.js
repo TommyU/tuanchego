@@ -27,6 +27,7 @@ angular.module('app', [
 
     // Modules
     'app.base',
+    'app.templates',
 
     // Directives
     'app.directives',
