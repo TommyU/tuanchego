@@ -1,0 +1,67 @@
+<widget widget-name="'Cases'" ng-if="vm" widget-scrollable="true" class="js-cq-widget-container">
+    <widget-header>
+        <div class="widget-label cases"></div>
+        <div class="widget-name">
+            <i class="lilicon hl-case-icon"></i>
+            {{ vm.title }}
+        </div>
+    </widget-header>
+
+    <widget-filters>
+        <a ng-if="!vm.settings.email.sidebar.case" ui-sref="{{ vm.addLink || 'base.cases.create' }}" class="btn btn-circle btn-default" ng-click="vm.googleAnalyticsEvent()">
+            <i class="fa fa-plus"></i>
+            <span class="external-link-name">Add</span>
+        </a>
+    </widget-filters>
+
+    <widget-body>
+        <table class="widget-table">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th class="align-center">Priority</th>
+                    <th>Expires</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody ng-if="vm.list.length" ng-repeat="case in vm.list">
+                <tr>
+                    <td>
+                        <strong ng-if="::case.is_archived">(a)</strong>
+                        <a ui-sref="base.cases.detail({id: case.id})">{{ case.subject }}</a>
+                    </td>
+                    <td>{{ case.status.name }}</td>
+                    <td class="priority-cell">
+                        <editable-select field="priority" view-model="vm" type="Case" object="case" choice-field="true" select-type="icon_select"
+                                        select-options="{field: 'casePriorities', 'classPrefix': 'lilicon hl-prio-icon-', 'classValue': 'name'}">
+                            <i class="lilicon hl-prio-icon-{{ case.priority_display | lowercase }}" tooltip-placement="left" uib-tooltip="{{ case.priority_display }}"></i>
+                        </editable-select>
+                    </td>
+                    <td><postpone type="'Case'" object="case" date-field="'expires'"</postpone></td>
+                    <td class="clickable" style="width: 40px;" ng-click="case.collapsed = !case.collapsed">
+                        <div class="collapse-indicator no-padding">
+                            <i class="fa fa-angle-down" ng-class="{'rotate': case.collapsed}"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-show="!case.collapsed" class="collapse-content" class="collapsable-cell">
+                    <td colspan="5">
+                        <div class="margin-bottom-5" ng-if="case.type.name"><strong>Type:</strong> {{ case.type.name }}</div>
+                        <div class="margin-bottom-5"><strong>Assigned to:</strong> {{ case.assigned_to.full_name || "Nobody" }}</div>
+                        <div class="margin-bottom-5"><strong>Created by:</strong> <span class="margin-right-5">{{ case.created_by.full_name || "Nobody" }} on</span><date date="case.created"></date></div>
+                        <div class="margin-top-20" ng-if="case.description.length">
+                            <strong class="margin-bottom-5">Description:</strong>
+                            <div class="break-words">{{ case.description }}</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody ng-hide="vm.list.length">
+                <tr>
+                    <td colspan="5">No cases</td>
+                </tr>
+            </tbody>
+        </table>
+    </widget-body>
+</widget>

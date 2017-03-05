@@ -30,6 +30,8 @@ angular.module('app', [
     'app.templates',
     'app.home',
     'app.brand',
+    'app.cars',
+    //'app.sellcar',
 
     // Directives
     'app.directives',

@@ -316,7 +316,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     'monospaced.elastic',
 
     // Modules
-    'app.base', 'app.templates', 'app.home', 'app.brand',
+    'app.base', 'app.templates', 'app.home', 'app.brand', 'app.cars',
+    //'app.sellcar',
 
     // Directives
     'app.directives', 'app.utils.directives',
@@ -26640,6 +26641,582 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
                 }).done();
             }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.cars', [
+        // Angular dependencies
+        'ngCookies',
+
+        // 3rd party
+        'ui.bootstrap', 'ui.select',
+
+        // local dependencies
+        'app.cars.services']);
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+  function s(o, u) {
+    if (!n[o]) {
+      if (!t[o]) {
+        var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+        var n = t[o][1][e];return s(n ? n : e);
+      }, l, l.exports, e, t, n, r);
+    }return n[o].exports;
+  }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+    s(r[o]);
+  }return s;
+})({ 1: [function (require, module, exports) {
+    angular.module('app.cars.directives', []);
+  }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+  function s(o, u) {
+    if (!n[o]) {
+      if (!t[o]) {
+        var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+        var n = t[o][1][e];return s(n ? n : e);
+      }, l, l.exports, e, t, n, r);
+    }return n[o].exports;
+  }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+    s(r[o]);
+  }return s;
+})({ 1: [function (require, module, exports) {
+    angular.module('app.cars.services', ['ngResource']);
+  }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.cars').config(carConfig);
+
+        carConfig.$inject = ['$stateProvider'];
+        function carConfig($stateProvider) {
+            $stateProvider.state('base.cars', {
+                url: '/cars',
+                views: {
+                    '@': {
+                        templateUrl: 'cars/controllers/index.html',
+                        controller: CarsController,
+                        controllerAs: 'vm'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Cars'
+                }
+            });
+        }
+
+        angular.module('app.cars').controller('CarsController', CarsController);
+
+        CarsController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
+        function CarsController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
+            var vm = this;
+
+            vm.storage = new LocalStorage('brand');
+
+            init();
+            _setupWatchers();
+
+            //////
+
+            function init() {
+                // This timeout is needed because by loading from LocalStorage isn't fast enough.
+                $timeout(function () {
+                    //初始化的一些动作
+                }, 50);
+            }
+
+            function _setupWatchers() {
+                /**
+                 * 一组变量onchange监听
+                 * 
+                 */
+                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
+                    //都会执行的函数1();
+                    //都会执行的函数2();
+                });
+
+                /**
+                 * 数组集合onchange的监听
+                 */
+                $scope.$watchCollection('vm.table.visibility', function () {
+                    //都会执行的函数1();
+                });
+
+                /**
+                 *单一变量onchange监听
+                 */
+                $scope.$watch('vm.filterList', function () {
+                    //都会执行的函数1();
+                }, true);
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.cars.services').factory('Case', Case);
+
+        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
+        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
+            var _case = $resource('/api/cases/:id/', {}, {
+                search: {
+                    url: '/search/search/',
+                    method: 'GET',
+                    params: {
+                        type: 'cases_case'
+                    },
+                    transformResponse: function transformResponse(data) {
+                        var jsonData = angular.fromJson(data);
+                        var objects = [];
+                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
+                            jsonData.hits.forEach(function (obj) {
+                                objects.push(obj);
+                            });
+                        }
+
+                        return {
+                            objects: objects,
+                            total: jsonData.total
+                        };
+                    }
+                },
+                update: {
+                    method: 'PUT',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                patch: {
+                    method: 'PATCH',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                getCaseTypes: {
+                    isArray: true,
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/types/'
+                },
+                getStatuses: {
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/statuses/',
+                    transformResponse: function transformResponse(data) {
+                        var statusData = angular.fromJson(data);
+
+                        angular.forEach(statusData.results, function (status) {
+                            if (status.name === 'Closed') {
+                                _case.closedStatus = status;
+                            }
+                        });
+
+                        return statusData;
+                    }
+                },
+                query: {
+                    isArray: false
+                }
+            });
+
+            _case.create = create;
+            _case.getCases = getCases;
+            _case.getCasePriorities = getCasePriorities;
+            _case.updateModel = updateModel;
+
+            /////////
+
+            function create() {
+                var expires = moment().add(1, 'week'); // default expiry date is a week from now
+
+                return new _case({
+                    billing_checked: false,
+                    priority: 0,
+                    expires: expires,
+                    tags: []
+                });
+            }
+
+            function updateModel(data, field, caseObject) {
+                var patchPromise;
+                var args = HLResource.createArgs(data, field, caseObject);
+
+                if (field === 'name') {
+                    Settings.page.setAllTitles('detail', data);
+                }
+
+                patchPromise = HLResource.patch('Case', args).$promise;
+
+                return patchPromise;
+            }
+
+            /**
+             * getCases() gets the cases from the search backend through a promise
+             *
+             * @param orderColumn {string}: Current sorting of cases.
+             * @param orderedAsc {boolean}: Current ordering.
+             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
+             * @param searchQuery {string}: Current filter on the caselist.
+             * @param page {number=1}: Current page of pagination.
+             * @param pageSize {number=100}: Current page size of pagination.
+             *
+             * @returns Promise object: when promise is completed:
+             *      {
+             *          cases {Array}: Paginated cases objects.
+             *          total {number}: Total number of case objects.
+             *      }
+             */
+            function getCases(orderColumn, orderedAsc, filterQuery) {
+                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
+
+                return _case.search({
+                    q: searchQuery,
+                    page: page - 1,
+                    size: pageSize,
+                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
+                    filterquery: filterQuery
+                }, function (data) {
+                    return data;
+                }).$promise;
+            }
+
+            function getCasePriorities() {
+                // Hardcoded because these are the only case priorities.
+                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
+            }
+
+            return _case;
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.sellcar', [
+        // Angular dependencies
+        'ngCookies',
+
+        // 3rd party
+        'ui.bootstrap', 'ui.select',
+
+        // local dependencies
+        'app.sellcar.services']);
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+  function s(o, u) {
+    if (!n[o]) {
+      if (!t[o]) {
+        var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+        var n = t[o][1][e];return s(n ? n : e);
+      }, l, l.exports, e, t, n, r);
+    }return n[o].exports;
+  }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+    s(r[o]);
+  }return s;
+})({ 1: [function (require, module, exports) {
+    angular.module('app.sellcar.directives', []);
+  }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+  function s(o, u) {
+    if (!n[o]) {
+      if (!t[o]) {
+        var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+        var n = t[o][1][e];return s(n ? n : e);
+      }, l, l.exports, e, t, n, r);
+    }return n[o].exports;
+  }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+    s(r[o]);
+  }return s;
+})({ 1: [function (require, module, exports) {
+    angular.module('app.sellcar.services', ['ngResource']);
+  }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.sellcar').config(sellCarConfig);
+
+        sellCarConfig.$inject = ['$stateProvider'];
+        function sellCarConfig($stateProvider) {
+            $stateProvider.state('base.sellcar', {
+                url: '/sellcar',
+                views: {
+                    '@': {
+                        templateUrl: 'sell_car/controllers/index.html',
+                        controller: SellCarController,
+                        controllerAs: 'vm'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Sell Car'
+                }
+            });
+        }
+
+        angular.module('app.cars').controller('SellCarController', SellCarController);
+
+        SellCarController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
+        function SellCarController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
+            var vm = this;
+
+            vm.storage = new LocalStorage('brand');
+
+            init();
+            _setupWatchers();
+
+            //////
+
+            function init() {
+                // This timeout is needed because by loading from LocalStorage isn't fast enough.
+                $timeout(function () {
+                    //初始化的一些动作
+                }, 50);
+            }
+
+            function _setupWatchers() {
+                /**
+                 * 一组变量onchange监听
+                 * 
+                 */
+                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
+                    //都会执行的函数1();
+                    //都会执行的函数2();
+                });
+
+                /**
+                 * 数组集合onchange的监听
+                 */
+                $scope.$watchCollection('vm.table.visibility', function () {
+                    //都会执行的函数1();
+                });
+
+                /**
+                 *单一变量onchange监听
+                 */
+                $scope.$watch('vm.filterList', function () {
+                    //都会执行的函数1();
+                }, true);
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.sellcar.services').factory('Case', Case);
+
+        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
+        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
+            var _case = $resource('/api/cases/:id/', {}, {
+                search: {
+                    url: '/search/search/',
+                    method: 'GET',
+                    params: {
+                        type: 'cases_case'
+                    },
+                    transformResponse: function transformResponse(data) {
+                        var jsonData = angular.fromJson(data);
+                        var objects = [];
+                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
+                            jsonData.hits.forEach(function (obj) {
+                                objects.push(obj);
+                            });
+                        }
+
+                        return {
+                            objects: objects,
+                            total: jsonData.total
+                        };
+                    }
+                },
+                update: {
+                    method: 'PUT',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                patch: {
+                    method: 'PATCH',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                getCaseTypes: {
+                    isArray: true,
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/types/'
+                },
+                getStatuses: {
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/statuses/',
+                    transformResponse: function transformResponse(data) {
+                        var statusData = angular.fromJson(data);
+
+                        angular.forEach(statusData.results, function (status) {
+                            if (status.name === 'Closed') {
+                                _case.closedStatus = status;
+                            }
+                        });
+
+                        return statusData;
+                    }
+                },
+                query: {
+                    isArray: false
+                }
+            });
+
+            _case.create = create;
+            _case.getCases = getCases;
+            _case.getCasePriorities = getCasePriorities;
+            _case.updateModel = updateModel;
+
+            /////////
+
+            function create() {
+                var expires = moment().add(1, 'week'); // default expiry date is a week from now
+
+                return new _case({
+                    billing_checked: false,
+                    priority: 0,
+                    expires: expires,
+                    tags: []
+                });
+            }
+
+            function updateModel(data, field, caseObject) {
+                var patchPromise;
+                var args = HLResource.createArgs(data, field, caseObject);
+
+                if (field === 'name') {
+                    Settings.page.setAllTitles('detail', data);
+                }
+
+                patchPromise = HLResource.patch('Case', args).$promise;
+
+                return patchPromise;
+            }
+
+            /**
+             * getCases() gets the cases from the search backend through a promise
+             *
+             * @param orderColumn {string}: Current sorting of cases.
+             * @param orderedAsc {boolean}: Current ordering.
+             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
+             * @param searchQuery {string}: Current filter on the caselist.
+             * @param page {number=1}: Current page of pagination.
+             * @param pageSize {number=100}: Current page size of pagination.
+             *
+             * @returns Promise object: when promise is completed:
+             *      {
+             *          cases {Array}: Paginated cases objects.
+             *          total {number}: Total number of case objects.
+             *      }
+             */
+            function getCases(orderColumn, orderedAsc, filterQuery) {
+                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
+
+                return _case.search({
+                    q: searchQuery,
+                    page: page - 1,
+                    size: pageSize,
+                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
+                    filterquery: filterQuery
+                }, function (data) {
+                    return data;
+                }).$promise;
+            }
+
+            function getCasePriorities() {
+                // Hardcoded because these are the only case priorities.
+                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
+            }
+
+            return _case;
         }
     }, {}] }, {}, [1]);})(angular);
 //# sourceMappingURL=app.js.map
