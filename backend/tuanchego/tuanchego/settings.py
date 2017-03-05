@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'data',
     'users',
     'cars',
-    'activities'
+    'activities',
+    'django_cron'
 
 )
 
@@ -97,3 +98,8 @@ STATICFILES_DIRS = (
 )
 #import pdb
 #pdb.set_trace()
+
+CRON_CLASSES = [
+    "cars.cron.GetBrandJob",
+    # ...
+]

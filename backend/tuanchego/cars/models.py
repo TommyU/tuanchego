@@ -9,6 +9,7 @@ class Brand(BaseModel):
 	initial = models.CharField(max_length=1,null = True, blank=True,db_index=True, verbose_name=u'首字母' )
 	name = models.CharField(max_length=64, null = True, blank=True,   verbose_name=u'名称' )
 	logo_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'log uri')
+	tc_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'tc uri')
 	city = models.ManyToManyField(City, verbose_name=u'城市')
 	def __str__(self):
 		return self.name
@@ -20,7 +21,9 @@ class Serie(BaseModel):
 	"""
 	型号
 	"""
+	tag = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'类别')
 	brand = models.ForeignKey(Brand, null=True, db_index=True, verbose_name=u'品牌')
+	img_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'tuanche img url')
 	name = models.CharField(max_length=64, null = True, blank=True,   verbose_name=u'名称' )
 
 	def __str__(self):

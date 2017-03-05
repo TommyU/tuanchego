@@ -10,3 +10,4 @@ django-mptt
 django-cron
 pytz
 xlwt
+pyquery
