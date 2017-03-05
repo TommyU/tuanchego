@@ -1255,3 +1255,7 @@ li.nav-Actslid a,li.nav-Actslid a:link,li.nav-Actslid a:visited,li.nav-Actslid a
 .friendlyInfo span{margin-right:5px;margin-top:5px;display:inline-block;color:#999;}
 .friendlyInfo span a,.friendlyInfo span a:link,.friendlyInfo span a:visited,.friendlyInfo span a:active{color:#999;text-decoration:none;}
 .friendlyInfo span a:hover{color:#ff3938;text-decoration:underline;}
+
+/*new defined*/
+.activeMenu{color: #ff3938;background: #fff;}
+.navInfo li a:active{color: #ff3938;}

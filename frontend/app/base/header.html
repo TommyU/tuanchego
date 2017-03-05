@@ -317,7 +317,7 @@
         <div class="navslid">
         	<div class="navslidT"><em></em>按品牌车型团购</div>
         	<!-- navRegSlid S -->
-	        <div class="navRegSlid" style="">
+	        <div class="navRegSlid" ng-show="navRegSlidVisible">
 	            <!-- navReg S -->
 	            <div class="navReg">
 	            	<form novalidate="novalidate" action="http://www.tuanche.com/service/signup/formapply" method="post" id="navForm">
@@ -490,12 +490,12 @@
 	        <!-- navRegSlid E -->
         </div>
         <ul class="navInfo">
-            <li class="nav-Actslid" id="navindex"><a ui-sref="base.home" target="_self">首页</a></li>
-            <li id="navbrand"><a ui-sref="base.brand" target="_self">新车团购</a></li>
-            <li id="navche"><a ui-sref="base.cars" target="_self">选车</a></li>
-            <li id="navrrc"><a ui-sref="base.sellcar" target="_self">高价卖车</a></li>
+            <li id="navindex"><a ui-sref="base.home" ui-sref-active="activeMenu" target="_self">首页</a></li>
+            <li id="navbrand"><a ui-sref="base.brand" ui-sref-active="activeMenu" target="_self">新车团购</a></li>
+            <li id="navche"><a ui-sref="base.cars" ui-sref-active="activeMenu" target="_self">选车</a></li>
+            <li id="navrrc"><a ui-sref="base.sellcar" ui-sref-active="activeMenu" target="_self">高价卖车</a></li>
             <!--<li id="navzhidao"><a href="http://www.tuanche.com/zhidao/" target="_blank">团车知道</a></li>-->
-            	<li id="navzixun"><a ui-sref="base.info" target="_self">团车资讯</a></li>
+            	<li id="navzixun"><a ui-sref="base.info" ui-sref-active="activeMenu" target="_self">团车资讯</a></li>
         </ul>
     </div>
     <!-- w E -->
