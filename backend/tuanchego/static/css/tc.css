@@ -1257,5 +1257,4 @@ li.nav-Actslid a,li.nav-Actslid a:link,li.nav-Actslid a:visited,li.nav-Actslid a
 .friendlyInfo span a:hover{color:#ff3938;text-decoration:underline;}
 
 /*new defined*/
-.activeMenu{color: #ff3938;background: #fff;}
-.navInfo li a:active{color: #ff3938;}
+.activeMenu{color: #ff3938;background: #fff; border-top: 2px solid red; border-left: 2px solid red;border-right: 2px solid red;}
