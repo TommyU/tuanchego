@@ -316,8 +316,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     'monospaced.elastic',
 
     // Modules
-    'app.base', 'app.templates', 'app.home', 'app.brand', 'app.cars',
-    //'app.sellcar',
+    'app.base', 'app.templates', 'app.home', 'app.brand', 'app.cars', 'app.sellcar',
 
     // Directives
     'app.directives', 'app.utils.directives',

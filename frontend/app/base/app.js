@@ -31,7 +31,7 @@ angular.module('app', [
     'app.home',
     'app.brand',
     'app.cars',
-    //'app.sellcar',
+    'app.sellcar',
 
     // Directives
     'app.directives',
