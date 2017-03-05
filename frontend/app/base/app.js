@@ -28,6 +28,8 @@ angular.module('app', [
     // Modules
     'app.base',
     'app.templates',
+    'app.home',
+    'app.brand',
 
     // Directives
     'app.directives',
