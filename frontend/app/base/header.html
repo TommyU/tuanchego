@@ -315,9 +315,9 @@
     <!-- w S -->
     <div class="w repre">
         <div class="navslid">
-        	<div class="navslidT"><em></em>按品牌车型团购</div>
+        	<div class="navslidT" ng-mouseover="navRegSlidVisible=true" ng-mouseleave="navRegSlidVisible=false"><em></em>按品牌车型团购</div>
         	<!-- navRegSlid S -->
-	        <div class="navRegSlid" ng-show="navRegSlidVisible">
+	        <div class="navRegSlid" ng-show="navRegSlidVisible" ng-mouseover="navRegSlidVisible=true">
 	            <!-- navReg S -->
 	            <div class="navReg">
 	            	<form novalidate="novalidate" action="http://www.tuanchegou.com/service/signup/formapply" method="post" id="navForm">
@@ -490,12 +490,12 @@
 	        <!-- navRegSlid E -->
         </div>
         <ul class="navInfo">
-            <li id="navindex"><a ui-sref="base.home" ui-sref-active="activeMenu" target="_self">首页</a></li>
-            <li id="navbrand"><a ui-sref="base.brand" ui-sref-active="activeMenu" target="_self">新车团购</a></li>
-            <li id="navche"><a ui-sref="base.cars" ui-sref-active="activeMenu" target="_self">选车</a></li>
-            <li id="navrrc"><a ui-sref="base.sellcar" ui-sref-active="activeMenu" target="_self">高价卖车</a></li>
+            <li id="navindex"><a ng-click="navRegSlidVisible=true" ui-sref="base.home" ui-sref-active="activeMenu" target="_self">首页</a></li>
+            <li id="navbrand"><a ng-click="navRegSlidVisible=false" ui-sref="base.brand" ui-sref-active="activeMenu" target="_self">新车团购</a></li>
+            <li id="navche"><a ng-click="navRegSlidVisible=false" ui-sref="base.cars" ui-sref-active="activeMenu" target="_self">选车</a></li>
+            <li id="navrrc"><a ng-click="navRegSlidVisible=false" ui-sref="base.sellcar" ui-sref-active="activeMenu" target="_self">高价卖车</a></li>
             <!--<li id="navzhidao"><a href="http://www.tuanchegou.com/zhidao/" target="_blank">团车知道</a></li>-->
-            	<li id="navzixun"><a ui-sref="base.info" ui-sref-active="activeMenu" target="_self">团车资讯</a></li>
+            <li id="navzixun"><a ng-click="navRegSlidVisible=false" ui-sref="base.info" ui-sref-active="activeMenu" target="_self">团车资讯</a></li>
         </ul>
     </div>
     <!-- w E -->
