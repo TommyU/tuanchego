@@ -6,6 +6,7 @@ from lxml.html import HtmlElement
 from .models import Brand,Serie
 import traceback
 import datetime
+import time
 
 def _get_page_dom(url):
     req = urllib2.Request(url)
@@ -111,31 +112,41 @@ class GetBrandSerieJob(CronJobBase):
         try:
             print("[%s] looking for series data...."%(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             for brand in Brand.objects.all():
-            	print("processing brand:", brand.name)
-            	if not tc_url:
-            		continue
+                time.sleep(1)
+                print("processing brand:%s"%brand.name)
+                if not brand.tc_url:
+                    continue
                 dom = _get_page_dom(brand.tc_url)
                 print("data got!")
                 series = []
-                
+                i=0
                 for li in dom(self.SELECTOR).items('li'):
-                	img_url=''
-                	description=''
-                	name=''
+                    img_url=''
+                    description=''
+                    name=''
                     for div in li(".imgBox"):
-                    	for img in div("img"):
-	                        if isinstance(link , HtmlElement):
-	                            img_url = link.get("src","")
-	                        else:
-	                            pass
-	                    for _div in div(".searchMaskText"):
-	                    	description = _div.text
-	                for div in li(".searchListText"):
-	                	for p in div("p"):
-	                		for span in p("span"):
-	                			for link in span("a"):
-	                				name = link.text
-	                series.append([img_url, description, name])
+                        if i==0:
+                            i=1
+                            import pdb
+                            #pdb.set_trace()
+                        div = pq(div)
+                        for img in div("img"):
+                            if isinstance(img , HtmlElement):
+                                img_url = img.get("src","")
+                            else:
+                                pass
+                        for _div in div(".searchMaskText"):
+                            description = _div.text
+
+                    for div in li(".searchListText"):
+                        div = pq(div)
+                        for p in div("p"):
+                            p=pq(p)
+                            for span in p("span"):
+                                span = pq(span)
+                                for link in span("a"):
+                                    name = link.text
+                    series.append([img_url, description, name])
 
 
                 print("%d series found!"%len(series))
@@ -147,7 +158,7 @@ class GetBrandSerieJob(CronJobBase):
                         Serie.objects.get(brand=brand.id, name=name)
                     except:
                         imported+=1
-                        Serie(brand=brand, name=name).save()
+                        Serie(brand=brand, name=name, img_url=img_url).save()
                 print("%d new series imported!"%imported)
         except:
             print(traceback.format_exc())
