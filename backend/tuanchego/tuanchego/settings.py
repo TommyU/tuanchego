@@ -101,6 +101,6 @@ STATICFILES_DIRS = (
 
 CRON_CLASSES = [
     "cars.cron.GetBrandJob",
-    "cars.cron.GetBrandSerieJob",
+    "cars.cron.GetCarJob",
     # ...
 ]

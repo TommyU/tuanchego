@@ -50,7 +50,9 @@ class Car(BaseModel):
 	汽车
 	"""
 	brand = models.ForeignKey(Brand, verbose_name=u'品牌', null=True)
+	logo_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'LOGO地址')
 	serie = models.ForeignKey(Serie, verbose_name=u'型号', null=True)
+	tag = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'标签')
 	size = models.CharField(max_length=2, verbose_name=u'', null =True, blank=True, choices=[
 			('0',u'新能源'),
 			('1',u'微型车'),
@@ -63,7 +65,7 @@ class Car(BaseModel):
 			('8',u'跑车'),
 		])
 	name = models.CharField(max_length=64, null = True, blank=True, verbose_name=u'名称' )
-	img_path = models.CharField(max_length=64, null = True, blank=True, verbose_name=u'图片路径' )
+	img_path = models.CharField(max_length=128, null = True, blank=True, verbose_name=u'图片路径' )
 	price_level = models.CharField(max_length=32,null=True, blank=True, verbose_name =u'价位', choices=[
 		('0,5',u'5万以下'),
 		('5,10',u'5~10万'),
@@ -91,6 +93,7 @@ class Car(BaseModel):
 		('KR',u'韩系'),
 		('EU',u'欧系'),
 		])
+	description = models.CharField(max_length=1024, null = True, blank=True, verbose_name=u'描述' )
 
 	def __str__(self):
 		return self.name

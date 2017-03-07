@@ -3,7 +3,7 @@ from django_cron import CronJobBase, Schedule
 import urllib2
 from pyquery import PyQuery as pq
 from lxml.html import HtmlElement
-from .models import Brand,Serie
+from .models import Brand,Serie,Car
 import traceback
 import datetime
 import time
@@ -63,16 +63,16 @@ class GetBrandJob(CronJobBase):
             print(traceback.format_exc())
 
 
-class GetBrandSerieJob(CronJobBase):
+class GetCarJob(CronJobBase):
     RUN_EVERY_MINS = 120 # every 2 hours
     #URL="http://www.tuanche.com/che/"
     SELECTOR=".searchListC"
     schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
-    code = 'cars.cron.GetBrandSerieJob'    # a unique code
+    code = 'cars.cron.GetCarJob'    # a unique code
 
     def do(self):
         """
-        target DOM1:
+        target DOM1(for tag):
             <div class="charactersSlidTwo">
                 <div class="charactersSlidBox">  
                         <span>  <a class="styleName-in " href="/che31/">一汽奥迪</a></span>
@@ -80,7 +80,7 @@ class GetBrandSerieJob(CronJobBase):
                         <span>  <a class="styleName-in " href="/che194/">奥迪RS</a></span>
                 </div>
             </div>
-        target DOM2:
+        target DOM2(for car):
             <ul class="searchListC">
                <li>
                         <div class="imgBox">
@@ -117,8 +117,9 @@ class GetBrandSerieJob(CronJobBase):
                ...
             </ul>
         """
+        time.sleep(1)
         try:
-            print("[%s] looking for series data...."%(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+            print("[%s] looking for cars data...."%(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             for brand in Brand.objects.all():
                 time.sleep(1)
                 print("processing brand:%s"%brand.name)
@@ -129,8 +130,7 @@ class GetBrandSerieJob(CronJobBase):
 
                 #get all sub serie(target DOM1)
                 sub_serie=[]
-                import pdb
-                pdb.set_trace()
+                
                 for div in dom(".charactersSlidTwo").items("div.charactersSlidBox"):
                     for span in pq(div)("span"):
                         for link in pq(span)("a.styleName-in"):
@@ -139,7 +139,7 @@ class GetBrandSerieJob(CronJobBase):
                                     'name':link.text
                                 })
 
-                #get all serie info by sub serie(target DOM2)
+                #get all car info by sub serie(target DOM2)
                 for page in sub_serie:
                     uri,tag = page['href'],page['name']
                     if not uri:continue
@@ -147,10 +147,11 @@ class GetBrandSerieJob(CronJobBase):
                     print('processing sub category: %s'%tag)
                     dom = _get_page_dom('http://www.tuanche.com'+uri)
                     print('data got!')
-                    series = []
+                    cars = []
                     i=0
                     for li in dom(self.SELECTOR).items('li'):
                         img_url=''
+                        logo_url=''
                         description=''
                         name=''
                         for div in li(".imgBox"):
@@ -160,14 +161,23 @@ class GetBrandSerieJob(CronJobBase):
                                 #pdb.set_trace()
                             div = pq(div)
                             for img in div("img"):
-                                if isinstance(img , HtmlElement):
+                                if isinstance(img , HtmlElement):#get car img
                                     img_url = img.get("src","")
                                 else:
                                     pass
-                            for _div in div(".searchMaskText"):
-                                description = _div.text
+                            for _div in div(".searchMaskText"):#get car decription
+                                description ="\n".join([x.text() for x in pq(_div).items("p")])
+                                #import pdb
+                                #pdb.set_trace()
+                            for _logo_div in div(".caricoBox"):#get car logo
+                                for logo_img in pq(_logo_div)("img"):
+                                    logo_url = logo_img.get("src","")
+                                #import pdb
+                                #pdb.set_trace()
 
-                        for div in li(".searchListText"):
+
+
+                        for div in li(".searchListText"):#get car name
                             div = pq(div)
                             for p in div("p"):
                                 p=pq(p)
@@ -175,19 +185,24 @@ class GetBrandSerieJob(CronJobBase):
                                     span = pq(span)
                                     for link in span("a"):
                                         name = link.text
-                        series.append([img_url, description, name])
+                        cars.append([img_url, logo_url, description, name])
 
 
-                    print("%d series found!"%len(series))
+                    print("%d cars found!"%len(cars))
                     imported=0
-                    for line in series:
-                        img_url, description ,name=line
+                    for line in cars:
+                        img_url, logo_url, description ,name=line
                         if not img_url:continue
                         try:
-                            Serie.objects.get(brand=brand.id, name=name)
+                            Car.objects.get(brand=brand.id, name=name)
                         except:
                             imported+=1
-                            Serie(brand=brand, name=name, img_url=img_url, tag=tag).save()
-                    print("%d new series imported!"%imported)
+                            Car(brand=brand, 
+                                name=name, 
+                                img_path=img_url, 
+                                tag=tag,
+                                logo_url=logo_url,
+                                description = description).save()
+                    print("%d new cars imported!"%imported)
         except:
             print(traceback.format_exc())
