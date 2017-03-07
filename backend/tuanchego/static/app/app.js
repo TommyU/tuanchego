@@ -319,7 +319,7 @@
     s(r[o]);
   }return s;
 })({ 1: [function (require, module, exports) {
-    angular.module('app.home.directives', []);
+    angular.module('app.users.filters', []);
   }, {}] }, {}, [1]);})(angular);
 (function(angular){'use strict';"use strict";
 
@@ -336,7 +336,24 @@
     s(r[o]);
   }return s;
 })({ 1: [function (require, module, exports) {
-    angular.module('app.home.services', ['ngResource']);
+    angular.module('app.users.services', ['ngResource']);
+  }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+  function s(o, u) {
+    if (!n[o]) {
+      if (!t[o]) {
+        var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+        var n = t[o][1][e];return s(n ? n : e);
+      }, l, l.exports, e, t, n, r);
+    }return n[o].exports;
+  }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+    s(r[o]);
+  }return s;
+})({ 1: [function (require, module, exports) {
+    angular.module('app.utils.directives', []);
   }, {}] }, {}, [1]);})(angular);
 (function(angular){'use strict';"use strict";
 
@@ -421,7 +438,7 @@
     s(r[o]);
   }return s;
 })({ 1: [function (require, module, exports) {
-    angular.module('app.users.filters', []);
+    angular.module('app.home.directives', []);
   }, {}] }, {}, [1]);})(angular);
 (function(angular){'use strict';"use strict";
 
@@ -438,24 +455,7 @@
     s(r[o]);
   }return s;
 })({ 1: [function (require, module, exports) {
-    angular.module('app.users.services', ['ngResource']);
-  }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-  function s(o, u) {
-    if (!n[o]) {
-      if (!t[o]) {
-        var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-        var n = t[o][1][e];return s(n ? n : e);
-      }, l, l.exports, e, t, n, r);
-    }return n[o].exports;
-  }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-    s(r[o]);
-  }return s;
-})({ 1: [function (require, module, exports) {
-    angular.module('app.utils.directives', []);
+    angular.module('app.home.services', ['ngResource']);
   }, {}] }, {}, [1]);})(angular);
 (function(angular){'use strict';"use strict";
 
@@ -16948,2148 +16948,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('activateSelect', activateSelect);
-
-        function activateSelect($timeout) {
-            return {
-                restrict: 'A',
-                require: '?uiSelect',
-                link: function link(scope, element, attrs, $select) {
-                    // TODO: Once Select2 implements default select behaviour we can convert all
-                    // current normal selects to Select2. After that we can uncomment this code
-                    // and make it so selects automatically get opened when inline editing.
-                    // Note: When building the app minified look out for the following error:
-                    // vendor.js:6 Error: [$injector:unpr] Unknown provider: rProvider <- r <- activateSelectDirective
-                    // This doesn't happen when building normally (and not sure if it happens on live.), but something
-                    // that needs to be looked at.
-                    // scope.$watch('$form.$visible', function() {
-                    //     $timeout(function() {
-                    // Open the select on the next digest cycle.
-                    // if ($select) {
-                    // $select.activate();
-                    // }
-                    //     });
-                    // });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('autofocusIf', autofocusIf);
-
-        function autofocusIf() {
-            return {
-                restrict: 'A',
-                link: function link(scope, element, attrs) {
-                    scope.$watch(function () {
-                        return scope.$eval(attrs.autofocusIf);
-                    }, function (bool) {
-                        if (bool === true) {
-                            element[0].focus();
-                        }
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('callerInfo', callerInfo);
-
-        function callerInfo() {
-            return {
-                restrict: 'E',
-                scope: true,
-                templateUrl: 'base/directives/caller_info.html',
-                controller: CallerInfoController,
-                controllerAs: 'vm',
-                transclude: true,
-                bindToController: true
-            };
-        }
-
-        CallerInfoController.$inject = ['$state', 'Account', 'Call'];
-        function CallerInfoController($state, Account, Call) {
-            var vm = this;
-
-            vm.fetchCallerInfo = fetchCallerInfo;
-
-            function fetchCallerInfo() {
-                // Get the latest call of the current user based on the internal number.
-                Call.getLatestCall().$promise.then(function (callInfo) {
-                    var call = callInfo.call;
-
-                    if (call) {
-                        // There was a call for the current user, so try to find an account with the given number.
-                        Account.searchByPhoneNumber({ number: call.caller_number }).$promise.then(function (response) {
-                            if (response.data.accounts.length) {
-                                // Account found so redirect to the account.
-                                $state.go('base.accounts.detail', { id: response.data.accounts[0] }, { reload: true });
-                            } else if (response.data.contacts.length) {
-                                // Contact found so redirect to the contact.
-                                $state.go('base.contacts.detail', { id: response.data.contacts[0] }, { reload: true });
-                            } else {
-                                // No account or contact found so redirect to create account form.
-                                $state.go('base.accounts.create', {
-                                    'name': call.caller_name,
-                                    'phone_number': call.caller_number
-                                }, { reload: true });
-                            }
-                        });
-                    } else {
-                        toastr.error('No calls for you right now', 'No calls');
-                    }
-                });
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        /**
-         * checkbox Directive makes a nice uniform checkbox and binds to a model
-         *
-         * @param model object: model to bind checkbox with
-         *
-         * Example:
-         * <checkbox model="table.visibility.name">Name</checkbox>
-         */
-        angular.module('app.directives').directive('checkbox', checkbox);
-
-        function checkbox() {
-            return {
-                restrict: 'E',
-                replace: true,
-                transclude: true,
-                scope: {
-                    model: '='
-                },
-                templateUrl: 'base/directives/checkbox.html'
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        /**
-         * Directive give a nice formatting on input elements.
-         *
-         * It makes sure that the value of the ngModel on the scope has a nice
-         * formatting for the user
-         */
-        angular.module('app.directives').directive('dateFormatter', dateFormatter);
-
-        dateFormatter.$inject = ['dateFilter'];
-        function dateFormatter(dateFilter) {
-            return {
-                restrict: 'A',
-                require: 'ngModel',
-                link: function link(scope, element, attrs, ngModel) {
-                    ngModel.$formatters.push(function (value) {
-                        if (value) {
-                            return dateFilter(value, attrs.dateFormatter);
-                        }
-
-                        return value;
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        /**
-         * Directive to show a confirmation box before deleting.
-         */
-        angular.module('app.directives').directive('deleteConfirmation', deleteConfirmation);
-        function deleteConfirmation() {
-            return {
-                restrict: 'E',
-                scope: {
-                    model: '@',
-                    object: '=',
-                    displayField: '@?',
-                    callback: '&?',
-                    buttonClass: '@?',
-                    iconClass: '@?',
-                    messageObject: '=?',
-                    helpText: '@?'
-                },
-                templateUrl: 'base/directives/delete_confirmation.html',
-                controller: DeleteConfirmationController,
-                controllerAs: 'vm',
-                transclude: true,
-                bindToController: true
-            };
-        }
-
-        DeleteConfirmationController.$inject = ['$state', 'HLResource', 'Settings'];
-        function DeleteConfirmationController($state, HLResource, Settings) {
-            var vm = this;
-
-            vm.openConfirmationModal = openConfirmationModal;
-
-            activate();
-
-            ////
-
-            function activate() {
-                if (!vm.buttonClass) {
-                    vm.buttonClass = '';
-                }
-
-                if (!vm.iconClass) {
-                    vm.iconClass = 'lilicon hl-trashcan-icon';
-                }
-
-                if (!vm.helpText) {
-                    vm.helpText = 'Delete';
-                }
-
-                if (vm.messageObject) {
-                    vm.messages = {
-                        'confirmTitle': vm.messageObject.confirmTitle || messages.alerts.delete.confirmTitle,
-                        'confirmText': vm.messageObject.confirmText || messages.alerts.delete.confirmText,
-                        'confirmButtonText': vm.messageObject.confirmButtonText || messages.alerts.delete.confirmButtonText,
-                        'errorTitle': vm.messageObject.errorTitle || messages.alerts.delete.errorTitle,
-                        'errorText': vm.messageObject.errorText || messages.alerts.delete.errorText,
-                        'successTitle': vm.messageObject.successTitle || messages.alerts.delete.successTitle,
-                        'successText': vm.messageObject.successText || messages.alerts.delete.successText
-                    };
-                } else {
-                    vm.messages = messages.alerts.delete;
-                }
-            }
-
-            function openConfirmationModal() {
-                var name = '';
-
-                if (vm.displayField) {
-                    name = vm.object[vm.displayField];
-                } else if (vm.object.hasOwnProperty('name')) {
-                    name = vm.object.name;
-                } else if (vm.object.hasOwnProperty('full_name')) {
-                    name = vm.object.full_name;
-                }
-
-                swal({
-                    title: vm.messages.confirmTitle,
-                    html: sprintf(vm.messages.confirmText, { name: name ? name : 'this ' + vm.model.toLowerCase() }),
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#f3565d',
-                    confirmButtonText: vm.messages.confirmButtonText,
-                    preConfirm: function preConfirm() {
-                        swal.enableLoading();
-                        return new Promise(function (resolve) {
-                            HLResource.delete(vm.model, vm.object).then(function () {
-                                // Delete was successful, so continue.
-                                resolve();
-                            }, function (error) {
-                                // Otherwise show error alert.
-                                swal({
-                                    title: vm.messages.errorTitle,
-                                    html: vm.messages.errorText,
-                                    type: 'error'
-                                });
-                            });
-                        });
-                    }
-                }).then(function (isConfirm) {
-                    if (isConfirm) {
-                        // In certain cases we want to call a function of another controller.
-                        if (vm.callback) {
-                            // Call the given function.
-                            vm.callback();
-                        } else {
-                            if (Settings.page.previousState && !Settings.page.previousState.state.name.endsWith('edit')) {
-                                // Go to the previous page if it isn't the edit page of the just deleted item.
-                                $state.go(Settings.page.previousState.state, Settings.page.previousState.params);
-                            } else {
-                                // Otherwise just go to the list view, which is the parent state.
-                                $state.go($state.current.parent);
-                            }
-                        }
-                    }
-                }).done();
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('editableCheckbox', editableCheckbox);
-
-        function editableCheckbox() {
-            return {
-                restrict: 'E',
-                scope: {
-                    viewModel: '=',
-                    field: '@',
-                    type: '@'
-                },
-                templateUrl: 'base/directives/editable_checkbox.html',
-                controller: EditableCheckboxController,
-                controllerAs: 'ec',
-                transclude: true,
-                bindToController: true
-            };
-        }
-
-        EditableCheckboxController.$inject = [];
-        function EditableCheckboxController() {
-            var ec = this;
-
-            ec.object = ec.viewModel[ec.type.toLowerCase()];
-
-            ec.updateViewModel = updateViewModel;
-
-            function updateViewModel() {
-                var args = {
-                    id: ec.object.id
-                };
-
-                args[ec.field] = ec.object[ec.field];
-
-                return ec.viewModel.updateModel(args);
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('editableHandler', editableHandler);
-
-        function editableHandler() {
-            return {
-                restrict: 'A',
-                link: function link(scope, element, attrs) {
-                    var form;
-                    var isPencilClick = false;
-
-                    if (scope.hasOwnProperty('$form')) {
-                        form = scope.$form;
-                    } else {
-                        form = scope[attrs.eForm];
-                    }
-
-                    element.on('click', function (event) {
-                        // For most inline editable elements the clickable area belongs to the element.
-                        // So check if the clicked part was actually the edit icon.
-                        if (event.offsetX > event.currentTarget.offsetWidth) {
-                            form.$show();
-                            isPencilClick = true;
-
-                            scope.$apply();
-                        }
-                    });
-
-                    element.on('click', '.hl-edit-icon', function (event) {
-                        // Certain inline editable elements have a separate button,
-                        // so an extra check for the clicked area isn't needed.
-                        form.$show();
-                        isPencilClick = true;
-
-                        scope.$apply();
-                    });
-
-                    scope.$watch('$form.$visible', function (newValue, oldValue) {
-                        if (newValue) {
-                            if (isPencilClick) {
-                                ga('send', 'event', 'Field', 'Edit', 'Pencil');
-                            } else {
-                                ga('send', 'event', 'Field', 'Edit', 'Double click');
-                            }
-
-                            // Reset the variable.
-                            isPencilClick = false;
-                        }
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('editableLink', editableLink);
-
-        function editableLink() {
-            return {
-                restrict: 'E',
-                scope: {
-                    viewModel: '=',
-                    type: '@',
-                    field: '@',
-                    object: '=?',
-                    socialMediaName: '@?'
-                },
-                templateUrl: 'base/directives/editable_link.html',
-                controller: EditableLinkController,
-                controllerAs: 'el',
-                transclude: true,
-                bindToController: true
-            };
-        }
-
-        EditableLinkController.$inject = [];
-        function EditableLinkController() {
-            var el = this;
-
-            el.updateViewModel = updateViewModel;
-
-            activate();
-
-            /////
-
-            function activate() {
-                if (!el.object) {
-                    if (!el.socialMediaName) {
-                        el.object = el.viewModel[el.type.toLowerCase()];
-                    }
-                }
-            }
-
-            function updateViewModel($data) {
-                var patchPromise;
-
-                var args = {};
-
-                if (el.object) {
-                    args = {
-                        id: el.object.id
-                    };
-                }
-
-                args[el.field] = $data;
-
-                if (el.socialMediaName) {
-                    args.name = el.socialMediaName;
-                    patchPromise = el.viewModel.updateModel(args, el.socialMediaName);
-                } else {
-                    patchPromise = el.viewModel.updateModel(args).$promise;
-                }
-
-                return patchPromise;
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('editableRelated', editableRelated);
-
-        function editableRelated() {
-            return {
-                restrict: 'E',
-                scope: {
-                    model: '=',
-                    type: '@',
-                    field: '@'
-                },
-                templateUrl: function templateUrl(elem, attrs) {
-                    return 'base/directives/editable_' + attrs.field + '.html';
-                },
-                controller: EditableRelatedController,
-                controllerAs: 'er',
-                transclude: true,
-                bindToController: true,
-                link: function link(scope, element, attr) {
-                    // Bind click event to the current directive.
-                    element.on('click', '.js-edit', function () {
-                        scope.er.showForm();
-                        scope.$apply();
-                    });
-
-                    element.on('click', '.js-add', function () {
-                        scope.er.showForm(true);
-                        scope.$apply();
-                    });
-                }
-            };
-        }
-
-        EditableRelatedController.$inject = ['HLFields', 'HLResource', 'HLUtils'];
-        function EditableRelatedController(HLFields, HLResource, HLUtils) {
-            var er = this;
-            er.formVisible = false;
-
-            er.addRelatedField = addRelatedField;
-            er.removeRelatedField = removeRelatedField;
-            er.closeForm = closeForm;
-            er.submit = submit;
-            er.showForm = showForm;
-
-            // TODO: LILY-1520: Clean up this model specific code.
-            er.formatPhoneNumber = HLUtils.formatPhoneNumber;
-            er.setPrimaryEmailAddress = HLUtils.setPrimaryEmailAddress;
-
-            er.telephoneTypes = [{ key: 'work', value: 'Work' }, { key: 'mobile', value: 'Mobile' }, { key: 'home', value: 'Home' }, { key: 'fax', value: 'Fax' }, { key: 'other', value: 'Other' }];
-
-            er.addressTypes = [{ key: 'visiting', value: 'Visiting address' }, { key: 'billing', value: 'Billing address' }, { key: 'shipping', value: 'Shipping address' }, { key: 'home', value: 'Home address' }, { key: 'other', value: 'Other' }];
-
-            activate();
-
-            /////
-
-            function activate() {
-                er.items = er.model[er.field];
-                // Store the original items in case we cancel the editing.
-                er.originalItems = angular.copy(er.items);
-
-                er.formName = er.field + 'Form';
-            }
-
-            function addRelatedField() {
-                // Default status is 'Other'.
-                var status = 1;
-                var isPrimary = false;
-
-                switch (er.field) {
-                    case 'email_addresses':
-                        if (er.items.length === 0) {
-                            // No email addresses added yet, so first one is primary.
-                            status = 2;
-                            isPrimary = true;
-                        }
-
-                        er.items.unshift({ is_primary: isPrimary, status: status });
-                        break;
-                    case 'phone_numbers':
-                        er.items.unshift({ type: 'work' });
-                        break;
-                    case 'addresses':
-                        er.items.unshift({ type: 'visiting' });
-                        break;
-                    case 'websites':
-                        er.items.unshift({ website: '', is_primary: false });
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            function removeRelatedField(item) {
-                item.is_deleted = !item.is_deleted;
-            }
-
-            function submit() {
-                var element = '[name="' + er.formName + '"]';
-
-                var args = {
-                    id: er.model.id
-                };
-
-                args[er.field] = HLFields.cleanInlineRelatedFields(er.items);
-
-                HLUtils.blockUI(element, true);
-
-                return HLResource.patch(er.type, args).$promise.then(function (response) {
-                    er.formVisible = false;
-                    er.items = response[er.field];
-
-                    HLUtils.unblockUI(element);
-                }).catch(function () {
-                    HLUtils.unblockUI(element);
-                });
-            }
-
-            function showForm(add) {
-                er.formVisible = true;
-
-                if (!er.items.length || add) {
-                    er.addRelatedField();
-                }
-            }
-
-            function closeForm() {
-                // Cancel the editing and restore the original values.
-                angular.copy(er.originalItems, er.items);
-                er.formVisible = false;
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('editableSelect', editableSelect);
-
-        function editableSelect() {
-            return {
-                restrict: 'E',
-                scope: {
-                    viewModel: '=',
-                    field: '@',
-                    type: '@',
-                    choiceField: '@',
-                    search: '@?',
-                    multiple: '@?',
-                    selectType: '@?',
-                    object: '=?',
-                    selectOptions: '=?' },
-                templateUrl: function templateUrl(elem, attrs) {
-                    if (attrs.selectType) {
-                        return 'base/directives/editable_' + attrs.selectType + '.html';
-                    }
-
-                    return 'base/directives/editable_select.html';
-                },
-                controller: EditableSelectController,
-                controllerAs: 'es',
-                transclude: true,
-                bindToController: true
-            };
-        }
-
-        EditableSelectController.$inject = ['$injector', '$scope', 'HLResource', 'HLSearch', 'HLUtils'];
-        function EditableSelectController($injector, $scope, HLResource, HLSearch, HLUtils) {
-            var es = this;
-
-            es.getChoices = getChoices;
-            es.refreshChoices = refreshChoices;
-            es.updateViewModel = updateViewModel;
-
-            activate();
-
-            // Broadcast function that executes the activate() function when somebody
-            // dynamically changes the inline select edit by using the 'assign to me'
-            // link, instead of selecting a person with the selectbox.
-            $scope.$on('activateEditableSelect', function () {
-                activate();
-            });
-
-            /////
-
-            function activate() {
-                if (!es.selectOptions) {
-                    // If it's undefined just set it to an empty object.
-                    // Ensures we don't need extra checks in the code.
-                    es.selectOptions = {};
-                }
-
-                if (!es.object) {
-                    es.object = es.viewModel[es.type.toLowerCase()];
-                }
-
-                // Certain values in the given view model are objects,
-                // so the default value in the select won't always work.
-                // If we're not dealing with an inline editable search select check
-                // if it's an object and add .id.
-                if (!es.search && _typeof(es.object[es.field]) === 'object') {
-                    if (es.object[es.field]) {
-                        es.selectModel = es.object[es.field].id;
-                    }
-                } else {
-                    es.selectModel = es.object[es.field];
-                }
-
-                if (es.selectOptions.hasOwnProperty('display')) {
-                    es.optionDisplay = es.selectOptions.display;
-                } else {
-                    es.optionDisplay = 'name';
-                }
-
-                if (es.search) {
-                    if (es.selectOptions.hasOwnProperty('placeholder')) {
-                        es.placeholder = es.selectOptions.placeholder;
-                    }
-                }
-
-                // Setup the form name so we can block the element while saving data.
-                es.formName = es.field.split('_').join('') + 'Form';
-            }
-
-            function getChoices() {
-                var type;
-                var field;
-                var resourceCall;
-                var returnValue;
-
-                if (es.selectOptions.hasOwnProperty('type')) {
-                    type = es.selectOptions.type;
-                } else {
-                    type = es.type;
-                }
-
-                if (es.selectOptions.hasOwnProperty('field')) {
-                    field = es.selectOptions.field;
-                } else {
-                    field = es.field;
-                }
-
-                resourceCall = HLResource.getChoicesForField(type, field);
-
-                if (!resourceCall.hasOwnProperty('$promise')) {
-                    es.choices = resourceCall;
-                    returnValue = false;
-                } else {
-                    // Add a return here so the select gets disabled while
-                    // loading the options.
-                    returnValue = resourceCall.$promise.then(function (data) {
-                        if (data.hasOwnProperty('results')) {
-                            es.choices = data.results;
-                        } else {
-                            es.choices = data;
-                        }
-                    });
-                }
-
-                return returnValue;
-            }
-
-            function refreshChoices(query) {
-                var type;
-                var searchPromise;
-                var sortColumn;
-                var nameColumn;
-                var extraFilterQuery;
-
-                if (es.selectOptions.hasOwnProperty('type')) {
-                    type = es.selectOptions.type;
-                } else {
-                    type = es.type;
-                }
-
-                if (es.selectOptions.hasOwnProperty('sortColumn')) {
-                    sortColumn = es.selectOptions.sortColumn;
-                }
-
-                if (es.selectOptions.hasOwnProperty('nameColumn')) {
-                    nameColumn = es.selectOptions.nameColumn;
-                }
-
-                extraFilterQuery = type === 'User' ? 'is_active:true' : '';
-
-                searchPromise = HLSearch.refreshList(query, type, extraFilterQuery, sortColumn, nameColumn);
-
-                if (searchPromise) {
-                    searchPromise.$promise.then(function (data) {
-                        es.choices = data.objects;
-                    });
-                }
-            }
-
-            function updateViewModel($data) {
-                var selected;
-                var i;
-                var updatePromise;
-
-                var args = {
-                    id: es.object.id
-                };
-
-                var form = '[name="es.' + es.formName + '"]';
-
-                if (!es.multiple) {
-                    // $data only contains the ID, so get the name from the choices in the scope.
-                    for (i = 0; i < es.choices.length; i++) {
-                        if (es.choices[i].id === $data) {
-                            selected = es.choices[i];
-                        }
-                    }
-                } else {
-                    HLUtils.blockUI(form, true);
-                }
-
-                if (!es.multiple) {
-                    if (es.choiceField) {
-                        es.object[es.field] = $data;
-                        // Choice fields end with '_display', so set the proper
-                        // variable so front end changes are reflected properly.
-                        es.object[es.field + '_display'] = selected.name;
-                    } else {
-                        es.object[es.field] = selected;
-                    }
-                }
-
-                if (typeof $data === 'undefined') {
-                    // We're probably clearing a select field, which produces undefined.
-                    args[es.field] = null;
-                } else {
-                    args[es.field] = $data;
-                }
-
-                if (es.viewModel.hasOwnProperty('updateModel')) {
-                    updatePromise = es.viewModel.updateModel(args);
-                } else {
-                    // Dealing with a generic view model (list widget, history list item) so just call the updateModel directly.
-                    updatePromise = $injector.get(es.type).updateModel(args, es.field, es.object);
-                }
-
-                return updatePromise.then(function () {
-                    HLUtils.unblockUI(form);
-
-                    if (es.hasOwnProperty(es.formName)) {
-                        es[es.formName].$hide();
-                    }
-
-                    if (es.search || es.selectType) {
-                        if (es.multiple) {
-                            es.object[es.field] = $data;
-                        }
-
-                        // Inline editable select2 field doesn't properly update
-                        // es.selectModel, so update it manually.
-                        es.selectModel = es.object[es.field];
-                    }
-                }).catch(function () {
-                    HLUtils.unblockUI(form);
-                });
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('editableTags', editableTags);
-
-        function editableTags() {
-            return {
-                restrict: 'E',
-                scope: {
-                    viewModel: '=',
-                    type: '@'
-                },
-                templateUrl: 'base/directives/editable_tags.html',
-                controller: EditableTagsController,
-                controllerAs: 'vm',
-                transclude: true,
-                bindToController: true
-            };
-        }
-
-        EditableTagsController.$inject = ['$timeout', 'HLSearch', 'HLUtils'];
-        function EditableTagsController($timeout, HLSearch, HLUtils) {
-            var vm = this;
-
-            vm.refreshTags = refreshTags;
-            vm.updateViewModel = updateViewModel;
-            vm.addTagChoice = addTagChoice;
-
-            activate();
-
-            /////
-
-            function activate() {
-                vm.object = vm.viewModel[vm.type];
-            }
-
-            function refreshTags(query) {
-                var searchPromise = HLSearch.refreshTags(query, vm.object, vm.type);
-
-                if (searchPromise) {
-                    searchPromise.$promise.then(function (data) {
-                        vm.choices = data.objects;
-                    });
-                }
-            }
-
-            function updateViewModel($data) {
-                var tagIds = [];
-                var removedTags = [];
-
-                var args = {
-                    id: vm.object.id
-                };
-
-                var form = '[name="vm.tagForm"]';
-
-                HLUtils.blockUI(form, true);
-
-                var _iteratorNormalCompletion = true;
-                var _didIteratorError = false;
-                var _iteratorError = undefined;
-
-                try {
-                    for (var _iterator = $data.filter(function (x) {
-                        return ('id' in x);
-                    })[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                        var tag = _step.value;
-
-                        tagIds.push(tag.id);
-                    }
-                } catch (err) {
-                    _didIteratorError = true;
-                    _iteratorError = err;
-                } finally {
-                    try {
-                        if (!_iteratorNormalCompletion && _iterator.return) {
-                            _iterator.return();
-                        }
-                    } finally {
-                        if (_didIteratorError) {
-                            throw _iteratorError;
-                        }
-                    }
-                }
-
-                removedTags = vm.object.tags.filter(function (tag) {
-                    return tagIds.indexOf(tag.id) === -1;
-                });
-
-                var _iteratorNormalCompletion2 = true;
-                var _didIteratorError2 = false;
-                var _iteratorError2 = undefined;
-
-                try {
-                    for (var _iterator2 = removedTags[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                        var _tag = _step2.value;
-
-                        _tag.is_deleted = true;
-                    }
-                } catch (err) {
-                    _didIteratorError2 = true;
-                    _iteratorError2 = err;
-                } finally {
-                    try {
-                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                            _iterator2.return();
-                        }
-                    } finally {
-                        if (_didIteratorError2) {
-                            throw _iteratorError2;
-                        }
-                    }
-                }
-
-                args.tags = $data.concat(removedTags);
-
-                return vm.viewModel.updateModel(args).then(function (response) {
-                    HLUtils.unblockUI(form);
-                    vm.tagForm.$hide();
-
-                    // Just setting the value doesn't update the values model properly.
-                    // So use $timeout so it gets applied in the next digest cycle.
-                    $timeout(function () {
-                        vm.viewModel[vm.type].tags = response.tags;
-                    });
-                });
-            }
-
-            function addTagChoice(tag) {
-                return {
-                    name: tag
-                };
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('editableText', editableText);
-
-        function editableText() {
-            return {
-                restrict: 'E',
-                scope: {
-                    field: '@',
-                    object: '=',
-                    updateCallback: '&'
-                },
-                templateUrl: 'base/directives/editable_text.html',
-                controller: EditableTextController,
-                controllerAs: 'vm',
-                transclude: true,
-                bindToController: true
-            };
-        }
-
-        EditableTextController.$inject = ['HLUtils'];
-        function EditableTextController(HLUtils) {
-            var vm = this;
-
-            vm.updateViewModel = updateViewModel;
-
-            activate();
-
-            /////
-
-            function activate() {
-                // Setup the form name so we can block the element while saving data.
-                vm.formName = vm.field.split('_').join('') + 'Form';
-            }
-
-            function updateViewModel(data) {
-                return vm.updateCallback()(data, vm.field);
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('editableTextarea', editableTextarea);
-
-        function editableTextarea() {
-            return {
-                restrict: 'E',
-                scope: {
-                    viewModel: '=',
-                    field: '@',
-                    object: '=',
-                    extraClass: '@'
-                },
-                templateUrl: 'base/directives/editable_textarea.html',
-                controller: EditableTextAreaController,
-                controllerAs: 'vm',
-                transclude: true,
-                bindToController: true
-            };
-        }
-
-        EditableTextAreaController.$inject = ['$injector', '$timeout', 'HLUtils'];
-        function EditableTextAreaController($injector, $timeout, HLUtils) {
-            var vm = this;
-
-            vm.updateViewModel = updateViewModel;
-            vm.decodeText = decodeText;
-
-            activate();
-
-            /////
-
-            function activate() {
-                vm.selectModel = vm.object[vm.field];
-            }
-
-            function decodeText() {
-                // Convert the HTML entities to human readable characters.
-                if (vm.selectModel) {
-                    vm.selectModel = HLUtils.decodeHtmlEntities(vm.selectModel);
-                }
-            }
-
-            function updateViewModel($data) {
-                var patchPromise;
-                var modelName;
-                var args = {
-                    id: vm.object.id
-                };
-
-                args[vm.field] = $data;
-
-                if (vm.object.historyType) {
-                    modelName = vm.object.historyType.charAt(0).toUpperCase() + vm.object.historyType.slice(1);
-
-                    patchPromise = $injector.get(modelName).updateModel(args);
-                } else {
-                    patchPromise = vm.viewModel.updateModel(args);
-                }
-
-                return patchPromise.then(function (data) {
-                    // Set the encoded value so it get's properly displayed in the frontend.
-                    $timeout(function () {
-                        // Just setting the value doesn't update the values model properly.
-                        // So use $timeout so it gets applied in the next digest cycle.
-                        vm.object[vm.field] = data[vm.field];
-                    });
-                });
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        /**
-         * HL specific pagination directive for generic pagination use.
-         *
-         * @param values {Object}: Contains table information used to set up pagination.
-         *
-         * Example:
-         * <hl-pagination values="vm.table"></hl-pagination>
-         */
-        angular.module('app.directives').directive('hlPagination', hlPagination);
-
-        function hlPagination() {
-            return {
-                restrict: 'E',
-                scope: {
-                    values: '='
-                },
-                templateUrl: 'base/directives/hl_pagination.html'
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        /**
-         * HL directive to add a scrolling indicator to widgets with a specific height.
-         *
-         */
-        angular.module('app.directives').directive('hlScrollIndicator', hlScrollIndicator);
-
-        hlScrollIndicator.$inject = ['$timeout', '$window'];
-
-        function hlScrollIndicator($timeout, $window) {
-            return {
-                restrict: 'A',
-                scope: true,
-                compile: function compile(tElement) {
-                    return function (scope, element) {
-                        var elm = element[0];
-                        var check = function check() {
-                            var maxHeight = elm.offsetHeight === elm.scrollHeight;
-                            // In certain cases the combined values won't be more than
-                            // the scrollHeight eventhough we've reached the bottom.
-                            // So for those cases we subtract 11 from the scrollHeight
-                            // which is roughly equal to the height of the scroll indicator.
-                            var endReached = elm.offsetHeight + elm.scrollTop >= elm.scrollHeight - 11;
-                            var widgetStatus = scope.vm.widgetInfo.status;
-
-                            // Show the scroll indicator if we've:
-                            // Reached the end of the scrollable area
-                            // or if our widget is expanded and already at max-height.
-                            scope.vm.showFade = !endReached || maxHeight && widgetStatus === 3;
-                        };
-
-                        var appliedCheck = function appliedCheck() {
-                            scope.$apply(check);
-                        };
-
-                        element.bind('scroll', appliedCheck);
-
-                        check();
-
-                        $timeout(check, 500);
-
-                        angular.element($window).bind('resize', appliedCheck);
-                    };
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('inputAutoSize', inputAutoSize);
-
-        function inputAutoSize() {
-            return {
-                restrict: 'A',
-                link: function link(scope, element, attrs) {
-                    scope.$watch('$data', function (newValue) {
-                        var input = angular.element('[name="' + attrs.eName + '"]');
-
-                        // Set the size attribute of the input so it gets scaled.
-                        input.attr('size', newValue.length);
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('listFilter', listFilter);
-
-        function listFilter() {
-            return {
-                restrict: 'E',
-                scope: {
-                    filterLabel: '=',
-                    filterLabelPlural: '=',
-                    viewModel: '='
-                },
-                templateUrl: 'base/directives/list_filter.html',
-                controller: ListFilterController,
-                controllerAs: 'vm',
-                bindToController: true
-            };
-        }
-
-        ListFilterController.$inject = ['$filter', '$timeout', 'HLFilters'];
-        function ListFilterController($filter, $timeout, HLFilters) {
-            var vm = this;
-
-            vm.toggleFilter = toggleFilter;
-            vm.setAll = setAll;
-            vm.updateFilterQuery = updateFilterQuery;
-
-            vm.allSelected = false;
-            vm.filterDisplayName = vm.filterLabel;
-            vm.filterPlural = vm.filterLabelPlural;
-
-            $timeout(activate);
-
-            /////
-
-            function activate() {
-                var update = false;
-                if (vm.viewModel.storedFilterList) {
-                    vm.viewModel.filterList = vm.viewModel.storedFilterList;
-                    update = true;
-                }
-
-                if (vm.viewModel.storedFilterSpecialList) {
-                    vm.viewModel.filterSpecialList = vm.viewModel.storedFilterSpecialList;
-                    update = true;
-                }
-
-                if (update) {
-                    updateAllSelected();
-                    updateFilterQuery();
-                    updateFilterDisplayName();
-                }
-            }
-
-            function setAll(value) {
-                var newValue;
-
-                var filterList = vm.viewModel.filterList;
-
-                if (vm.viewModel.filterSpecialList) {
-                    filterList = vm.viewModel.filterSpecialList;
-                }
-
-                if (typeof value !== 'undefined') {
-                    // Set all items to the given value.
-                    newValue = value;
-                } else {
-                    // Deselect/Select all items.
-                    vm.allSelected = !vm.allSelected;
-                    newValue = vm.allSelected;
-                }
-
-                angular.forEach(filterList, function (item) {
-                    item.selected = newValue;
-                });
-
-                updateFilterQuery();
-                updateFilterDisplayName();
-            }
-
-            function toggleFilter(filter) {
-                // ngModel on a checkbox seems to load really slow, so doing the toggling this way.
-                filter.selected = !filter.selected;
-
-                updateAllSelected();
-                updateFilterQuery();
-                updateFilterDisplayName();
-            }
-
-            function updateAllSelected() {
-                // Keep the All selected checkbox in sync whether or not all items are selected.
-                var filterList = vm.viewModel.filterList;
-                if (vm.viewModel.filterSpecialList) {
-                    filterList = vm.viewModel.filterSpecialList;
-                }
-
-                vm.allSelected = true;
-
-                angular.forEach(filterList, function (item) {
-                    if (!item.selected) {
-                        vm.allSelected = false;
-                    }
-                });
-            }
-
-            function updateFilterQuery() {
-                HLFilters.updateFilterQuery(vm.viewModel);
-
-                if (vm.viewModel.hasOwnProperty('updateTable')) {
-                    vm.viewModel.updateTable();
-                }
-
-                vm.viewModel.storage.put('filterListSelected', vm.viewModel.filterList);
-                vm.viewModel.storage.put('filterSpecialListSelected', vm.viewModel.filterSpecialList);
-            }
-
-            function updateFilterDisplayName() {
-                var filterList = vm.viewModel.filterList;
-                var selectedItems = [];
-                var label = vm.filterLabel;
-
-                if (vm.viewModel.filterSpecialList) {
-                    filterList = vm.viewModel.filterSpecialList;
-                }
-
-                selectedItems = $filter('filter')(filterList, { selected: true });
-
-                if (selectedItems.length) {
-                    if (selectedItems.length < 3) {
-                        label = selectedItems.map(function (item) {
-                            return item.name;
-                        }).join(' + ');
-                    } else {
-                        label = selectedItems.length + ' ' + vm.filterLabel + ' selected';
-                    }
-
-                    vm.displayClearButton = true;
-                } else {
-                    vm.displayClearButton = false;
-                }
-
-                vm.filterDisplayName = label;
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('listWidget', ListWidget);
-
-        function ListWidget() {
-            return {
-                restrict: 'E',
-                scope: {
-                    title: '@',
-                    module: '=',
-                    list: '=',
-                    height: '=',
-                    addLink: '@',
-                    collapsableItems: '=',
-                    object: '='
-                },
-                templateUrl: function templateUrl(elem, attrs) {
-                    var templateUrl = '';
-
-                    if (attrs.module) {
-                        // Template url can't be determined from the given title. So use the module name.
-                        templateUrl = attrs.module + '/directives/list_widget.html';
-                    } else {
-                        templateUrl = attrs.title.toLowerCase() + '/directives/list_widget.html';
-                    }
-
-                    return templateUrl;
-                },
-                controller: ListWidgetController,
-                controllerAs: 'vm',
-                bindToController: true
-            };
-        }
-
-        ListWidgetController.$inject = ['$filter', '$state', 'Settings'];
-        function ListWidgetController($filter, $state, Settings) {
-            var vm = this;
-
-            vm.settings = Settings;
-
-            vm.googleAnalyticsEvent = googleAnalyticsEvent;
-
-            activate();
-
-            /////
-
-            function activate() {
-                if (vm.collapsableItems) {
-                    // Certain list widgets have collapsable cells, so set the default state to collapsed.
-                    if (!vm.list.hasOwnProperty('$promise')) {
-                        // Array was passed, so just pass the list.
-                        _setCollapsed(vm.list);
-                    } else {
-                        vm.list.$promise.then(function (response) {
-                            // List hasn't fully loaded, so wait and pass the response.
-                            _setCollapsed(response);
-                        });
-                    }
-                }
-            }
-
-            // Google Analytics function to set labels to differentiate in Analytics
-            // which widget the user used to add a case or deal.
-            function googleAnalyticsEvent() {
-                if ($state.current.name === 'base.contacts.detail' && vm.title === 'Cases') {
-                    ga('send', 'event', 'Case', 'Open', 'Contact Widget');
-                }
-
-                if ($state.current.name === 'base.accounts.detail' && vm.title === 'Cases') {
-                    ga('send', 'event', 'Case', 'Open', 'Account Widget');
-                }
-
-                if ($state.current.name === 'base.contacts.detail' && vm.title === 'Deals') {
-                    ga('send', 'event', 'Deal', 'Open', 'Contact Widget');
-                }
-
-                if ($state.current.name === 'base.accounts.detail' && vm.title === 'Deals') {
-                    ga('send', 'event', 'Deal', 'Open', 'Account Widget');
-                }
-
-                if ($state.current.name === 'base.accounts.detail' && vm.title !== 'Deals' && vm.title !== 'Cases') {
-                    ga('send', 'event', 'Contact', 'Open', 'Account Widget');
-                }
-
-                if ($state.current.name === 'base.contacts.detail' && vm.title !== 'Deals' && vm.title !== 'Cases') {
-                    ga('send', 'event', 'Contact', 'Open', 'Contact Widget');
-                }
-            }
-
-            function _setCollapsed(items) {
-                var list;
-                var cases;
-                var deals;
-                var archivedCases;
-                var archivedDeals;
-
-                if (items.hasOwnProperty('objects')) {
-                    list = items.objects;
-                } else {
-                    list = items;
-                }
-
-                angular.forEach(list, function (item) {
-                    item.collapsed = true;
-                });
-
-                // We want to apply a certain sorting for cases.
-                if (vm.title === 'Cases') {
-                    // Separate non-archived cases and order by priority.
-                    cases = $filter('filter')(list, { is_archived: false });
-                    cases = $filter('orderBy')(cases, '-priority');
-
-                    // Separate archived cases and order by expiry date.
-                    archivedCases = $filter('filter')(list, { is_archived: true });
-                    archivedCases = $filter('orderBy')(archivedCases, '-expires');
-
-                    // Add archived cases to cases array.
-                    cases.push.apply(cases, archivedCases);
-
-                    list = cases;
-                }
-
-                // We want to apply a certain sorting for deals.
-                if (vm.title === 'Deals') {
-                    // Separate non-archived deals.
-                    deals = $filter('filter')(list, { is_archived: false });
-
-                    // Separate archived deals.
-                    archivedDeals = $filter('filter')(list, { is_archived: true });
-
-                    // Add archived deals to deals array.
-                    deals.push.apply(deals, archivedDeals);
-
-                    list = deals;
-                }
-
-                vm.list = list;
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('markAssignedButton', markAssignedButton);
-
-        function markAssignedButton() {
-            return {
-                restrict: 'A',
-                scope: {
-                    callback: '&'
-                },
-                link: function link(scope, element, attrs) {
-                    element.on('click', function () {
-                        // Get the closest table row.
-                        element.closest('.newly-assigned').fadeOut(500, function () {
-                            // Mark the item as assigned.
-                            scope.callback();
-                        });
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('onEnterKey', onEnterKey);
-
-        function onEnterKey() {
-            return function (scope, element, attrs) {
-                element.bind('keydown keypress', function (event) {
-                    if (event.which === 13) {
-                        scope.$apply(function () {
-                            scope.$eval(attrs.onEnterKey);
-                        });
-
-                        event.preventDefault();
-                    }
-                });
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('onModEnterKey', onModEnterKey);
-
-        function onModEnterKey() {
-            return function (scope, element, attrs) {
-                element.bind('keydown keypress', function (event) {
-                    if (navigator.userAgent.indexOf('Mac OS X') !== -1) {
-                        if (event.which === 13 && event.metaKey) {
-                            scope.$apply(function () {
-                                scope.$eval(attrs.onModEnterKey);
-                            });
-
-                            event.preventDefault();
-                        }
-                    } else {
-                        if (event.which === 13 && event.ctrlKey) {
-                            scope.$apply(function () {
-                                scope.$eval(attrs.onModEnterKey);
-                            });
-
-                            event.preventDefault();
-                        }
-                    }
-                });
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('resizeIframe', resizeIframe);
-
-        function resizeIframe() {
-            return {
-                restrict: 'A',
-                link: function link($scope, element, attrs) {
-                    var maxHeight = $('body').outerHeight();
-                    element.on('load', function () {
-                        var ifDoc;
-                        var ifRef;
-                        var subtractHeights;
-                        var height;
-
-                        element.removeClass('hidden');
-
-                        // Do this after .inbox-view is visible.
-                        ifDoc = this;
-                        ifRef = this;
-
-                        // set ifDoc to 'document' from frame
-                        try {
-                            ifDoc = ifRef.contentWindow.document.documentElement;
-                        } catch (e1) {
-                            try {
-                                ifDoc = ifRef.contentDocument.documentElement;
-                            } catch (e2) {
-                                throw e2.message;
-                            }
-                        }
-
-                        // calculate and set max height for frame
-                        if (ifDoc) {
-                            subtractHeights = [element.offset().top, $('.footer').outerHeight(), $('.inbox-attached').outerHeight()];
-                            for (height in subtractHeights) {
-                                maxHeight = maxHeight - height;
-                            }
-
-                            if (ifDoc.scrollHeight > maxHeight) {
-                                ifRef.height = maxHeight;
-                            } else {
-                                ifRef.height = ifDoc.scrollHeight;
-                            }
-                        }
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('saveAndArchive', saveAndArchiveDirective);
-
-        function saveAndArchiveDirective() {
-            return {
-                restrict: 'A',
-                link: function link(scope, elem, attrs) {
-                    // Setting button to right text based in archived state
-                    var $button = $('#archive-button');
-                    var $archiveField = $('#id_is_archived');
-                    if ($archiveField.val() === 'True') {
-                        $button.find('span').text('Save and Unarchive');
-                    } else {
-                        $button.find('span').text('Save and Archive');
-                    }
-
-                    // On button click set archived hidden field and submit form.
-                    elem.on('click', function () {
-                        var $form = $button.closest('form');
-                        var archive = $archiveField.val() === 'True' ? 'False' : 'True';
-                        $archiveField.val(archive);
-                        // Native form validation passed; set the loading text on the
-                        // `Save and Archive` button.
-                        if ($form.get(0).checkValidity()) {
-                            $button.button('loading');
-                        }
-                        $form.find(':submit').click();
-                        event.preventDefault();
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        /**
-         * sortColumn directive adds sorting classes to an DOM element based on `table` object
-         *
-         * It makes the element clickable and sets the table sorting based on that element
-         *
-         * @param sortColumn string: name of the column to sort on when clicked
-         * @param table object: The object to bind sort column and ordering
-         *
-         * Example:
-         *
-         * <th sort-column="last_name" table="table">Name</th>
-         *
-         * Possible classes:
-         * - sorting: Unsorted
-         * - sorting_asc: Sorted ascending
-         * - sorting_desc: Sorted descending
-         */
-        angular.module('app.directives').directive('sortColumn', sortColumn);
-
-        function sortColumn() {
-            /**
-             * _setSortableIcon() removes current sorting classes and adds new based on current
-             * sorting column and direction
-             *
-             * @param $scope object: current scope
-             * @param element object: current DOM element
-             * @param column string: column from current DOM element
-             */
-            var _setSortableIcon = function _setSortableIcon($scope, element, column) {
-                // Add classes based on current sorted column
-                if ($scope.table.order.column === column) {
-                    if ($scope.table.order.descending) {
-                        $scope.sorted = -1;
-                    } else {
-                        $scope.sorted = 1;
-                    }
-                } else {
-                    $scope.sorted = 0;
-                }
-            };
-
-            return {
-                restrict: 'A',
-                scope: {
-                    table: '='
-                },
-                transclude: true,
-                templateUrl: 'base/directives/sort_column.html',
-                link: function link($scope, element, attrs) {
-                    // Watch the table ordering & sorting
-                    $scope.$watchCollection('table.order', function () {
-                        _setSortableIcon($scope, element, attrs.sortColumn);
-                    });
-
-                    // When element is clicked, set the table ordering & sorting based on this DOM element
-                    element.on('click', function () {
-                        if ($scope.table.order.column === attrs.sortColumn) {
-                            // Toggle between the 3 states of a column:
-                            // - ascending
-                            // - descending
-                            // - no sorting
-                            if ($scope.table.order.descending) {
-                                $scope.table.order.column = '';
-                                $scope.table.order.descending = null;
-                            } else {
-                                $scope.table.order.descending = !$scope.table.order.descending;
-                            }
-
-                            $scope.$apply();
-                        } else {
-                            $scope.table.order.column = attrs.sortColumn;
-                            $scope.$apply();
-                        }
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.directives').directive('ngSpinnerBar', ngSpinnerBar);
-
-        ngSpinnerBar.$inject = ['$rootScope'];
-        function ngSpinnerBar($rootScope) {
-            return {
-                link: function link(scope, element, attrs) {
-                    // By default hide the spinner bar.
-                    element.addClass('hide');
-
-                    // Display the spinner bar whenever the route changes (the content part started loading).
-                    $rootScope.$on('$stateChangeStart', function () {
-                        element.removeClass('hide');
-                    });
-
-                    // Hide the spinner bar on route change success (after the content loaded).
-                    $rootScope.$on('$stateChangeSuccess', function () {
-                        element.addClass('hide');
-                        // Remove page loading indicator.
-                        $('body').removeClass('page-on-load');
-                    });
-
-                    // Handle errors.
-                    $rootScope.$on('$stateNotFound', function () {
-                        element.addClass('hide');
-                    });
-
-                    $rootScope.$on('$stateChangeError', function () {
-                        element.addClass('hide');
-                    });
-                }
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        //angular.module('app.dashboard.directives').directive('widget', widget);
-        angular.module('app.directives').directive('widget', widget);
-
-        function widget() {
-            return {
-                restrict: 'E',
-                scope: {
-                    widgetName: '=',
-                    widgetCloseable: '=',
-                    widgetClass: '=',
-                    widgetScrollable: '=',
-                    widgetDynamicHeight: '='
-                },
-                templateUrl: 'base/directives/widget.html',
-                controller: WidgetController,
-                controllerAs: 'vm',
-                bindToController: true,
-                transclude: {
-                    widgetHeader: 'widgetHeader',
-                    widgetFilters: '?widgetFilters',
-                    widgetBody: 'widgetBody'
-                }
-            };
-        }
-
-        WidgetController.$inject = ['$scope', '$state', 'LocalStorage'];
-        function WidgetController($scope, $state, LocalStorage) {
-            var vm = this;
-            var storage = new LocalStorage($state.current.name + 'widgetInfo');
-            var widgetStatus = {
-                hidden: 0,
-                visible: 1,
-                collapsed: 2,
-                expanded: 3
-            };
-
-            vm.storageName = _getWidgetStorageName();
-
-            vm.toggleCollapse = toggleCollapse;
-            vm.removeWidget = removeWidget;
-            vm.expandToggle = expandToggle;
-
-            activate();
-
-            ////////////
-
-            function activate() {
-                // Get visibility status of the widget
-                var widgetInfo = storage.getObjectValue(vm.storageName, {});
-
-                if ((typeof widgetInfo === "undefined" ? "undefined" : _typeof(widgetInfo)) === 'object' && !Object.keys(widgetInfo).length) {
-                    // No locally stored value, so set status to visible
-                    widgetInfo.status = widgetStatus.visible;
-                    widgetInfo.name = vm.widgetName;
-                }
-
-                vm.widgetInfo = widgetInfo;
-
-                _updateWidgetStorage();
-                _watchWidgetVisibility();
-            }
-
-            function _getWidgetStorageName() {
-                // Strip all whitespace and make the name lowercase
-                return vm.widgetName.replace(/\s+/g, '').toLowerCase();
-            }
-
-            function _watchWidgetVisibility() {
-                // Check the status of a widget for changes and update the locally stored value
-                $scope.$watch('vm.widgetInfo.status', function () {
-                    _updateWidgetStorage();
-                });
-            }
-
-            /**
-             * Stores the widget info in local storage.
-             * The widget info contains the name of the widget (used for settings)
-             * and visibility status of the widget.
-             */
-            function _updateWidgetStorage() {
-                storage.putObjectValue(vm.storageName, vm.widgetInfo);
-            }
-
-            function toggleCollapse() {
-                if (vm.widgetInfo.status === widgetStatus.visible || vm.widgetInfo.status === widgetStatus.expanded) {
-                    // Check if the fade is initially set to prevent it from showing up
-                    // when the widget isn't scrollable.
-                    if ($scope.vm.showFade) {
-                        $scope.vm.showFade = false;
-                    }
-
-                    vm.widgetInfo.status = widgetStatus.collapsed;
-                } else {
-                    if ($scope.vm.showFade === false) {
-                        $scope.vm.showFade = true;
-                    }
-
-                    vm.widgetInfo.status = widgetStatus.visible;
-                }
-            }
-
-            function expandToggle() {
-                if (vm.widgetInfo.status === widgetStatus.visible) {
-                    vm.widgetInfo.status = widgetStatus.expanded;
-                } else {
-                    vm.widgetInfo.status = widgetStatus.visible;
-                }
-            }
-
-            function removeWidget() {
-                vm.widgetInfo.status = widgetStatus.hidden;
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
         /**
          * Router definition.
          */
@@ -19161,6 +17019,86 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         ErrorController.$inject = ['Settings'];
         function ErrorController(Settings) {
             Settings.page.setAllTitles('custom', 'Error');
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.brand').config(brandConfig);
+
+        brandConfig.$inject = ['$stateProvider'];
+        function brandConfig($stateProvider) {
+            $stateProvider.state('base.brand', {
+                url: '/brand',
+                views: {
+                    '@': {
+                        templateUrl: 'brand/controllers/index.html',
+                        controller: BrandController,
+                        controllerAs: 'vm'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Brand'
+                }
+            });
+        }
+
+        angular.module('app.brand').controller('BrandController', BrandController);
+
+        BrandController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
+        function BrandController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
+            var vm = this;
+
+            vm.storage = new LocalStorage('brand');
+
+            init();
+            _setupWatchers();
+
+            //////
+
+            function init() {
+                // This timeout is needed because by loading from LocalStorage isn't fast enough.
+                $timeout(function () {
+                    //初始化的一些动作
+                }, 50);
+            }
+
+            function _setupWatchers() {
+                /**
+                 * 一组变量onchange监听
+                 * 
+                 */
+                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
+                    //都会执行的函数1();
+                    //都会执行的函数2();
+                });
+
+                /**
+                 * 数组集合onchange的监听
+                 */
+                $scope.$watchCollection('vm.table.visibility', function () {
+                    //都会执行的函数1();
+                });
+
+                /**
+                 *单一变量onchange监听
+                 */
+                $scope.$watch('vm.filterList', function () {
+                    //都会执行的函数1();
+                }, true);
+            }
         }
     }, {}] }, {}, [1]);})(angular);
 (function(angular){'use strict';"use strict";
@@ -23394,6 +21332,2148 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('activateSelect', activateSelect);
+
+        function activateSelect($timeout) {
+            return {
+                restrict: 'A',
+                require: '?uiSelect',
+                link: function link(scope, element, attrs, $select) {
+                    // TODO: Once Select2 implements default select behaviour we can convert all
+                    // current normal selects to Select2. After that we can uncomment this code
+                    // and make it so selects automatically get opened when inline editing.
+                    // Note: When building the app minified look out for the following error:
+                    // vendor.js:6 Error: [$injector:unpr] Unknown provider: rProvider <- r <- activateSelectDirective
+                    // This doesn't happen when building normally (and not sure if it happens on live.), but something
+                    // that needs to be looked at.
+                    // scope.$watch('$form.$visible', function() {
+                    //     $timeout(function() {
+                    // Open the select on the next digest cycle.
+                    // if ($select) {
+                    // $select.activate();
+                    // }
+                    //     });
+                    // });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('autofocusIf', autofocusIf);
+
+        function autofocusIf() {
+            return {
+                restrict: 'A',
+                link: function link(scope, element, attrs) {
+                    scope.$watch(function () {
+                        return scope.$eval(attrs.autofocusIf);
+                    }, function (bool) {
+                        if (bool === true) {
+                            element[0].focus();
+                        }
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('callerInfo', callerInfo);
+
+        function callerInfo() {
+            return {
+                restrict: 'E',
+                scope: true,
+                templateUrl: 'base/directives/caller_info.html',
+                controller: CallerInfoController,
+                controllerAs: 'vm',
+                transclude: true,
+                bindToController: true
+            };
+        }
+
+        CallerInfoController.$inject = ['$state', 'Account', 'Call'];
+        function CallerInfoController($state, Account, Call) {
+            var vm = this;
+
+            vm.fetchCallerInfo = fetchCallerInfo;
+
+            function fetchCallerInfo() {
+                // Get the latest call of the current user based on the internal number.
+                Call.getLatestCall().$promise.then(function (callInfo) {
+                    var call = callInfo.call;
+
+                    if (call) {
+                        // There was a call for the current user, so try to find an account with the given number.
+                        Account.searchByPhoneNumber({ number: call.caller_number }).$promise.then(function (response) {
+                            if (response.data.accounts.length) {
+                                // Account found so redirect to the account.
+                                $state.go('base.accounts.detail', { id: response.data.accounts[0] }, { reload: true });
+                            } else if (response.data.contacts.length) {
+                                // Contact found so redirect to the contact.
+                                $state.go('base.contacts.detail', { id: response.data.contacts[0] }, { reload: true });
+                            } else {
+                                // No account or contact found so redirect to create account form.
+                                $state.go('base.accounts.create', {
+                                    'name': call.caller_name,
+                                    'phone_number': call.caller_number
+                                }, { reload: true });
+                            }
+                        });
+                    } else {
+                        toastr.error('No calls for you right now', 'No calls');
+                    }
+                });
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        /**
+         * checkbox Directive makes a nice uniform checkbox and binds to a model
+         *
+         * @param model object: model to bind checkbox with
+         *
+         * Example:
+         * <checkbox model="table.visibility.name">Name</checkbox>
+         */
+        angular.module('app.directives').directive('checkbox', checkbox);
+
+        function checkbox() {
+            return {
+                restrict: 'E',
+                replace: true,
+                transclude: true,
+                scope: {
+                    model: '='
+                },
+                templateUrl: 'base/directives/checkbox.html'
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        /**
+         * Directive give a nice formatting on input elements.
+         *
+         * It makes sure that the value of the ngModel on the scope has a nice
+         * formatting for the user
+         */
+        angular.module('app.directives').directive('dateFormatter', dateFormatter);
+
+        dateFormatter.$inject = ['dateFilter'];
+        function dateFormatter(dateFilter) {
+            return {
+                restrict: 'A',
+                require: 'ngModel',
+                link: function link(scope, element, attrs, ngModel) {
+                    ngModel.$formatters.push(function (value) {
+                        if (value) {
+                            return dateFilter(value, attrs.dateFormatter);
+                        }
+
+                        return value;
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        /**
+         * Directive to show a confirmation box before deleting.
+         */
+        angular.module('app.directives').directive('deleteConfirmation', deleteConfirmation);
+        function deleteConfirmation() {
+            return {
+                restrict: 'E',
+                scope: {
+                    model: '@',
+                    object: '=',
+                    displayField: '@?',
+                    callback: '&?',
+                    buttonClass: '@?',
+                    iconClass: '@?',
+                    messageObject: '=?',
+                    helpText: '@?'
+                },
+                templateUrl: 'base/directives/delete_confirmation.html',
+                controller: DeleteConfirmationController,
+                controllerAs: 'vm',
+                transclude: true,
+                bindToController: true
+            };
+        }
+
+        DeleteConfirmationController.$inject = ['$state', 'HLResource', 'Settings'];
+        function DeleteConfirmationController($state, HLResource, Settings) {
+            var vm = this;
+
+            vm.openConfirmationModal = openConfirmationModal;
+
+            activate();
+
+            ////
+
+            function activate() {
+                if (!vm.buttonClass) {
+                    vm.buttonClass = '';
+                }
+
+                if (!vm.iconClass) {
+                    vm.iconClass = 'lilicon hl-trashcan-icon';
+                }
+
+                if (!vm.helpText) {
+                    vm.helpText = 'Delete';
+                }
+
+                if (vm.messageObject) {
+                    vm.messages = {
+                        'confirmTitle': vm.messageObject.confirmTitle || messages.alerts.delete.confirmTitle,
+                        'confirmText': vm.messageObject.confirmText || messages.alerts.delete.confirmText,
+                        'confirmButtonText': vm.messageObject.confirmButtonText || messages.alerts.delete.confirmButtonText,
+                        'errorTitle': vm.messageObject.errorTitle || messages.alerts.delete.errorTitle,
+                        'errorText': vm.messageObject.errorText || messages.alerts.delete.errorText,
+                        'successTitle': vm.messageObject.successTitle || messages.alerts.delete.successTitle,
+                        'successText': vm.messageObject.successText || messages.alerts.delete.successText
+                    };
+                } else {
+                    vm.messages = messages.alerts.delete;
+                }
+            }
+
+            function openConfirmationModal() {
+                var name = '';
+
+                if (vm.displayField) {
+                    name = vm.object[vm.displayField];
+                } else if (vm.object.hasOwnProperty('name')) {
+                    name = vm.object.name;
+                } else if (vm.object.hasOwnProperty('full_name')) {
+                    name = vm.object.full_name;
+                }
+
+                swal({
+                    title: vm.messages.confirmTitle,
+                    html: sprintf(vm.messages.confirmText, { name: name ? name : 'this ' + vm.model.toLowerCase() }),
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#f3565d',
+                    confirmButtonText: vm.messages.confirmButtonText,
+                    preConfirm: function preConfirm() {
+                        swal.enableLoading();
+                        return new Promise(function (resolve) {
+                            HLResource.delete(vm.model, vm.object).then(function () {
+                                // Delete was successful, so continue.
+                                resolve();
+                            }, function (error) {
+                                // Otherwise show error alert.
+                                swal({
+                                    title: vm.messages.errorTitle,
+                                    html: vm.messages.errorText,
+                                    type: 'error'
+                                });
+                            });
+                        });
+                    }
+                }).then(function (isConfirm) {
+                    if (isConfirm) {
+                        // In certain cases we want to call a function of another controller.
+                        if (vm.callback) {
+                            // Call the given function.
+                            vm.callback();
+                        } else {
+                            if (Settings.page.previousState && !Settings.page.previousState.state.name.endsWith('edit')) {
+                                // Go to the previous page if it isn't the edit page of the just deleted item.
+                                $state.go(Settings.page.previousState.state, Settings.page.previousState.params);
+                            } else {
+                                // Otherwise just go to the list view, which is the parent state.
+                                $state.go($state.current.parent);
+                            }
+                        }
+                    }
+                }).done();
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('editableCheckbox', editableCheckbox);
+
+        function editableCheckbox() {
+            return {
+                restrict: 'E',
+                scope: {
+                    viewModel: '=',
+                    field: '@',
+                    type: '@'
+                },
+                templateUrl: 'base/directives/editable_checkbox.html',
+                controller: EditableCheckboxController,
+                controllerAs: 'ec',
+                transclude: true,
+                bindToController: true
+            };
+        }
+
+        EditableCheckboxController.$inject = [];
+        function EditableCheckboxController() {
+            var ec = this;
+
+            ec.object = ec.viewModel[ec.type.toLowerCase()];
+
+            ec.updateViewModel = updateViewModel;
+
+            function updateViewModel() {
+                var args = {
+                    id: ec.object.id
+                };
+
+                args[ec.field] = ec.object[ec.field];
+
+                return ec.viewModel.updateModel(args);
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('editableHandler', editableHandler);
+
+        function editableHandler() {
+            return {
+                restrict: 'A',
+                link: function link(scope, element, attrs) {
+                    var form;
+                    var isPencilClick = false;
+
+                    if (scope.hasOwnProperty('$form')) {
+                        form = scope.$form;
+                    } else {
+                        form = scope[attrs.eForm];
+                    }
+
+                    element.on('click', function (event) {
+                        // For most inline editable elements the clickable area belongs to the element.
+                        // So check if the clicked part was actually the edit icon.
+                        if (event.offsetX > event.currentTarget.offsetWidth) {
+                            form.$show();
+                            isPencilClick = true;
+
+                            scope.$apply();
+                        }
+                    });
+
+                    element.on('click', '.hl-edit-icon', function (event) {
+                        // Certain inline editable elements have a separate button,
+                        // so an extra check for the clicked area isn't needed.
+                        form.$show();
+                        isPencilClick = true;
+
+                        scope.$apply();
+                    });
+
+                    scope.$watch('$form.$visible', function (newValue, oldValue) {
+                        if (newValue) {
+                            if (isPencilClick) {
+                                ga('send', 'event', 'Field', 'Edit', 'Pencil');
+                            } else {
+                                ga('send', 'event', 'Field', 'Edit', 'Double click');
+                            }
+
+                            // Reset the variable.
+                            isPencilClick = false;
+                        }
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('editableLink', editableLink);
+
+        function editableLink() {
+            return {
+                restrict: 'E',
+                scope: {
+                    viewModel: '=',
+                    type: '@',
+                    field: '@',
+                    object: '=?',
+                    socialMediaName: '@?'
+                },
+                templateUrl: 'base/directives/editable_link.html',
+                controller: EditableLinkController,
+                controllerAs: 'el',
+                transclude: true,
+                bindToController: true
+            };
+        }
+
+        EditableLinkController.$inject = [];
+        function EditableLinkController() {
+            var el = this;
+
+            el.updateViewModel = updateViewModel;
+
+            activate();
+
+            /////
+
+            function activate() {
+                if (!el.object) {
+                    if (!el.socialMediaName) {
+                        el.object = el.viewModel[el.type.toLowerCase()];
+                    }
+                }
+            }
+
+            function updateViewModel($data) {
+                var patchPromise;
+
+                var args = {};
+
+                if (el.object) {
+                    args = {
+                        id: el.object.id
+                    };
+                }
+
+                args[el.field] = $data;
+
+                if (el.socialMediaName) {
+                    args.name = el.socialMediaName;
+                    patchPromise = el.viewModel.updateModel(args, el.socialMediaName);
+                } else {
+                    patchPromise = el.viewModel.updateModel(args).$promise;
+                }
+
+                return patchPromise;
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('editableRelated', editableRelated);
+
+        function editableRelated() {
+            return {
+                restrict: 'E',
+                scope: {
+                    model: '=',
+                    type: '@',
+                    field: '@'
+                },
+                templateUrl: function templateUrl(elem, attrs) {
+                    return 'base/directives/editable_' + attrs.field + '.html';
+                },
+                controller: EditableRelatedController,
+                controllerAs: 'er',
+                transclude: true,
+                bindToController: true,
+                link: function link(scope, element, attr) {
+                    // Bind click event to the current directive.
+                    element.on('click', '.js-edit', function () {
+                        scope.er.showForm();
+                        scope.$apply();
+                    });
+
+                    element.on('click', '.js-add', function () {
+                        scope.er.showForm(true);
+                        scope.$apply();
+                    });
+                }
+            };
+        }
+
+        EditableRelatedController.$inject = ['HLFields', 'HLResource', 'HLUtils'];
+        function EditableRelatedController(HLFields, HLResource, HLUtils) {
+            var er = this;
+            er.formVisible = false;
+
+            er.addRelatedField = addRelatedField;
+            er.removeRelatedField = removeRelatedField;
+            er.closeForm = closeForm;
+            er.submit = submit;
+            er.showForm = showForm;
+
+            // TODO: LILY-1520: Clean up this model specific code.
+            er.formatPhoneNumber = HLUtils.formatPhoneNumber;
+            er.setPrimaryEmailAddress = HLUtils.setPrimaryEmailAddress;
+
+            er.telephoneTypes = [{ key: 'work', value: 'Work' }, { key: 'mobile', value: 'Mobile' }, { key: 'home', value: 'Home' }, { key: 'fax', value: 'Fax' }, { key: 'other', value: 'Other' }];
+
+            er.addressTypes = [{ key: 'visiting', value: 'Visiting address' }, { key: 'billing', value: 'Billing address' }, { key: 'shipping', value: 'Shipping address' }, { key: 'home', value: 'Home address' }, { key: 'other', value: 'Other' }];
+
+            activate();
+
+            /////
+
+            function activate() {
+                er.items = er.model[er.field];
+                // Store the original items in case we cancel the editing.
+                er.originalItems = angular.copy(er.items);
+
+                er.formName = er.field + 'Form';
+            }
+
+            function addRelatedField() {
+                // Default status is 'Other'.
+                var status = 1;
+                var isPrimary = false;
+
+                switch (er.field) {
+                    case 'email_addresses':
+                        if (er.items.length === 0) {
+                            // No email addresses added yet, so first one is primary.
+                            status = 2;
+                            isPrimary = true;
+                        }
+
+                        er.items.unshift({ is_primary: isPrimary, status: status });
+                        break;
+                    case 'phone_numbers':
+                        er.items.unshift({ type: 'work' });
+                        break;
+                    case 'addresses':
+                        er.items.unshift({ type: 'visiting' });
+                        break;
+                    case 'websites':
+                        er.items.unshift({ website: '', is_primary: false });
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            function removeRelatedField(item) {
+                item.is_deleted = !item.is_deleted;
+            }
+
+            function submit() {
+                var element = '[name="' + er.formName + '"]';
+
+                var args = {
+                    id: er.model.id
+                };
+
+                args[er.field] = HLFields.cleanInlineRelatedFields(er.items);
+
+                HLUtils.blockUI(element, true);
+
+                return HLResource.patch(er.type, args).$promise.then(function (response) {
+                    er.formVisible = false;
+                    er.items = response[er.field];
+
+                    HLUtils.unblockUI(element);
+                }).catch(function () {
+                    HLUtils.unblockUI(element);
+                });
+            }
+
+            function showForm(add) {
+                er.formVisible = true;
+
+                if (!er.items.length || add) {
+                    er.addRelatedField();
+                }
+            }
+
+            function closeForm() {
+                // Cancel the editing and restore the original values.
+                angular.copy(er.originalItems, er.items);
+                er.formVisible = false;
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('editableSelect', editableSelect);
+
+        function editableSelect() {
+            return {
+                restrict: 'E',
+                scope: {
+                    viewModel: '=',
+                    field: '@',
+                    type: '@',
+                    choiceField: '@',
+                    search: '@?',
+                    multiple: '@?',
+                    selectType: '@?',
+                    object: '=?',
+                    selectOptions: '=?' },
+                templateUrl: function templateUrl(elem, attrs) {
+                    if (attrs.selectType) {
+                        return 'base/directives/editable_' + attrs.selectType + '.html';
+                    }
+
+                    return 'base/directives/editable_select.html';
+                },
+                controller: EditableSelectController,
+                controllerAs: 'es',
+                transclude: true,
+                bindToController: true
+            };
+        }
+
+        EditableSelectController.$inject = ['$injector', '$scope', 'HLResource', 'HLSearch', 'HLUtils'];
+        function EditableSelectController($injector, $scope, HLResource, HLSearch, HLUtils) {
+            var es = this;
+
+            es.getChoices = getChoices;
+            es.refreshChoices = refreshChoices;
+            es.updateViewModel = updateViewModel;
+
+            activate();
+
+            // Broadcast function that executes the activate() function when somebody
+            // dynamically changes the inline select edit by using the 'assign to me'
+            // link, instead of selecting a person with the selectbox.
+            $scope.$on('activateEditableSelect', function () {
+                activate();
+            });
+
+            /////
+
+            function activate() {
+                if (!es.selectOptions) {
+                    // If it's undefined just set it to an empty object.
+                    // Ensures we don't need extra checks in the code.
+                    es.selectOptions = {};
+                }
+
+                if (!es.object) {
+                    es.object = es.viewModel[es.type.toLowerCase()];
+                }
+
+                // Certain values in the given view model are objects,
+                // so the default value in the select won't always work.
+                // If we're not dealing with an inline editable search select check
+                // if it's an object and add .id.
+                if (!es.search && _typeof(es.object[es.field]) === 'object') {
+                    if (es.object[es.field]) {
+                        es.selectModel = es.object[es.field].id;
+                    }
+                } else {
+                    es.selectModel = es.object[es.field];
+                }
+
+                if (es.selectOptions.hasOwnProperty('display')) {
+                    es.optionDisplay = es.selectOptions.display;
+                } else {
+                    es.optionDisplay = 'name';
+                }
+
+                if (es.search) {
+                    if (es.selectOptions.hasOwnProperty('placeholder')) {
+                        es.placeholder = es.selectOptions.placeholder;
+                    }
+                }
+
+                // Setup the form name so we can block the element while saving data.
+                es.formName = es.field.split('_').join('') + 'Form';
+            }
+
+            function getChoices() {
+                var type;
+                var field;
+                var resourceCall;
+                var returnValue;
+
+                if (es.selectOptions.hasOwnProperty('type')) {
+                    type = es.selectOptions.type;
+                } else {
+                    type = es.type;
+                }
+
+                if (es.selectOptions.hasOwnProperty('field')) {
+                    field = es.selectOptions.field;
+                } else {
+                    field = es.field;
+                }
+
+                resourceCall = HLResource.getChoicesForField(type, field);
+
+                if (!resourceCall.hasOwnProperty('$promise')) {
+                    es.choices = resourceCall;
+                    returnValue = false;
+                } else {
+                    // Add a return here so the select gets disabled while
+                    // loading the options.
+                    returnValue = resourceCall.$promise.then(function (data) {
+                        if (data.hasOwnProperty('results')) {
+                            es.choices = data.results;
+                        } else {
+                            es.choices = data;
+                        }
+                    });
+                }
+
+                return returnValue;
+            }
+
+            function refreshChoices(query) {
+                var type;
+                var searchPromise;
+                var sortColumn;
+                var nameColumn;
+                var extraFilterQuery;
+
+                if (es.selectOptions.hasOwnProperty('type')) {
+                    type = es.selectOptions.type;
+                } else {
+                    type = es.type;
+                }
+
+                if (es.selectOptions.hasOwnProperty('sortColumn')) {
+                    sortColumn = es.selectOptions.sortColumn;
+                }
+
+                if (es.selectOptions.hasOwnProperty('nameColumn')) {
+                    nameColumn = es.selectOptions.nameColumn;
+                }
+
+                extraFilterQuery = type === 'User' ? 'is_active:true' : '';
+
+                searchPromise = HLSearch.refreshList(query, type, extraFilterQuery, sortColumn, nameColumn);
+
+                if (searchPromise) {
+                    searchPromise.$promise.then(function (data) {
+                        es.choices = data.objects;
+                    });
+                }
+            }
+
+            function updateViewModel($data) {
+                var selected;
+                var i;
+                var updatePromise;
+
+                var args = {
+                    id: es.object.id
+                };
+
+                var form = '[name="es.' + es.formName + '"]';
+
+                if (!es.multiple) {
+                    // $data only contains the ID, so get the name from the choices in the scope.
+                    for (i = 0; i < es.choices.length; i++) {
+                        if (es.choices[i].id === $data) {
+                            selected = es.choices[i];
+                        }
+                    }
+                } else {
+                    HLUtils.blockUI(form, true);
+                }
+
+                if (!es.multiple) {
+                    if (es.choiceField) {
+                        es.object[es.field] = $data;
+                        // Choice fields end with '_display', so set the proper
+                        // variable so front end changes are reflected properly.
+                        es.object[es.field + '_display'] = selected.name;
+                    } else {
+                        es.object[es.field] = selected;
+                    }
+                }
+
+                if (typeof $data === 'undefined') {
+                    // We're probably clearing a select field, which produces undefined.
+                    args[es.field] = null;
+                } else {
+                    args[es.field] = $data;
+                }
+
+                if (es.viewModel.hasOwnProperty('updateModel')) {
+                    updatePromise = es.viewModel.updateModel(args);
+                } else {
+                    // Dealing with a generic view model (list widget, history list item) so just call the updateModel directly.
+                    updatePromise = $injector.get(es.type).updateModel(args, es.field, es.object);
+                }
+
+                return updatePromise.then(function () {
+                    HLUtils.unblockUI(form);
+
+                    if (es.hasOwnProperty(es.formName)) {
+                        es[es.formName].$hide();
+                    }
+
+                    if (es.search || es.selectType) {
+                        if (es.multiple) {
+                            es.object[es.field] = $data;
+                        }
+
+                        // Inline editable select2 field doesn't properly update
+                        // es.selectModel, so update it manually.
+                        es.selectModel = es.object[es.field];
+                    }
+                }).catch(function () {
+                    HLUtils.unblockUI(form);
+                });
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('editableTags', editableTags);
+
+        function editableTags() {
+            return {
+                restrict: 'E',
+                scope: {
+                    viewModel: '=',
+                    type: '@'
+                },
+                templateUrl: 'base/directives/editable_tags.html',
+                controller: EditableTagsController,
+                controllerAs: 'vm',
+                transclude: true,
+                bindToController: true
+            };
+        }
+
+        EditableTagsController.$inject = ['$timeout', 'HLSearch', 'HLUtils'];
+        function EditableTagsController($timeout, HLSearch, HLUtils) {
+            var vm = this;
+
+            vm.refreshTags = refreshTags;
+            vm.updateViewModel = updateViewModel;
+            vm.addTagChoice = addTagChoice;
+
+            activate();
+
+            /////
+
+            function activate() {
+                vm.object = vm.viewModel[vm.type];
+            }
+
+            function refreshTags(query) {
+                var searchPromise = HLSearch.refreshTags(query, vm.object, vm.type);
+
+                if (searchPromise) {
+                    searchPromise.$promise.then(function (data) {
+                        vm.choices = data.objects;
+                    });
+                }
+            }
+
+            function updateViewModel($data) {
+                var tagIds = [];
+                var removedTags = [];
+
+                var args = {
+                    id: vm.object.id
+                };
+
+                var form = '[name="vm.tagForm"]';
+
+                HLUtils.blockUI(form, true);
+
+                var _iteratorNormalCompletion = true;
+                var _didIteratorError = false;
+                var _iteratorError = undefined;
+
+                try {
+                    for (var _iterator = $data.filter(function (x) {
+                        return ('id' in x);
+                    })[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                        var tag = _step.value;
+
+                        tagIds.push(tag.id);
+                    }
+                } catch (err) {
+                    _didIteratorError = true;
+                    _iteratorError = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion && _iterator.return) {
+                            _iterator.return();
+                        }
+                    } finally {
+                        if (_didIteratorError) {
+                            throw _iteratorError;
+                        }
+                    }
+                }
+
+                removedTags = vm.object.tags.filter(function (tag) {
+                    return tagIds.indexOf(tag.id) === -1;
+                });
+
+                var _iteratorNormalCompletion2 = true;
+                var _didIteratorError2 = false;
+                var _iteratorError2 = undefined;
+
+                try {
+                    for (var _iterator2 = removedTags[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                        var _tag = _step2.value;
+
+                        _tag.is_deleted = true;
+                    }
+                } catch (err) {
+                    _didIteratorError2 = true;
+                    _iteratorError2 = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                            _iterator2.return();
+                        }
+                    } finally {
+                        if (_didIteratorError2) {
+                            throw _iteratorError2;
+                        }
+                    }
+                }
+
+                args.tags = $data.concat(removedTags);
+
+                return vm.viewModel.updateModel(args).then(function (response) {
+                    HLUtils.unblockUI(form);
+                    vm.tagForm.$hide();
+
+                    // Just setting the value doesn't update the values model properly.
+                    // So use $timeout so it gets applied in the next digest cycle.
+                    $timeout(function () {
+                        vm.viewModel[vm.type].tags = response.tags;
+                    });
+                });
+            }
+
+            function addTagChoice(tag) {
+                return {
+                    name: tag
+                };
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('editableText', editableText);
+
+        function editableText() {
+            return {
+                restrict: 'E',
+                scope: {
+                    field: '@',
+                    object: '=',
+                    updateCallback: '&'
+                },
+                templateUrl: 'base/directives/editable_text.html',
+                controller: EditableTextController,
+                controllerAs: 'vm',
+                transclude: true,
+                bindToController: true
+            };
+        }
+
+        EditableTextController.$inject = ['HLUtils'];
+        function EditableTextController(HLUtils) {
+            var vm = this;
+
+            vm.updateViewModel = updateViewModel;
+
+            activate();
+
+            /////
+
+            function activate() {
+                // Setup the form name so we can block the element while saving data.
+                vm.formName = vm.field.split('_').join('') + 'Form';
+            }
+
+            function updateViewModel(data) {
+                return vm.updateCallback()(data, vm.field);
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('editableTextarea', editableTextarea);
+
+        function editableTextarea() {
+            return {
+                restrict: 'E',
+                scope: {
+                    viewModel: '=',
+                    field: '@',
+                    object: '=',
+                    extraClass: '@'
+                },
+                templateUrl: 'base/directives/editable_textarea.html',
+                controller: EditableTextAreaController,
+                controllerAs: 'vm',
+                transclude: true,
+                bindToController: true
+            };
+        }
+
+        EditableTextAreaController.$inject = ['$injector', '$timeout', 'HLUtils'];
+        function EditableTextAreaController($injector, $timeout, HLUtils) {
+            var vm = this;
+
+            vm.updateViewModel = updateViewModel;
+            vm.decodeText = decodeText;
+
+            activate();
+
+            /////
+
+            function activate() {
+                vm.selectModel = vm.object[vm.field];
+            }
+
+            function decodeText() {
+                // Convert the HTML entities to human readable characters.
+                if (vm.selectModel) {
+                    vm.selectModel = HLUtils.decodeHtmlEntities(vm.selectModel);
+                }
+            }
+
+            function updateViewModel($data) {
+                var patchPromise;
+                var modelName;
+                var args = {
+                    id: vm.object.id
+                };
+
+                args[vm.field] = $data;
+
+                if (vm.object.historyType) {
+                    modelName = vm.object.historyType.charAt(0).toUpperCase() + vm.object.historyType.slice(1);
+
+                    patchPromise = $injector.get(modelName).updateModel(args);
+                } else {
+                    patchPromise = vm.viewModel.updateModel(args);
+                }
+
+                return patchPromise.then(function (data) {
+                    // Set the encoded value so it get's properly displayed in the frontend.
+                    $timeout(function () {
+                        // Just setting the value doesn't update the values model properly.
+                        // So use $timeout so it gets applied in the next digest cycle.
+                        vm.object[vm.field] = data[vm.field];
+                    });
+                });
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        /**
+         * HL specific pagination directive for generic pagination use.
+         *
+         * @param values {Object}: Contains table information used to set up pagination.
+         *
+         * Example:
+         * <hl-pagination values="vm.table"></hl-pagination>
+         */
+        angular.module('app.directives').directive('hlPagination', hlPagination);
+
+        function hlPagination() {
+            return {
+                restrict: 'E',
+                scope: {
+                    values: '='
+                },
+                templateUrl: 'base/directives/hl_pagination.html'
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        /**
+         * HL directive to add a scrolling indicator to widgets with a specific height.
+         *
+         */
+        angular.module('app.directives').directive('hlScrollIndicator', hlScrollIndicator);
+
+        hlScrollIndicator.$inject = ['$timeout', '$window'];
+
+        function hlScrollIndicator($timeout, $window) {
+            return {
+                restrict: 'A',
+                scope: true,
+                compile: function compile(tElement) {
+                    return function (scope, element) {
+                        var elm = element[0];
+                        var check = function check() {
+                            var maxHeight = elm.offsetHeight === elm.scrollHeight;
+                            // In certain cases the combined values won't be more than
+                            // the scrollHeight eventhough we've reached the bottom.
+                            // So for those cases we subtract 11 from the scrollHeight
+                            // which is roughly equal to the height of the scroll indicator.
+                            var endReached = elm.offsetHeight + elm.scrollTop >= elm.scrollHeight - 11;
+                            var widgetStatus = scope.vm.widgetInfo.status;
+
+                            // Show the scroll indicator if we've:
+                            // Reached the end of the scrollable area
+                            // or if our widget is expanded and already at max-height.
+                            scope.vm.showFade = !endReached || maxHeight && widgetStatus === 3;
+                        };
+
+                        var appliedCheck = function appliedCheck() {
+                            scope.$apply(check);
+                        };
+
+                        element.bind('scroll', appliedCheck);
+
+                        check();
+
+                        $timeout(check, 500);
+
+                        angular.element($window).bind('resize', appliedCheck);
+                    };
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('inputAutoSize', inputAutoSize);
+
+        function inputAutoSize() {
+            return {
+                restrict: 'A',
+                link: function link(scope, element, attrs) {
+                    scope.$watch('$data', function (newValue) {
+                        var input = angular.element('[name="' + attrs.eName + '"]');
+
+                        // Set the size attribute of the input so it gets scaled.
+                        input.attr('size', newValue.length);
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('listFilter', listFilter);
+
+        function listFilter() {
+            return {
+                restrict: 'E',
+                scope: {
+                    filterLabel: '=',
+                    filterLabelPlural: '=',
+                    viewModel: '='
+                },
+                templateUrl: 'base/directives/list_filter.html',
+                controller: ListFilterController,
+                controllerAs: 'vm',
+                bindToController: true
+            };
+        }
+
+        ListFilterController.$inject = ['$filter', '$timeout', 'HLFilters'];
+        function ListFilterController($filter, $timeout, HLFilters) {
+            var vm = this;
+
+            vm.toggleFilter = toggleFilter;
+            vm.setAll = setAll;
+            vm.updateFilterQuery = updateFilterQuery;
+
+            vm.allSelected = false;
+            vm.filterDisplayName = vm.filterLabel;
+            vm.filterPlural = vm.filterLabelPlural;
+
+            $timeout(activate);
+
+            /////
+
+            function activate() {
+                var update = false;
+                if (vm.viewModel.storedFilterList) {
+                    vm.viewModel.filterList = vm.viewModel.storedFilterList;
+                    update = true;
+                }
+
+                if (vm.viewModel.storedFilterSpecialList) {
+                    vm.viewModel.filterSpecialList = vm.viewModel.storedFilterSpecialList;
+                    update = true;
+                }
+
+                if (update) {
+                    updateAllSelected();
+                    updateFilterQuery();
+                    updateFilterDisplayName();
+                }
+            }
+
+            function setAll(value) {
+                var newValue;
+
+                var filterList = vm.viewModel.filterList;
+
+                if (vm.viewModel.filterSpecialList) {
+                    filterList = vm.viewModel.filterSpecialList;
+                }
+
+                if (typeof value !== 'undefined') {
+                    // Set all items to the given value.
+                    newValue = value;
+                } else {
+                    // Deselect/Select all items.
+                    vm.allSelected = !vm.allSelected;
+                    newValue = vm.allSelected;
+                }
+
+                angular.forEach(filterList, function (item) {
+                    item.selected = newValue;
+                });
+
+                updateFilterQuery();
+                updateFilterDisplayName();
+            }
+
+            function toggleFilter(filter) {
+                // ngModel on a checkbox seems to load really slow, so doing the toggling this way.
+                filter.selected = !filter.selected;
+
+                updateAllSelected();
+                updateFilterQuery();
+                updateFilterDisplayName();
+            }
+
+            function updateAllSelected() {
+                // Keep the All selected checkbox in sync whether or not all items are selected.
+                var filterList = vm.viewModel.filterList;
+                if (vm.viewModel.filterSpecialList) {
+                    filterList = vm.viewModel.filterSpecialList;
+                }
+
+                vm.allSelected = true;
+
+                angular.forEach(filterList, function (item) {
+                    if (!item.selected) {
+                        vm.allSelected = false;
+                    }
+                });
+            }
+
+            function updateFilterQuery() {
+                HLFilters.updateFilterQuery(vm.viewModel);
+
+                if (vm.viewModel.hasOwnProperty('updateTable')) {
+                    vm.viewModel.updateTable();
+                }
+
+                vm.viewModel.storage.put('filterListSelected', vm.viewModel.filterList);
+                vm.viewModel.storage.put('filterSpecialListSelected', vm.viewModel.filterSpecialList);
+            }
+
+            function updateFilterDisplayName() {
+                var filterList = vm.viewModel.filterList;
+                var selectedItems = [];
+                var label = vm.filterLabel;
+
+                if (vm.viewModel.filterSpecialList) {
+                    filterList = vm.viewModel.filterSpecialList;
+                }
+
+                selectedItems = $filter('filter')(filterList, { selected: true });
+
+                if (selectedItems.length) {
+                    if (selectedItems.length < 3) {
+                        label = selectedItems.map(function (item) {
+                            return item.name;
+                        }).join(' + ');
+                    } else {
+                        label = selectedItems.length + ' ' + vm.filterLabel + ' selected';
+                    }
+
+                    vm.displayClearButton = true;
+                } else {
+                    vm.displayClearButton = false;
+                }
+
+                vm.filterDisplayName = label;
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('listWidget', ListWidget);
+
+        function ListWidget() {
+            return {
+                restrict: 'E',
+                scope: {
+                    title: '@',
+                    module: '=',
+                    list: '=',
+                    height: '=',
+                    addLink: '@',
+                    collapsableItems: '=',
+                    object: '='
+                },
+                templateUrl: function templateUrl(elem, attrs) {
+                    var templateUrl = '';
+
+                    if (attrs.module) {
+                        // Template url can't be determined from the given title. So use the module name.
+                        templateUrl = attrs.module + '/directives/list_widget.html';
+                    } else {
+                        templateUrl = attrs.title.toLowerCase() + '/directives/list_widget.html';
+                    }
+
+                    return templateUrl;
+                },
+                controller: ListWidgetController,
+                controllerAs: 'vm',
+                bindToController: true
+            };
+        }
+
+        ListWidgetController.$inject = ['$filter', '$state', 'Settings'];
+        function ListWidgetController($filter, $state, Settings) {
+            var vm = this;
+
+            vm.settings = Settings;
+
+            vm.googleAnalyticsEvent = googleAnalyticsEvent;
+
+            activate();
+
+            /////
+
+            function activate() {
+                if (vm.collapsableItems) {
+                    // Certain list widgets have collapsable cells, so set the default state to collapsed.
+                    if (!vm.list.hasOwnProperty('$promise')) {
+                        // Array was passed, so just pass the list.
+                        _setCollapsed(vm.list);
+                    } else {
+                        vm.list.$promise.then(function (response) {
+                            // List hasn't fully loaded, so wait and pass the response.
+                            _setCollapsed(response);
+                        });
+                    }
+                }
+            }
+
+            // Google Analytics function to set labels to differentiate in Analytics
+            // which widget the user used to add a case or deal.
+            function googleAnalyticsEvent() {
+                if ($state.current.name === 'base.contacts.detail' && vm.title === 'Cases') {
+                    ga('send', 'event', 'Case', 'Open', 'Contact Widget');
+                }
+
+                if ($state.current.name === 'base.accounts.detail' && vm.title === 'Cases') {
+                    ga('send', 'event', 'Case', 'Open', 'Account Widget');
+                }
+
+                if ($state.current.name === 'base.contacts.detail' && vm.title === 'Deals') {
+                    ga('send', 'event', 'Deal', 'Open', 'Contact Widget');
+                }
+
+                if ($state.current.name === 'base.accounts.detail' && vm.title === 'Deals') {
+                    ga('send', 'event', 'Deal', 'Open', 'Account Widget');
+                }
+
+                if ($state.current.name === 'base.accounts.detail' && vm.title !== 'Deals' && vm.title !== 'Cases') {
+                    ga('send', 'event', 'Contact', 'Open', 'Account Widget');
+                }
+
+                if ($state.current.name === 'base.contacts.detail' && vm.title !== 'Deals' && vm.title !== 'Cases') {
+                    ga('send', 'event', 'Contact', 'Open', 'Contact Widget');
+                }
+            }
+
+            function _setCollapsed(items) {
+                var list;
+                var cases;
+                var deals;
+                var archivedCases;
+                var archivedDeals;
+
+                if (items.hasOwnProperty('objects')) {
+                    list = items.objects;
+                } else {
+                    list = items;
+                }
+
+                angular.forEach(list, function (item) {
+                    item.collapsed = true;
+                });
+
+                // We want to apply a certain sorting for cases.
+                if (vm.title === 'Cases') {
+                    // Separate non-archived cases and order by priority.
+                    cases = $filter('filter')(list, { is_archived: false });
+                    cases = $filter('orderBy')(cases, '-priority');
+
+                    // Separate archived cases and order by expiry date.
+                    archivedCases = $filter('filter')(list, { is_archived: true });
+                    archivedCases = $filter('orderBy')(archivedCases, '-expires');
+
+                    // Add archived cases to cases array.
+                    cases.push.apply(cases, archivedCases);
+
+                    list = cases;
+                }
+
+                // We want to apply a certain sorting for deals.
+                if (vm.title === 'Deals') {
+                    // Separate non-archived deals.
+                    deals = $filter('filter')(list, { is_archived: false });
+
+                    // Separate archived deals.
+                    archivedDeals = $filter('filter')(list, { is_archived: true });
+
+                    // Add archived deals to deals array.
+                    deals.push.apply(deals, archivedDeals);
+
+                    list = deals;
+                }
+
+                vm.list = list;
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('markAssignedButton', markAssignedButton);
+
+        function markAssignedButton() {
+            return {
+                restrict: 'A',
+                scope: {
+                    callback: '&'
+                },
+                link: function link(scope, element, attrs) {
+                    element.on('click', function () {
+                        // Get the closest table row.
+                        element.closest('.newly-assigned').fadeOut(500, function () {
+                            // Mark the item as assigned.
+                            scope.callback();
+                        });
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('onEnterKey', onEnterKey);
+
+        function onEnterKey() {
+            return function (scope, element, attrs) {
+                element.bind('keydown keypress', function (event) {
+                    if (event.which === 13) {
+                        scope.$apply(function () {
+                            scope.$eval(attrs.onEnterKey);
+                        });
+
+                        event.preventDefault();
+                    }
+                });
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('onModEnterKey', onModEnterKey);
+
+        function onModEnterKey() {
+            return function (scope, element, attrs) {
+                element.bind('keydown keypress', function (event) {
+                    if (navigator.userAgent.indexOf('Mac OS X') !== -1) {
+                        if (event.which === 13 && event.metaKey) {
+                            scope.$apply(function () {
+                                scope.$eval(attrs.onModEnterKey);
+                            });
+
+                            event.preventDefault();
+                        }
+                    } else {
+                        if (event.which === 13 && event.ctrlKey) {
+                            scope.$apply(function () {
+                                scope.$eval(attrs.onModEnterKey);
+                            });
+
+                            event.preventDefault();
+                        }
+                    }
+                });
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('resizeIframe', resizeIframe);
+
+        function resizeIframe() {
+            return {
+                restrict: 'A',
+                link: function link($scope, element, attrs) {
+                    var maxHeight = $('body').outerHeight();
+                    element.on('load', function () {
+                        var ifDoc;
+                        var ifRef;
+                        var subtractHeights;
+                        var height;
+
+                        element.removeClass('hidden');
+
+                        // Do this after .inbox-view is visible.
+                        ifDoc = this;
+                        ifRef = this;
+
+                        // set ifDoc to 'document' from frame
+                        try {
+                            ifDoc = ifRef.contentWindow.document.documentElement;
+                        } catch (e1) {
+                            try {
+                                ifDoc = ifRef.contentDocument.documentElement;
+                            } catch (e2) {
+                                throw e2.message;
+                            }
+                        }
+
+                        // calculate and set max height for frame
+                        if (ifDoc) {
+                            subtractHeights = [element.offset().top, $('.footer').outerHeight(), $('.inbox-attached').outerHeight()];
+                            for (height in subtractHeights) {
+                                maxHeight = maxHeight - height;
+                            }
+
+                            if (ifDoc.scrollHeight > maxHeight) {
+                                ifRef.height = maxHeight;
+                            } else {
+                                ifRef.height = ifDoc.scrollHeight;
+                            }
+                        }
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('saveAndArchive', saveAndArchiveDirective);
+
+        function saveAndArchiveDirective() {
+            return {
+                restrict: 'A',
+                link: function link(scope, elem, attrs) {
+                    // Setting button to right text based in archived state
+                    var $button = $('#archive-button');
+                    var $archiveField = $('#id_is_archived');
+                    if ($archiveField.val() === 'True') {
+                        $button.find('span').text('Save and Unarchive');
+                    } else {
+                        $button.find('span').text('Save and Archive');
+                    }
+
+                    // On button click set archived hidden field and submit form.
+                    elem.on('click', function () {
+                        var $form = $button.closest('form');
+                        var archive = $archiveField.val() === 'True' ? 'False' : 'True';
+                        $archiveField.val(archive);
+                        // Native form validation passed; set the loading text on the
+                        // `Save and Archive` button.
+                        if ($form.get(0).checkValidity()) {
+                            $button.button('loading');
+                        }
+                        $form.find(':submit').click();
+                        event.preventDefault();
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        /**
+         * sortColumn directive adds sorting classes to an DOM element based on `table` object
+         *
+         * It makes the element clickable and sets the table sorting based on that element
+         *
+         * @param sortColumn string: name of the column to sort on when clicked
+         * @param table object: The object to bind sort column and ordering
+         *
+         * Example:
+         *
+         * <th sort-column="last_name" table="table">Name</th>
+         *
+         * Possible classes:
+         * - sorting: Unsorted
+         * - sorting_asc: Sorted ascending
+         * - sorting_desc: Sorted descending
+         */
+        angular.module('app.directives').directive('sortColumn', sortColumn);
+
+        function sortColumn() {
+            /**
+             * _setSortableIcon() removes current sorting classes and adds new based on current
+             * sorting column and direction
+             *
+             * @param $scope object: current scope
+             * @param element object: current DOM element
+             * @param column string: column from current DOM element
+             */
+            var _setSortableIcon = function _setSortableIcon($scope, element, column) {
+                // Add classes based on current sorted column
+                if ($scope.table.order.column === column) {
+                    if ($scope.table.order.descending) {
+                        $scope.sorted = -1;
+                    } else {
+                        $scope.sorted = 1;
+                    }
+                } else {
+                    $scope.sorted = 0;
+                }
+            };
+
+            return {
+                restrict: 'A',
+                scope: {
+                    table: '='
+                },
+                transclude: true,
+                templateUrl: 'base/directives/sort_column.html',
+                link: function link($scope, element, attrs) {
+                    // Watch the table ordering & sorting
+                    $scope.$watchCollection('table.order', function () {
+                        _setSortableIcon($scope, element, attrs.sortColumn);
+                    });
+
+                    // When element is clicked, set the table ordering & sorting based on this DOM element
+                    element.on('click', function () {
+                        if ($scope.table.order.column === attrs.sortColumn) {
+                            // Toggle between the 3 states of a column:
+                            // - ascending
+                            // - descending
+                            // - no sorting
+                            if ($scope.table.order.descending) {
+                                $scope.table.order.column = '';
+                                $scope.table.order.descending = null;
+                            } else {
+                                $scope.table.order.descending = !$scope.table.order.descending;
+                            }
+
+                            $scope.$apply();
+                        } else {
+                            $scope.table.order.column = attrs.sortColumn;
+                            $scope.$apply();
+                        }
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.directives').directive('ngSpinnerBar', ngSpinnerBar);
+
+        ngSpinnerBar.$inject = ['$rootScope'];
+        function ngSpinnerBar($rootScope) {
+            return {
+                link: function link(scope, element, attrs) {
+                    // By default hide the spinner bar.
+                    element.addClass('hide');
+
+                    // Display the spinner bar whenever the route changes (the content part started loading).
+                    $rootScope.$on('$stateChangeStart', function () {
+                        element.removeClass('hide');
+                    });
+
+                    // Hide the spinner bar on route change success (after the content loaded).
+                    $rootScope.$on('$stateChangeSuccess', function () {
+                        element.addClass('hide');
+                        // Remove page loading indicator.
+                        $('body').removeClass('page-on-load');
+                    });
+
+                    // Handle errors.
+                    $rootScope.$on('$stateNotFound', function () {
+                        element.addClass('hide');
+                    });
+
+                    $rootScope.$on('$stateChangeError', function () {
+                        element.addClass('hide');
+                    });
+                }
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        //angular.module('app.dashboard.directives').directive('widget', widget);
+        angular.module('app.directives').directive('widget', widget);
+
+        function widget() {
+            return {
+                restrict: 'E',
+                scope: {
+                    widgetName: '=',
+                    widgetCloseable: '=',
+                    widgetClass: '=',
+                    widgetScrollable: '=',
+                    widgetDynamicHeight: '='
+                },
+                templateUrl: 'base/directives/widget.html',
+                controller: WidgetController,
+                controllerAs: 'vm',
+                bindToController: true,
+                transclude: {
+                    widgetHeader: 'widgetHeader',
+                    widgetFilters: '?widgetFilters',
+                    widgetBody: 'widgetBody'
+                }
+            };
+        }
+
+        WidgetController.$inject = ['$scope', '$state', 'LocalStorage'];
+        function WidgetController($scope, $state, LocalStorage) {
+            var vm = this;
+            var storage = new LocalStorage($state.current.name + 'widgetInfo');
+            var widgetStatus = {
+                hidden: 0,
+                visible: 1,
+                collapsed: 2,
+                expanded: 3
+            };
+
+            vm.storageName = _getWidgetStorageName();
+
+            vm.toggleCollapse = toggleCollapse;
+            vm.removeWidget = removeWidget;
+            vm.expandToggle = expandToggle;
+
+            activate();
+
+            ////////////
+
+            function activate() {
+                // Get visibility status of the widget
+                var widgetInfo = storage.getObjectValue(vm.storageName, {});
+
+                if ((typeof widgetInfo === "undefined" ? "undefined" : _typeof(widgetInfo)) === 'object' && !Object.keys(widgetInfo).length) {
+                    // No locally stored value, so set status to visible
+                    widgetInfo.status = widgetStatus.visible;
+                    widgetInfo.name = vm.widgetName;
+                }
+
+                vm.widgetInfo = widgetInfo;
+
+                _updateWidgetStorage();
+                _watchWidgetVisibility();
+            }
+
+            function _getWidgetStorageName() {
+                // Strip all whitespace and make the name lowercase
+                return vm.widgetName.replace(/\s+/g, '').toLowerCase();
+            }
+
+            function _watchWidgetVisibility() {
+                // Check the status of a widget for changes and update the locally stored value
+                $scope.$watch('vm.widgetInfo.status', function () {
+                    _updateWidgetStorage();
+                });
+            }
+
+            /**
+             * Stores the widget info in local storage.
+             * The widget info contains the name of the widget (used for settings)
+             * and visibility status of the widget.
+             */
+            function _updateWidgetStorage() {
+                storage.putObjectValue(vm.storageName, vm.widgetInfo);
+            }
+
+            function toggleCollapse() {
+                if (vm.widgetInfo.status === widgetStatus.visible || vm.widgetInfo.status === widgetStatus.expanded) {
+                    // Check if the fade is initially set to prevent it from showing up
+                    // when the widget isn't scrollable.
+                    if ($scope.vm.showFade) {
+                        $scope.vm.showFade = false;
+                    }
+
+                    vm.widgetInfo.status = widgetStatus.collapsed;
+                } else {
+                    if ($scope.vm.showFade === false) {
+                        $scope.vm.showFade = true;
+                    }
+
+                    vm.widgetInfo.status = widgetStatus.visible;
+                }
+            }
+
+            function expandToggle() {
+                if (vm.widgetInfo.status === widgetStatus.visible) {
+                    vm.widgetInfo.status = widgetStatus.expanded;
+                } else {
+                    vm.widgetInfo.status = widgetStatus.visible;
+                }
+            }
+
+            function removeWidget() {
+                vm.widgetInfo.status = widgetStatus.hidden;
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
         angular.module('app.services').factory('AppHash', AppHash);
 
         AppHash.$inject = ['$resource', 'HLCache', 'CacheFactory'];
@@ -25036,29 +25116,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
-        angular.module('app.brand').config(brandConfig);
+        angular.module('app.cars').config(carConfig);
 
-        brandConfig.$inject = ['$stateProvider'];
-        function brandConfig($stateProvider) {
-            $stateProvider.state('base.brand', {
-                url: '/brand',
+        carConfig.$inject = ['$stateProvider'];
+        function carConfig($stateProvider) {
+            $stateProvider.state('base.cars', {
+                url: '/cars',
                 views: {
                     '@': {
-                        templateUrl: 'brand/controllers/index.html',
-                        controller: BrandController,
+                        templateUrl: 'cars/controllers/index.html',
+                        controller: CarsController,
                         controllerAs: 'vm'
                     }
                 },
                 ncyBreadcrumb: {
-                    label: 'Brand'
+                    label: 'Cars'
                 }
             });
         }
 
-        angular.module('app.brand').controller('BrandController', BrandController);
+        angular.module('app.cars').controller('CarsController', CarsController);
 
-        BrandController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
-        function BrandController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
+        CarsController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
+        function CarsController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
             var vm = this;
 
             vm.storage = new LocalStorage('brand');
@@ -25265,316 +25345,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
-        angular.module('app.cars').config(carConfig);
-
-        carConfig.$inject = ['$stateProvider'];
-        function carConfig($stateProvider) {
-            $stateProvider.state('base.cars', {
-                url: '/cars',
-                views: {
-                    '@': {
-                        templateUrl: 'cars/controllers/index.html',
-                        controller: CarsController,
-                        controllerAs: 'vm'
-                    }
-                },
-                ncyBreadcrumb: {
-                    label: 'Cars'
-                }
-            });
-        }
-
-        angular.module('app.cars').controller('CarsController', CarsController);
-
-        CarsController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
-        function CarsController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
-            var vm = this;
-
-            vm.storage = new LocalStorage('brand');
-
-            init();
-            _setupWatchers();
-
-            //////
-
-            function init() {
-                // This timeout is needed because by loading from LocalStorage isn't fast enough.
-                $timeout(function () {
-                    //初始化的一些动作
-                }, 50);
-            }
-
-            function _setupWatchers() {
-                /**
-                 * 一组变量onchange监听
-                 * 
-                 */
-                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
-                    //都会执行的函数1();
-                    //都会执行的函数2();
-                });
-
-                /**
-                 * 数组集合onchange的监听
-                 */
-                $scope.$watchCollection('vm.table.visibility', function () {
-                    //都会执行的函数1();
-                });
-
-                /**
-                 *单一变量onchange监听
-                 */
-                $scope.$watch('vm.filterList', function () {
-                    //都会执行的函数1();
-                }, true);
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
         angular.module('app.cars.services').factory('Case', Case);
-
-        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
-        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
-            var _case = $resource('/api/cases/:id/', {}, {
-                search: {
-                    url: '/search/search/',
-                    method: 'GET',
-                    params: {
-                        type: 'cases_case'
-                    },
-                    transformResponse: function transformResponse(data) {
-                        var jsonData = angular.fromJson(data);
-                        var objects = [];
-                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
-                            jsonData.hits.forEach(function (obj) {
-                                objects.push(obj);
-                            });
-                        }
-
-                        return {
-                            objects: objects,
-                            total: jsonData.total
-                        };
-                    }
-                },
-                update: {
-                    method: 'PUT',
-                    params: {
-                        id: '@id'
-                    }
-                },
-                patch: {
-                    method: 'PATCH',
-                    params: {
-                        id: '@id'
-                    }
-                },
-                getCaseTypes: {
-                    isArray: true,
-                    cache: CacheFactory.get('dataCache'),
-                    url: '/api/cases/types/'
-                },
-                getStatuses: {
-                    cache: CacheFactory.get('dataCache'),
-                    url: '/api/cases/statuses/',
-                    transformResponse: function transformResponse(data) {
-                        var statusData = angular.fromJson(data);
-
-                        angular.forEach(statusData.results, function (status) {
-                            if (status.name === 'Closed') {
-                                _case.closedStatus = status;
-                            }
-                        });
-
-                        return statusData;
-                    }
-                },
-                query: {
-                    isArray: false
-                }
-            });
-
-            _case.create = create;
-            _case.getCases = getCases;
-            _case.getCasePriorities = getCasePriorities;
-            _case.updateModel = updateModel;
-
-            /////////
-
-            function create() {
-                var expires = moment().add(1, 'week'); // default expiry date is a week from now
-
-                return new _case({
-                    billing_checked: false,
-                    priority: 0,
-                    expires: expires,
-                    tags: []
-                });
-            }
-
-            function updateModel(data, field, caseObject) {
-                var patchPromise;
-                var args = HLResource.createArgs(data, field, caseObject);
-
-                if (field === 'name') {
-                    Settings.page.setAllTitles('detail', data);
-                }
-
-                patchPromise = HLResource.patch('Case', args).$promise;
-
-                return patchPromise;
-            }
-
-            /**
-             * getCases() gets the cases from the search backend through a promise
-             *
-             * @param orderColumn {string}: Current sorting of cases.
-             * @param orderedAsc {boolean}: Current ordering.
-             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
-             * @param searchQuery {string}: Current filter on the caselist.
-             * @param page {number=1}: Current page of pagination.
-             * @param pageSize {number=100}: Current page size of pagination.
-             *
-             * @returns Promise object: when promise is completed:
-             *      {
-             *          cases {Array}: Paginated cases objects.
-             *          total {number}: Total number of case objects.
-             *      }
-             */
-            function getCases(orderColumn, orderedAsc, filterQuery) {
-                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
-                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
-
-                return _case.search({
-                    q: searchQuery,
-                    page: page - 1,
-                    size: pageSize,
-                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
-                    filterquery: filterQuery
-                }, function (data) {
-                    return data;
-                }).$promise;
-            }
-
-            function getCasePriorities() {
-                // Hardcoded because these are the only case priorities.
-                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
-            }
-
-            return _case;
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.home').config(homeConfig);
-
-        homeConfig.$inject = ['$stateProvider'];
-        function homeConfig($stateProvider) {
-            $stateProvider.state('base.home', {
-                url: '/home',
-                views: {
-                    '@': {
-                        templateUrl: 'home/controllers/home.html',
-                        controller: HomeController,
-                        controllerAs: 'vm'
-                    }
-                },
-                ncyBreadcrumb: {
-                    label: 'Home'
-                }
-            });
-        }
-
-        angular.module('app.home').controller('HomeController', HomeController);
-
-        HomeController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
-        function HomeController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
-            var vm = this;
-
-            vm.storage = new LocalStorage('home');
-
-            init();
-            _setupWatchers();
-
-            //////
-
-            function init() {
-                // This timeout is needed because by loading from LocalStorage isn't fast enough.
-                $timeout(function () {
-                    //初始化的一些动作
-                }, 50);
-            }
-
-            function _setupWatchers() {
-                /**
-                 * 一组变量onchange监听
-                 * 
-                 */
-                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
-                    //都会执行的函数1();
-                    //都会执行的函数2();
-                });
-
-                /**
-                 * 数组集合onchange的监听
-                 */
-                $scope.$watchCollection('vm.table.visibility', function () {
-                    //都会执行的函数1();
-                });
-
-                /**
-                 *单一变量onchange监听
-                 */
-                $scope.$watch('vm.filterList', function () {
-                    //都会执行的函数1();
-                }, true);
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.home.services').factory('Case', Case);
 
         Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
         function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
@@ -25803,407 +25574,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
-        angular.module('app.info.services').factory('Case', Case);
-
-        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
-        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
-            var _case = $resource('/api/cases/:id/', {}, {
-                search: {
-                    url: '/search/search/',
-                    method: 'GET',
-                    params: {
-                        type: 'cases_case'
-                    },
-                    transformResponse: function transformResponse(data) {
-                        var jsonData = angular.fromJson(data);
-                        var objects = [];
-                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
-                            jsonData.hits.forEach(function (obj) {
-                                objects.push(obj);
-                            });
-                        }
-
-                        return {
-                            objects: objects,
-                            total: jsonData.total
-                        };
-                    }
-                },
-                update: {
-                    method: 'PUT',
-                    params: {
-                        id: '@id'
-                    }
-                },
-                patch: {
-                    method: 'PATCH',
-                    params: {
-                        id: '@id'
-                    }
-                },
-                getCaseTypes: {
-                    isArray: true,
-                    cache: CacheFactory.get('dataCache'),
-                    url: '/api/cases/types/'
-                },
-                getStatuses: {
-                    cache: CacheFactory.get('dataCache'),
-                    url: '/api/cases/statuses/',
-                    transformResponse: function transformResponse(data) {
-                        var statusData = angular.fromJson(data);
-
-                        angular.forEach(statusData.results, function (status) {
-                            if (status.name === 'Closed') {
-                                _case.closedStatus = status;
-                            }
-                        });
-
-                        return statusData;
-                    }
-                },
-                query: {
-                    isArray: false
-                }
-            });
-
-            _case.create = create;
-            _case.getCases = getCases;
-            _case.getCasePriorities = getCasePriorities;
-            _case.updateModel = updateModel;
-
-            /////////
-
-            function create() {
-                var expires = moment().add(1, 'week'); // default expiry date is a week from now
-
-                return new _case({
-                    billing_checked: false,
-                    priority: 0,
-                    expires: expires,
-                    tags: []
-                });
-            }
-
-            function updateModel(data, field, caseObject) {
-                var patchPromise;
-                var args = HLResource.createArgs(data, field, caseObject);
-
-                if (field === 'name') {
-                    Settings.page.setAllTitles('detail', data);
-                }
-
-                patchPromise = HLResource.patch('Case', args).$promise;
-
-                return patchPromise;
-            }
-
-            /**
-             * getCases() gets the cases from the search backend through a promise
-             *
-             * @param orderColumn {string}: Current sorting of cases.
-             * @param orderedAsc {boolean}: Current ordering.
-             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
-             * @param searchQuery {string}: Current filter on the caselist.
-             * @param page {number=1}: Current page of pagination.
-             * @param pageSize {number=100}: Current page size of pagination.
-             *
-             * @returns Promise object: when promise is completed:
-             *      {
-             *          cases {Array}: Paginated cases objects.
-             *          total {number}: Total number of case objects.
-             *      }
-             */
-            function getCases(orderColumn, orderedAsc, filterQuery) {
-                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
-                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
-
-                return _case.search({
-                    q: searchQuery,
-                    page: page - 1,
-                    size: pageSize,
-                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
-                    filterquery: filterQuery
-                }, function (data) {
-                    return data;
-                }).$promise;
-            }
-
-            function getCasePriorities() {
-                // Hardcoded because these are the only case priorities.
-                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
-            }
-
-            return _case;
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.sellcar').config(sellCarConfig);
-
-        sellCarConfig.$inject = ['$stateProvider'];
-        function sellCarConfig($stateProvider) {
-            $stateProvider.state('base.sellcar', {
-                url: '/sellcar',
-                views: {
-                    '@': {
-                        templateUrl: 'sell_car/controllers/index.html',
-                        controller: SellCarController,
-                        controllerAs: 'vm'
-                    }
-                },
-                ncyBreadcrumb: {
-                    label: 'Sell Car'
-                }
-            });
-        }
-
-        angular.module('app.cars').controller('SellCarController', SellCarController);
-
-        SellCarController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
-        function SellCarController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
-            var vm = this;
-
-            vm.storage = new LocalStorage('brand');
-
-            init();
-            _setupWatchers();
-
-            //////
-
-            function init() {
-                // This timeout is needed because by loading from LocalStorage isn't fast enough.
-                $timeout(function () {
-                    //初始化的一些动作
-                }, 50);
-            }
-
-            function _setupWatchers() {
-                /**
-                 * 一组变量onchange监听
-                 * 
-                 */
-                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
-                    //都会执行的函数1();
-                    //都会执行的函数2();
-                });
-
-                /**
-                 * 数组集合onchange的监听
-                 */
-                $scope.$watchCollection('vm.table.visibility', function () {
-                    //都会执行的函数1();
-                });
-
-                /**
-                 *单一变量onchange监听
-                 */
-                $scope.$watch('vm.filterList', function () {
-                    //都会执行的函数1();
-                }, true);
-            }
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.sellcar.services').factory('Case', Case);
-
-        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
-        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
-            var _case = $resource('/api/cases/:id/', {}, {
-                search: {
-                    url: '/search/search/',
-                    method: 'GET',
-                    params: {
-                        type: 'cases_case'
-                    },
-                    transformResponse: function transformResponse(data) {
-                        var jsonData = angular.fromJson(data);
-                        var objects = [];
-                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
-                            jsonData.hits.forEach(function (obj) {
-                                objects.push(obj);
-                            });
-                        }
-
-                        return {
-                            objects: objects,
-                            total: jsonData.total
-                        };
-                    }
-                },
-                update: {
-                    method: 'PUT',
-                    params: {
-                        id: '@id'
-                    }
-                },
-                patch: {
-                    method: 'PATCH',
-                    params: {
-                        id: '@id'
-                    }
-                },
-                getCaseTypes: {
-                    isArray: true,
-                    cache: CacheFactory.get('dataCache'),
-                    url: '/api/cases/types/'
-                },
-                getStatuses: {
-                    cache: CacheFactory.get('dataCache'),
-                    url: '/api/cases/statuses/',
-                    transformResponse: function transformResponse(data) {
-                        var statusData = angular.fromJson(data);
-
-                        angular.forEach(statusData.results, function (status) {
-                            if (status.name === 'Closed') {
-                                _case.closedStatus = status;
-                            }
-                        });
-
-                        return statusData;
-                    }
-                },
-                query: {
-                    isArray: false
-                }
-            });
-
-            _case.create = create;
-            _case.getCases = getCases;
-            _case.getCasePriorities = getCasePriorities;
-            _case.updateModel = updateModel;
-
-            /////////
-
-            function create() {
-                var expires = moment().add(1, 'week'); // default expiry date is a week from now
-
-                return new _case({
-                    billing_checked: false,
-                    priority: 0,
-                    expires: expires,
-                    tags: []
-                });
-            }
-
-            function updateModel(data, field, caseObject) {
-                var patchPromise;
-                var args = HLResource.createArgs(data, field, caseObject);
-
-                if (field === 'name') {
-                    Settings.page.setAllTitles('detail', data);
-                }
-
-                patchPromise = HLResource.patch('Case', args).$promise;
-
-                return patchPromise;
-            }
-
-            /**
-             * getCases() gets the cases from the search backend through a promise
-             *
-             * @param orderColumn {string}: Current sorting of cases.
-             * @param orderedAsc {boolean}: Current ordering.
-             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
-             * @param searchQuery {string}: Current filter on the caselist.
-             * @param page {number=1}: Current page of pagination.
-             * @param pageSize {number=100}: Current page size of pagination.
-             *
-             * @returns Promise object: when promise is completed:
-             *      {
-             *          cases {Array}: Paginated cases objects.
-             *          total {number}: Total number of case objects.
-             *      }
-             */
-            function getCases(orderColumn, orderedAsc, filterQuery) {
-                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
-                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
-
-                return _case.search({
-                    q: searchQuery,
-                    page: page - 1,
-                    size: pageSize,
-                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
-                    filterquery: filterQuery
-                }, function (data) {
-                    return data;
-                }).$promise;
-            }
-
-            function getCasePriorities() {
-                // Hardcoded because these are the only case priorities.
-                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
-            }
-
-            return _case;
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
-        angular.module('app.users.filters').filter('fullName', fullName);
-
-        function fullName() {
-            return function (user) {
-                return [user.first_name, user.last_name].join(' ');
-            };
-        }
-    }, {}] }, {}, [1]);})(angular);
-(function(angular){'use strict';"use strict";
-
-(function e(t, n, r) {
-    function s(o, u) {
-        if (!n[o]) {
-            if (!t[o]) {
-                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-                var n = t[o][1][e];return s(n ? n : e);
-            }, l, l.exports, e, t, n, r);
-        }return n[o].exports;
-    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-        s(r[o]);
-    }return s;
-})({ 1: [function (require, module, exports) {
         angular.module('app.users.services').factory('User', User);
 
         User.$inject = ['$resource', 'CacheFactory'];
@@ -26352,6 +25722,109 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
 
             return _userTeam;
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.users.filters').filter('fullName', fullName);
+
+        function fullName() {
+            return function (user) {
+                return [user.first_name, user.last_name].join(' ');
+            };
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.sellcar').config(sellCarConfig);
+
+        sellCarConfig.$inject = ['$stateProvider'];
+        function sellCarConfig($stateProvider) {
+            $stateProvider.state('base.sellcar', {
+                url: '/sellcar',
+                views: {
+                    '@': {
+                        templateUrl: 'sell_car/controllers/index.html',
+                        controller: SellCarController,
+                        controllerAs: 'vm'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Sell Car'
+                }
+            });
+        }
+
+        angular.module('app.cars').controller('SellCarController', SellCarController);
+
+        SellCarController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
+        function SellCarController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
+            var vm = this;
+
+            vm.storage = new LocalStorage('brand');
+
+            init();
+            _setupWatchers();
+
+            //////
+
+            function init() {
+                // This timeout is needed because by loading from LocalStorage isn't fast enough.
+                $timeout(function () {
+                    //初始化的一些动作
+                }, 50);
+            }
+
+            function _setupWatchers() {
+                /**
+                 * 一组变量onchange监听
+                 * 
+                 */
+                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
+                    //都会执行的函数1();
+                    //都会执行的函数2();
+                });
+
+                /**
+                 * 数组集合onchange的监听
+                 */
+                $scope.$watchCollection('vm.table.visibility', function () {
+                    //都会执行的函数1();
+                });
+
+                /**
+                 *单一变量onchange监听
+                 */
+                $scope.$watch('vm.filterList', function () {
+                    //都会执行的函数1();
+                }, true);
+            }
         }
     }, {}] }, {}, [1]);})(angular);
 (function(angular){'use strict';"use strict";
@@ -27513,6 +26986,533 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
                 }).done();
             }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.info.services').factory('Case', Case);
+
+        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
+        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
+            var _case = $resource('/api/cases/:id/', {}, {
+                search: {
+                    url: '/search/search/',
+                    method: 'GET',
+                    params: {
+                        type: 'cases_case'
+                    },
+                    transformResponse: function transformResponse(data) {
+                        var jsonData = angular.fromJson(data);
+                        var objects = [];
+                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
+                            jsonData.hits.forEach(function (obj) {
+                                objects.push(obj);
+                            });
+                        }
+
+                        return {
+                            objects: objects,
+                            total: jsonData.total
+                        };
+                    }
+                },
+                update: {
+                    method: 'PUT',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                patch: {
+                    method: 'PATCH',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                getCaseTypes: {
+                    isArray: true,
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/types/'
+                },
+                getStatuses: {
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/statuses/',
+                    transformResponse: function transformResponse(data) {
+                        var statusData = angular.fromJson(data);
+
+                        angular.forEach(statusData.results, function (status) {
+                            if (status.name === 'Closed') {
+                                _case.closedStatus = status;
+                            }
+                        });
+
+                        return statusData;
+                    }
+                },
+                query: {
+                    isArray: false
+                }
+            });
+
+            _case.create = create;
+            _case.getCases = getCases;
+            _case.getCasePriorities = getCasePriorities;
+            _case.updateModel = updateModel;
+
+            /////////
+
+            function create() {
+                var expires = moment().add(1, 'week'); // default expiry date is a week from now
+
+                return new _case({
+                    billing_checked: false,
+                    priority: 0,
+                    expires: expires,
+                    tags: []
+                });
+            }
+
+            function updateModel(data, field, caseObject) {
+                var patchPromise;
+                var args = HLResource.createArgs(data, field, caseObject);
+
+                if (field === 'name') {
+                    Settings.page.setAllTitles('detail', data);
+                }
+
+                patchPromise = HLResource.patch('Case', args).$promise;
+
+                return patchPromise;
+            }
+
+            /**
+             * getCases() gets the cases from the search backend through a promise
+             *
+             * @param orderColumn {string}: Current sorting of cases.
+             * @param orderedAsc {boolean}: Current ordering.
+             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
+             * @param searchQuery {string}: Current filter on the caselist.
+             * @param page {number=1}: Current page of pagination.
+             * @param pageSize {number=100}: Current page size of pagination.
+             *
+             * @returns Promise object: when promise is completed:
+             *      {
+             *          cases {Array}: Paginated cases objects.
+             *          total {number}: Total number of case objects.
+             *      }
+             */
+            function getCases(orderColumn, orderedAsc, filterQuery) {
+                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
+
+                return _case.search({
+                    q: searchQuery,
+                    page: page - 1,
+                    size: pageSize,
+                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
+                    filterquery: filterQuery
+                }, function (data) {
+                    return data;
+                }).$promise;
+            }
+
+            function getCasePriorities() {
+                // Hardcoded because these are the only case priorities.
+                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
+            }
+
+            return _case;
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.sellcar.services').factory('Case', Case);
+
+        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
+        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
+            var _case = $resource('/api/cases/:id/', {}, {
+                search: {
+                    url: '/search/search/',
+                    method: 'GET',
+                    params: {
+                        type: 'cases_case'
+                    },
+                    transformResponse: function transformResponse(data) {
+                        var jsonData = angular.fromJson(data);
+                        var objects = [];
+                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
+                            jsonData.hits.forEach(function (obj) {
+                                objects.push(obj);
+                            });
+                        }
+
+                        return {
+                            objects: objects,
+                            total: jsonData.total
+                        };
+                    }
+                },
+                update: {
+                    method: 'PUT',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                patch: {
+                    method: 'PATCH',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                getCaseTypes: {
+                    isArray: true,
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/types/'
+                },
+                getStatuses: {
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/statuses/',
+                    transformResponse: function transformResponse(data) {
+                        var statusData = angular.fromJson(data);
+
+                        angular.forEach(statusData.results, function (status) {
+                            if (status.name === 'Closed') {
+                                _case.closedStatus = status;
+                            }
+                        });
+
+                        return statusData;
+                    }
+                },
+                query: {
+                    isArray: false
+                }
+            });
+
+            _case.create = create;
+            _case.getCases = getCases;
+            _case.getCasePriorities = getCasePriorities;
+            _case.updateModel = updateModel;
+
+            /////////
+
+            function create() {
+                var expires = moment().add(1, 'week'); // default expiry date is a week from now
+
+                return new _case({
+                    billing_checked: false,
+                    priority: 0,
+                    expires: expires,
+                    tags: []
+                });
+            }
+
+            function updateModel(data, field, caseObject) {
+                var patchPromise;
+                var args = HLResource.createArgs(data, field, caseObject);
+
+                if (field === 'name') {
+                    Settings.page.setAllTitles('detail', data);
+                }
+
+                patchPromise = HLResource.patch('Case', args).$promise;
+
+                return patchPromise;
+            }
+
+            /**
+             * getCases() gets the cases from the search backend through a promise
+             *
+             * @param orderColumn {string}: Current sorting of cases.
+             * @param orderedAsc {boolean}: Current ordering.
+             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
+             * @param searchQuery {string}: Current filter on the caselist.
+             * @param page {number=1}: Current page of pagination.
+             * @param pageSize {number=100}: Current page size of pagination.
+             *
+             * @returns Promise object: when promise is completed:
+             *      {
+             *          cases {Array}: Paginated cases objects.
+             *          total {number}: Total number of case objects.
+             *      }
+             */
+            function getCases(orderColumn, orderedAsc, filterQuery) {
+                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
+
+                return _case.search({
+                    q: searchQuery,
+                    page: page - 1,
+                    size: pageSize,
+                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
+                    filterquery: filterQuery
+                }, function (data) {
+                    return data;
+                }).$promise;
+            }
+
+            function getCasePriorities() {
+                // Hardcoded because these are the only case priorities.
+                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
+            }
+
+            return _case;
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.home').config(homeConfig);
+
+        homeConfig.$inject = ['$stateProvider'];
+        function homeConfig($stateProvider) {
+            $stateProvider.state('base.home', {
+                url: '/home',
+                views: {
+                    '@': {
+                        templateUrl: 'home/controllers/home.html',
+                        controller: HomeController,
+                        controllerAs: 'vm'
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Home'
+                }
+            });
+        }
+
+        angular.module('app.home').controller('HomeController', HomeController);
+
+        HomeController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
+        function HomeController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
+            var vm = this;
+
+            vm.storage = new LocalStorage('home');
+
+            init();
+            _setupWatchers();
+
+            //////
+
+            function init() {
+                // This timeout is needed because by loading from LocalStorage isn't fast enough.
+                $timeout(function () {
+                    //初始化的一些动作
+                }, 50);
+            }
+
+            function _setupWatchers() {
+                /**
+                 * 一组变量onchange监听
+                 * 
+                 */
+                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
+                    //都会执行的函数1();
+                    //都会执行的函数2();
+                });
+
+                /**
+                 * 数组集合onchange的监听
+                 */
+                $scope.$watchCollection('vm.table.visibility', function () {
+                    //都会执行的函数1();
+                });
+
+                /**
+                 *单一变量onchange监听
+                 */
+                $scope.$watch('vm.filterList', function () {
+                    //都会执行的函数1();
+                }, true);
+            }
+        }
+    }, {}] }, {}, [1]);})(angular);
+(function(angular){'use strict';"use strict";
+
+(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+            }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+                var n = t[o][1][e];return s(n ? n : e);
+            }, l, l.exports, e, t, n, r);
+        }return n[o].exports;
+    }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+    }return s;
+})({ 1: [function (require, module, exports) {
+        angular.module('app.home.services').factory('Case', Case);
+
+        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
+        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
+            var _case = $resource('/api/cases/:id/', {}, {
+                search: {
+                    url: '/search/search/',
+                    method: 'GET',
+                    params: {
+                        type: 'cases_case'
+                    },
+                    transformResponse: function transformResponse(data) {
+                        var jsonData = angular.fromJson(data);
+                        var objects = [];
+                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
+                            jsonData.hits.forEach(function (obj) {
+                                objects.push(obj);
+                            });
+                        }
+
+                        return {
+                            objects: objects,
+                            total: jsonData.total
+                        };
+                    }
+                },
+                update: {
+                    method: 'PUT',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                patch: {
+                    method: 'PATCH',
+                    params: {
+                        id: '@id'
+                    }
+                },
+                getCaseTypes: {
+                    isArray: true,
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/types/'
+                },
+                getStatuses: {
+                    cache: CacheFactory.get('dataCache'),
+                    url: '/api/cases/statuses/',
+                    transformResponse: function transformResponse(data) {
+                        var statusData = angular.fromJson(data);
+
+                        angular.forEach(statusData.results, function (status) {
+                            if (status.name === 'Closed') {
+                                _case.closedStatus = status;
+                            }
+                        });
+
+                        return statusData;
+                    }
+                },
+                query: {
+                    isArray: false
+                }
+            });
+
+            _case.create = create;
+            _case.getCases = getCases;
+            _case.getCasePriorities = getCasePriorities;
+            _case.updateModel = updateModel;
+
+            /////////
+
+            function create() {
+                var expires = moment().add(1, 'week'); // default expiry date is a week from now
+
+                return new _case({
+                    billing_checked: false,
+                    priority: 0,
+                    expires: expires,
+                    tags: []
+                });
+            }
+
+            function updateModel(data, field, caseObject) {
+                var patchPromise;
+                var args = HLResource.createArgs(data, field, caseObject);
+
+                if (field === 'name') {
+                    Settings.page.setAllTitles('detail', data);
+                }
+
+                patchPromise = HLResource.patch('Case', args).$promise;
+
+                return patchPromise;
+            }
+
+            /**
+             * getCases() gets the cases from the search backend through a promise
+             *
+             * @param orderColumn {string}: Current sorting of cases.
+             * @param orderedAsc {boolean}: Current ordering.
+             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
+             * @param searchQuery {string}: Current filter on the caselist.
+             * @param page {number=1}: Current page of pagination.
+             * @param pageSize {number=100}: Current page size of pagination.
+             *
+             * @returns Promise object: when promise is completed:
+             *      {
+             *          cases {Array}: Paginated cases objects.
+             *          total {number}: Total number of case objects.
+             *      }
+             */
+            function getCases(orderColumn, orderedAsc, filterQuery) {
+                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
+                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
+
+                return _case.search({
+                    q: searchQuery,
+                    page: page - 1,
+                    size: pageSize,
+                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
+                    filterquery: filterQuery
+                }, function (data) {
+                    return data;
+                }).$promise;
+            }
+
+            function getCasePriorities() {
+                // Hardcoded because these are the only case priorities.
+                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
+            }
+
+            return _case;
         }
     }, {}] }, {}, [1]);})(angular);
 //# sourceMappingURL=app.js.map

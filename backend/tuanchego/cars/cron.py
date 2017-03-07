@@ -72,42 +72,50 @@ class GetBrandSerieJob(CronJobBase):
 
     def do(self):
         """
-        target DOM:
-        <ul class="searchListC">
-           <li>
-                    <div class="imgBox">
-                        
-                            <a href="http://sz.tuanche.com/c60/tuan/" target="_blank">
-                        
+        target DOM1:
+            <div class="charactersSlidTwo">
+                <div class="charactersSlidBox">  
+                        <span>  <a class="styleName-in " href="/che31/">一汽奥迪</a></span>
+                        <span>  <a class="styleName-in " href="/che193/">奥迪(进口)</a></span>
+                        <span>  <a class="styleName-in " href="/che194/">奥迪RS</a></span>
+                </div>
+            </div>
+        target DOM2:
+            <ul class="searchListC">
+               <li>
+                        <div class="imgBox">
+                            
+                                <a href="http://sz.tuanche.com/c60/tuan/" target="_blank">
+                            
 
-                            <img src="http://pic.tuanche.com/car/20160321/1458531404258278_o.jpg" alt="">
+                                <img src="http://pic.tuanche.com/car/20160321/1458531404258278_o.jpg" alt="">
+                                
+                                    <div class="searchMask"></div>
+                                    <div class="searchMaskText">
+                                        <p>车型概述</p>
+                                        <p>1.外形改变意在展现时尚</p>
+                                        <p>2.内部空间没变依旧宽敞</p>
+                                        <p>3.取消顶配车型价格亲民</p>
+                                    </div>
+                                
+                                <div class="caricoBox"><img src="http://pic.tuanche.com/car/20170222/14877499257433743_s.jpg" alt=""></div>
                             
-                                <div class="searchMask"></div>
-                                <div class="searchMaskText">
-                                    <p>车型概述</p>
-                                    <p>1.外形改变意在展现时尚</p>
-                                    <p>2.内部空间没变依旧宽敞</p>
-                                    <p>3.取消顶配车型价格亲民</p>
-                                </div>
+                                </a>
                             
-                            <div class="caricoBox"><img src="http://pic.tuanche.com/car/20170222/14877499257433743_s.jpg" alt=""></div>
-                        
-                            </a>
-                        
-                    </div>
-                    <div class="searchListText">
-                        <p>
-                            <span> <a href="http://sz.tuanche.com/c60/tuan/" target="_blank">雅阁</a></span>
-                            <samp>累计报名<i>13991</i>人</samp>
-                        </p>
-                        
-                            <a class="goin" href="http://sz.tuanche.com/c60/tuan/">团购报名 </a>
-                        
-                    </div>
-           </li>
-           <li></li>
-           ...
-        </ul>
+                        </div>
+                        <div class="searchListText">
+                            <p>
+                                <span> <a href="http://sz.tuanche.com/c60/tuan/" target="_blank">雅阁</a></span>
+                                <samp>累计报名<i>13991</i>人</samp>
+                            </p>
+                            
+                                <a class="goin" href="http://sz.tuanche.com/c60/tuan/">团购报名 </a>
+                            
+                        </div>
+               </li>
+               <li></li>
+               ...
+            </ul>
         """
         try:
             print("[%s] looking for series data...."%(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
@@ -118,47 +126,68 @@ class GetBrandSerieJob(CronJobBase):
                     continue
                 dom = _get_page_dom(brand.tc_url)
                 print("data got!")
-                series = []
-                i=0
-                for li in dom(self.SELECTOR).items('li'):
-                    img_url=''
-                    description=''
-                    name=''
-                    for div in li(".imgBox"):
-                        if i==0:
-                            i=1
-                            import pdb
-                            #pdb.set_trace()
-                        div = pq(div)
-                        for img in div("img"):
-                            if isinstance(img , HtmlElement):
-                                img_url = img.get("src","")
-                            else:
-                                pass
-                        for _div in div(".searchMaskText"):
-                            description = _div.text
 
-                    for div in li(".searchListText"):
-                        div = pq(div)
-                        for p in div("p"):
-                            p=pq(p)
-                            for span in p("span"):
-                                span = pq(span)
-                                for link in span("a"):
-                                    name = link.text
-                    series.append([img_url, description, name])
+                #get all sub serie(target DOM1)
+                sub_serie=[]
+                import pdb
+                pdb.set_trace()
+                for div in dom(".charactersSlidTwo").items("div.charactersSlidBox"):
+                    for span in pq(div)("span"):
+                        for link in pq(span)("a.styleName-in"):
+                            sub_serie.append({
+                                    'href':link.get('href',''),
+                                    'name':link.text
+                                })
+
+                #get all serie info by sub serie(target DOM2)
+                for page in sub_serie:
+                    uri,tag = page['href'],page['name']
+                    if not uri:continue
+                    time.sleep(1)
+                    print('processing sub category: %s'%tag)
+                    dom = _get_page_dom('http://www.tuanche.com'+uri)
+                    print('data got!')
+                    series = []
+                    i=0
+                    for li in dom(self.SELECTOR).items('li'):
+                        img_url=''
+                        description=''
+                        name=''
+                        for div in li(".imgBox"):
+                            if i==0:
+                                i=1
+                                import pdb
+                                #pdb.set_trace()
+                            div = pq(div)
+                            for img in div("img"):
+                                if isinstance(img , HtmlElement):
+                                    img_url = img.get("src","")
+                                else:
+                                    pass
+                            for _div in div(".searchMaskText"):
+                                description = _div.text
+
+                        for div in li(".searchListText"):
+                            div = pq(div)
+                            for p in div("p"):
+                                p=pq(p)
+                                for span in p("span"):
+                                    span = pq(span)
+                                    for link in span("a"):
+                                        name = link.text
+                        series.append([img_url, description, name])
 
 
-                print("%d series found!"%len(series))
-                imported=0
-                for line in series:
-                    img_url, description ,name=line
-                    if not img_url:continue
-                    try:
-                        Serie.objects.get(brand=brand.id, name=name)
-                    except:
-                        imported+=1
-                        Serie(brand=brand, name=name, img_url=img_url).save()
-                print("%d new series imported!"%imported)
+                    print("%d series found!"%len(series))
+                    imported=0
+                    for line in series:
+                        img_url, description ,name=line
+                        if not img_url:continue
+                        try:
+                            Serie.objects.get(brand=brand.id, name=name)
+                        except:
+                            imported+=1
+                            Serie(brand=brand, name=name, img_url=img_url, tag=tag).save()
+                    print("%d new series imported!"%imported)
         except:
             print(traceback.format_exc())

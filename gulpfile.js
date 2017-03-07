@@ -273,7 +273,8 @@ gulp.task('vendor-assets', [], function() {
 /**
  * Concatenate, minify and make source maps of all js and css.
  */
-gulp.task('build', ['app-js', 'app-css', 'app-templates', 'app-assets', 'vendor-js', 'vendor-css', 'vendor-assets'], function() {});
+//gulp.task('build', ['app-js', 'app-css', 'app-templates', 'app-assets', 'vendor-js', 'vendor-css', 'vendor-assets'], function() {});
+gulp.task('build', ['app-js', 'app-templates', 'app-assets', 'vendor-js', 'vendor-assets'], function() {});
 
 /**
  * Watch for changes

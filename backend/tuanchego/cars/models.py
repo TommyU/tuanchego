@@ -21,9 +21,9 @@ class Serie(BaseModel):
 	"""
 	型号
 	"""
-	tag = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'类别')
+	tag = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'标签')
 	brand = models.ForeignKey(Brand, null=True, db_index=True, verbose_name=u'品牌')
-	img_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'tuanche img url')
+	img_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'图片地址')
 	name = models.CharField(max_length=64, null = True, blank=True,   verbose_name=u'名称' )
 
 	def __str__(self):
