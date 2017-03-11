@@ -53,6 +53,7 @@ class Car(BaseModel):
 	logo_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'LOGO地址')
 	serie = models.ForeignKey(Serie, verbose_name=u'型号', null=True)
 	tag = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'标签')
+	tag_pinyin=models.CharField(max_length=128,null=True,blank=True, verbose_name=u'标签拼音')
 	size = models.CharField(max_length=2, verbose_name=u'', null =True, blank=True, choices=[
 			('0',u'新能源'),
 			('1',u'微型车'),

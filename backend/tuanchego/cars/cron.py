@@ -8,11 +8,21 @@ import traceback
 import datetime
 import time
 
-def _get_page_dom(url):
-    req = urllib2.Request(url)
-    req.add_header("Reffer","http://bzclk.baidu.com/adrc.php?t=06KL00c00fZ0gw60_wIm05-WcfahOeVm00000Ap-Gj300000Vs18-F.THLPkUrd1x60UWdBmy-bIfK15H9buj0YujKBnj0dnHfsuWc0IHYzwRP7n1c4nHf4fHckfRPAwW-KrDmLnHFDfYnzPWm4r0K95gTqFhdWpyfqnWbsPjRYPHDsriusThqbpyfqnHm0uHdCIZwsrBtEILILQMwdmy4WpAR8mvqV5vnqmhfsP7K7Hbn0mLFW5HmznjRd&tpl=tpl_10087_14396_1&l=1050977638&attach=location%3D%26linkName%3D%25E6%25A0%2587%25E9%25A2%2598%26linkText%3D%25E5%259B%25A2%25E8%25BD%25A6%25E7%25BD%2591-%25E4%25B8%25AD%25E5%259B%25BD%25E4%25B8%2593%25E4%25B8%259A%25E6%25B1%25BD%25E8%25BD%25A6%25E7%2594%25B5%25E5%2595%2586%25E5%25B9%25B3%25E5%258F%25B0%26xp%3Did(%2522m3ab65456%2522)%252FDIV%255B1%255D%252FDIV%255B1%255D%252FDIV%255B1%255D%252FH2%255B1%255D%252FA%255B1%255D%26linkType%3D%26checksum%3D95&ie=utf-8&f=8&tn=baidu&wd=%E5%9B%A2%E8%BD%A6&rqlang=cn&inputT=3713")
-    req.add_header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0")
-    resp = urllib2.urlopen(req)
+def _get_page_dom(url, no_proxy=False):
+    if no_proxy:
+        req = urllib2.Request(url)
+        req.add_header("Reffer","http://bzclk.baidu.com/adrc.php?t=06KL00c00fZ0gw60_wIm05-WcfahOeVm00000Ap-Gj300000Vs18-F.THLPkUrd1x60UWdBmy-bIfK15H9buj0YujKBnj0dnHfsuWc0IHYzwRP7n1c4nHf4fHckfRPAwW-KrDmLnHFDfYnzPWm4r0K95gTqFhdWpyfqnWbsPjRYPHDsriusThqbpyfqnHm0uHdCIZwsrBtEILILQMwdmy4WpAR8mvqV5vnqmhfsP7K7Hbn0mLFW5HmznjRd&tpl=tpl_10087_14396_1&l=1050977638&attach=location%3D%26linkName%3D%25E6%25A0%2587%25E9%25A2%2598%26linkText%3D%25E5%259B%25A2%25E8%25BD%25A6%25E7%25BD%2591-%25E4%25B8%25AD%25E5%259B%25BD%25E4%25B8%2593%25E4%25B8%259A%25E6%25B1%25BD%25E8%25BD%25A6%25E7%2594%25B5%25E5%2595%2586%25E5%25B9%25B3%25E5%258F%25B0%26xp%3Did(%2522m3ab65456%2522)%252FDIV%255B1%255D%252FDIV%255B1%255D%252FDIV%255B1%255D%252FH2%255B1%255D%252FA%255B1%255D%26linkType%3D%26checksum%3D95&ie=utf-8&f=8&tn=baidu&wd=%E5%9B%A2%E8%BD%A6&rqlang=cn&inputT=3713")
+        req.add_header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0")
+        resp = urllib2.urlopen(req)
+    else:
+        proxy_support = urllib2.ProxyHandler({'http':'121.40.108.76'})
+        opener = urllib2.build_opener(proxy_support)
+        opener.add_handler=[
+        ('User-Agent','Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36'),
+        ("Reffer","http://bzclk.baidu.com/adrc.php?t=06KL00c00fZ0gw60_wIm05-WcfahOeVm00000Ap-Gj300000Vs18-F.THLPkUrd1x60UWdBmy-bIfK15H9buj0YujKBnj0dnHfsuWc0IHYzwRP7n1c4nHf4fHckfRPAwW-KrDmLnHFDfYnzPWm4r0K95gTqFhdWpyfqnWbsPjRYPHDsriusThqbpyfqnHm0uHdCIZwsrBtEILILQMwdmy4WpAR8mvqV5vnqmhfsP7K7Hbn0mLFW5HmznjRd&tpl=tpl_10087_14396_1&l=1050977638&attach=location%3D%26linkName%3D%25E6%25A0%2587%25E9%25A2%2598%26linkText%3D%25E5%259B%25A2%25E8%25BD%25A6%25E7%25BD%2591-%25E4%25B8%25AD%25E5%259B%25BD%25E4%25B8%2593%25E4%25B8%259A%25E6%25B1%25BD%25E8%25BD%25A6%25E7%2594%25B5%25E5%2595%2586%25E5%25B9%25B3%25E5%258F%25B0%26xp%3Did(%2522m3ab65456%2522)%252FDIV%255B1%255D%252FDIV%255B1%255D%252FDIV%255B1%255D%252FH2%255B1%255D%252FA%255B1%255D%26linkType%3D%26checksum%3D95&ie=utf-8&f=8&tn=baidu&wd=%E5%9B%A2%E8%BD%A6&rqlang=cn&inputT=3713")
+        ]
+        urllib2.install_opener(opener)
+        resp = urllib2.urlopen(url)
     page_text_raw = resp.read()
     page_text_unicode = unicode(page_text_raw,'utf-8')
     return pq(page_text_unicode)

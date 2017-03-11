@@ -65,9 +65,18 @@ WSGI_APPLICATION = 'tuanchego.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default.back': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cars',
+        'USER': 'cars',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+        'ATOMIC_REQUESTS': True,
     }
 }
 
