@@ -78,16 +78,16 @@ class Car(BaseModel):
 		('u',u'未知'),
 		])
 	displacement = models.DecimalField(default=0, max_digits=2, decimal_places=1, null=True, blank=True, verbose_name=u'排量(L)',choices=[
-		(0, '<1.3'), 
-		(1, '1.3'), 
-		(2, '1.4'), 
-		(3, '1.5'), 
-		(4, '1.6'), 
-		(5, '1.8'), 
-		(6, '2.0'), 
-		(7, '2.4'), 
-		(8, '>2.4L'),
-		(-1, '未知')
+		(1, '<1.3'), 
+		(2, '1.3'), 
+		(3, '1.4'), 
+		(4, '1.5'), 
+		(5, '1.6'), 
+		(6, '1.8'), 
+		(7, '2.0'), 
+		(8, '2.4'), 
+		(9, '>2.4L'),
+		(0, '未知')
 		]
 	)
 	gearbox=models.CharField(max_length=2, null = True, blank=True, verbose_name=u'变速箱', choices=[

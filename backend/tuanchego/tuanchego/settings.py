@@ -109,12 +109,12 @@ STATICFILES_DIRS = (
 #pdb.set_trace()
 
 CRON_CLASSES = [
-    "cars.cron.GetBrandJob",
-    "cars.cron.GetCarJob",
-    "cars.cron.RefreshCarPriceJob",
-    "cars.cron.RefreshCarSizeJob",
-    "cars.cron.RefreshCarGearboxJob",
+    #"cars.cron.GetBrandJob",
+    #"cars.cron.GetCarJob",
+    #"cars.cron.RefreshCarPriceJob",
+    #"cars.cron.RefreshCarSizeJob",
+    #"cars.cron.RefreshCarGearboxJob",
     "cars.cron.RefreshCarDispatchJob",
-    "cars.cron.RefreshCarOriginJob",
+    #"cars.cron.RefreshCarOriginJob",
     # ...
 ]

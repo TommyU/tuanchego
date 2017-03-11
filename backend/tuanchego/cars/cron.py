@@ -628,7 +628,7 @@ class RefreshCarDispatchJob(RefreshCarAttrJob):
         car_obj, instance of Car;
         lis_index, 1 ~ len(self.target_list)
         """
-        car_obj.displacement = str(list_index-1)
+        car_obj.displacement = str(list_index)
 
 class RefreshCarOriginJob(RefreshCarAttrJob):
     RUN_EVERY_MINS = 1 # every 2 hours
