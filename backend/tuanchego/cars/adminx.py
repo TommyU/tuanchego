@@ -39,7 +39,7 @@ class CarAdmin(object):
     list_display_links = ('name',)
 
     search_fields = ['name']
-    list_filter =('brand','serie','price_level','gearbox','origin')
+    list_filter =('brand','serie','price_level','gearbox','origin','size')
     readonly_fields = ('id',)
 
 xadmin.site.register(Car, CarAdmin)
