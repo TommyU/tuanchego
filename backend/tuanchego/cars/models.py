@@ -8,7 +8,7 @@ class Brand(BaseModel):
 	"""
 	initial = models.CharField(max_length=1,null = True, blank=True,db_index=True, verbose_name=u'首字母' )
 	name = models.CharField(max_length=64, null = True, blank=True,   verbose_name=u'名称' )
-	logo_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'log uri')
+	logo_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'logo uri')
 	tc_url = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'tc uri')
 	city = models.ManyToManyField(City, verbose_name=u'城市')
 	def __str__(self):
@@ -54,7 +54,7 @@ class Car(BaseModel):
 	serie = models.ForeignKey(Serie, verbose_name=u'型号', null=True)
 	tag = models.CharField(max_length=128, null=True, blank=True, verbose_name=u'标签')
 	tag_pinyin=models.CharField(max_length=128,null=True,blank=True, verbose_name=u'标签拼音')
-	size = models.CharField(max_length=2, verbose_name=u'', null =True, blank=True, choices=[
+	size = models.CharField(max_length=2, verbose_name=u'级别', null =True, blank=True, choices=[
 			('0',u'新能源'),
 			('1',u'微型车'),
 			('2',u'小型车'),
@@ -64,35 +64,50 @@ class Car(BaseModel):
 			('6',u'suv'),
 			('7',u'MPV'),
 			('8',u'跑车'),
+			('u',u'未知')
 		])
 	name = models.CharField(max_length=64, null = True, blank=True, verbose_name=u'名称' )
 	img_path = models.CharField(max_length=128, null = True, blank=True, verbose_name=u'图片路径' )
 	price_level = models.CharField(max_length=32,null=True, blank=True, verbose_name =u'价位', choices=[
-		('0,5',u'5万以下'),
-		('5,10',u'5~10万'),
-		('10,15',u'10~15万'),
-		('15,20',u'15~20万'),
-		('20,30',u'20~30万'),
-		('30,9999',u'30万以上'),
-		('unknown',u'不明确'),
+		('0',u'5万以下'),
+		('1',u'5~10万'),
+		('2',u'10~15万'),
+		('3',u'15~20万'),
+		('4',u'20~30万'),
+		('5',u'30万以上'),
+		('u',u'未知'),
 		])
-	displacement = models.DecimalField(default=0, max_digits=2, decimal_places=1, null=True, blank=True, verbose_name=u'排量(L)')
+	displacement = models.DecimalField(default=0, max_digits=2, decimal_places=1, null=True, blank=True, verbose_name=u'排量(L)',choices=[
+		(0, '<1.3'), 
+		(1, '1.3'), 
+		(2, '1.4'), 
+		(3, '1.5'), 
+		(4, '1.6'), 
+		(5, '1.8'), 
+		(6, '2.0'), 
+		(7, '2.4'), 
+		(8, '>2.4L'),
+		(-1, '未知')
+		]
+	)
 	gearbox=models.CharField(max_length=2, null = True, blank=True, verbose_name=u'变速箱', choices=[
 		('0',u'手动'),
 		('1',u'自动'),
 		('2',u'无极变速'),
 		('3',u'手自一体'),
 		('4',u'双离合'),
+		('u',u'未知')
 		] )
 	origin = models.CharField(max_length=2, null = True, blank=True, verbose_name=u'国别', choices=[
-		('US',u'美系'),
-		('DE',u'德系'),
-		('01',u'进口'),
-		('JP',u'日系'),
-		('02',u'合资'),
-		('CN',u'国产'),
-		('KR',u'韩系'),
-		('EU',u'欧系'),
+		('0',u'美系'),
+		('1',u'德系'),
+		('2',u'进口'),
+		('3',u'日系'),
+		('4',u'合资'),
+		('5',u'国产'),
+		('6',u'韩系'),
+		('7',u'欧系'),
+		('u',u'未知')
 		])
 	description = models.CharField(max_length=1024, null = True, blank=True, verbose_name=u'描述' )
 
