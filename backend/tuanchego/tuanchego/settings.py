@@ -116,6 +116,7 @@ CRON_CLASSES = [
     #"cars.cron.RefreshCarGearboxJob",
     #"cars.cron.RefreshCarDispatchJob",
     #"cars.cron.RefreshCarOriginJob",
-    "cars.cron.DownloadCarImgs",
+    #"cars.cron.DownloadCarImgs",
+    "cars.cron.DownLoadPageImages",
     # ...
 ]

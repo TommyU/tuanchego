@@ -729,3 +729,41 @@ class DownloadCarImgs(CronJobBase):
                 self.download_imgs(img_list[count/2:], 'thread2')
         except:
             print(traceback.format_exc())
+
+class DownLoadPageImages(CronJobBase):
+    RUN_EVERY_MINS = 1 # every 2 hours
+    schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
+    code = 'cars.cron.DownLoadPageImages'    # a unique code
+    
+    def download_resource(self, url):
+            """
+            url: http://pic.tuanche.com/car/20160607/14652910143466292_o.jpg
+            """
+            def _ensure_dir(full_path):
+                """
+                确保路径存在，无则建立
+                """
+                p = full_path[:full_path.rfind('/')]
+                with LOCK:
+                    if not os.path.exists(p):
+                        makedirs(p)
+            full_path = os.path.join(STATIC_DIR, 'static')+urlparse(url).path
+            _ensure_dir(full_path)
+            req = urllib2.Request(url)
+            req.add_header('Referer','http://www.tuanche.com/')
+            req.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0')
+            resp = urllib2.urlopen(req)
+            content = resp.read()
+            with open(full_path, 'wb') as f:
+                f.write(content)
+    def do(self):
+        """
+        download imgs from page
+        """
+        try:
+            img_list=['http://pic.tuanche.com/adv/20150701/14357338643056434.jpg', 'http://pic.tuanche.com/adv/20150701/14357339116675442.jpg', 'http://pic.tuanche.com/adv/20170301/14883394303357641.jpg', 'http://pic.tuanche.com/adv/20170224/14878996259616134.jpg', 'http://pic.tuanche.com/adv/20150701/14357340135972781.jpg', 'http://pic.tuanche.com/adv/20150701/14357338643056434.jpg', 'http://pic.tuanche.com/adv/20150701/14357339116675442.jpg', 'http://pic.tuanche.com/adv/20170224/1487900312497313.jpg', 'http://pic.tuanche.com/adv/20150625/14352284021722868.jpg', 'http://pic.tuanche.com/adv/20150625/14352284496139123.jpg', 'http://pic.tuanche.com/adv/20161206/14810113157046054.jpg', 'http://pic.tuanche.com/zixun//20160711/14682251444421698_s.jpg', 'http://pic.tuanche.com/zixun//20160316/14581129555304573_s.jpg', 'http://pic.tuanche.com/zixun//20151125/14484418727027789_s.jpg', 'http://pic.tuanche.com/zixun//20151112/14472956543207799_s.jpg', 'http://pic.tuanche.com/zixun//20151111/14472384029677160_s.jpg', 'http://pic.tuanche.com/zixun//20150928/14434320780248572_s.jpg', 'http://pic.tuanche.com/zixun//20170121/14849771899722066_s.jpg', 'http://pic.tuanche.com/zixun//20161228/14828924657029697_s.jpg', 'http://pic.tuanche.com/zixun//20161205/14809223860203388_s.jpg', 'http://pic.tuanche.com/zixun//20160711/14682251444421698_s.jpg', 'http://pic.tuanche.com/zixun//20160316/14581129555304573_s.jpg', 'http://pic.tuanche.com/zixun//20151125/14484418727027789_s.jpg', 'http://pic.tuanche.com/zixun//20151112/14472956543207799_s.jpg', 'http://pic.tuanche.com/zixun//20151111/14472384029677160_s.jpg', 'http://pic.tuanche.com/zixun//20150928/14434320780248572_s.jpg', 'http://pic.tuanche.com/zixun//20170121/14849771899722066_s.jpg', 'http://pic.tuanche.com/zixun//20161228/14828924657029697_s.jpg', 'http://pic.tuanche.com/zixun//20161205/14809223860203388_s.jpg']
+            for img_url in img_list:
+                self.download_resource(img_url)
+                print('img from %s downloaded!'%img_url)
+        except:
+            print(traceback.format_exc())
