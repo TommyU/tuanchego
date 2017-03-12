@@ -3,7 +3,7 @@ angular.module('app.home').config(homeConfig);
 homeConfig.$inject = ['$stateProvider'];
 function homeConfig($stateProvider) {
     $stateProvider.state('base.home', {
-        url: '/home',
+        url: '/',
         views: {
             '@': {
                 templateUrl: 'home/controllers/home.html',
