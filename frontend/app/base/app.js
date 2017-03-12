@@ -78,10 +78,10 @@ angular.module('app').factory('$exceptionHandler', ['$log', function($log) {
     return function(exception) {
         if (window.debug) {
             // Log to console when developing.
-            $log.error(exception);
+            //$log.error(exception);
         } else {
             // Otherwise send to Sentry.
-            Raven.captureException(exception);
+            //Raven.captureException(exception);
         }
     };
 }]);
@@ -90,7 +90,7 @@ angular.module('app').factory('$exceptionHandler', ['$log', function($log) {
 angular.module('app').run(runApp);
 
 runApp.$inject = ['$rootScope', '$state', 'editableOptions', 'HLMessages', 'HLSockets', 'HLNotifications'];
-function runApp($rootScope, $state, editableOptions, HLMessages, HLSockets, HLNotifications, UserTeams) {
+function runApp($rootScope, $state, editableOptions, HLMessages, HLSockets, HLNotifications) {
     $rootScope.$state = $state; // State to be accessed from view.
     $rootScope.currentUser = currentUser;
     $rootScope.messages = HLMessages;
