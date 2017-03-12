@@ -7,33 +7,33 @@
 <div class="w carStyle">
   <div class="carStyleBox">
     <span class="fl searchStyleT">价&nbsp;&nbsp;&nbsp;位：</span>
-    <div class="searchStyle">
+    <div class="searchStyle" ng-init="vm.price_level='all'">
             
-                <span><a href="http://www.tuanchegou.com/che/" class="act" rel="nofollow">
+                <span><a ng-cilck="vm.change_price_class('all')" href="javascript:void(0)" ng-class="vm.price_level_class_all" rel="nofollow">
                         不限
                 </a></span>
             
-                <span><a href="http://www.tuanchegou.com/chep1/" class="">
+                <span><a ng-cilck="vm.change_price_class('0')" href="javascript:void(0)" ng-class="vm.price_level_class_0">
                         5万以下
                 </a></span>
             
-                <span><a href="http://www.tuanchegou.com/chep2/" class="">
+                <span><a ng-cilck="vm.change_price_class('1')" href="javascript:void(0)" ng-class="vm.price_level_class_1">
                         5-10万
                 </a></span>
             
-                <span><a href="http://www.tuanchegou.com/chep3/" class="">
+                <span><a ng-cilck="vm.change_price_class('2')" href="javascript:void(0)" ng-class="vm.price_level_class_2">
                         10-15万
                 </a></span>
             
-                <span><a href="http://www.tuanchegou.com/chep4/" class="">
+                <span><a ng-cilck="vm.change_price_class('3')" href="javascript:void(0)" ng-class="vm.price_level_class_3">
                         15-20万
                 </a></span>
             
-                <span><a href="http://www.tuanchegou.com/chep5/" class="">
+                <span><a ng-cilck="vm.change_price_class('4')" href="javascript:void(0)" ng-class="vm.price_level_class_4">
                         20-30万
                 </a></span>
             
-                <span><a href="http://www.tuanchegou.com/chep6/" class="">
+                <span><a ng-cilck="vm.change_price_class('5')" href="javascript:void(0)" ng-class="vm.price_level_class_5">
                         30万以上
                 </a></span>
             
@@ -645,8 +645,8 @@
         </div>
     </div>
 
-  <div ng-hide="!vm.hideOtherOption" class="styleMore" ng-click="vm.hideOtherOption=!vm.hideOtherOption" ng-init="vm.hideOtherOption=true"><a href="#" ><em></em>显示全部条件</a></div>
-  <div ng-hide="vm.hideOtherOption" class="styleMore" ng-click="vm.hideOtherOption=!vm.hideOtherOption" ><a href="#" ><em></em>隐藏部分条件</a></div>
+  <div ng-hide="!vm.hideOtherOption" class="styleMore" ng-click="vm.hideOtherOption=!vm.hideOtherOption" ng-init="vm.hideOtherOption=true"><a href="javascript:void(0)" ><em></em>显示全部条件</a></div>
+  <div ng-hide="vm.hideOtherOption" class="styleMore" ng-click="vm.hideOtherOption=!vm.hideOtherOption" ><a href="javascript:void(0)" ><em></em>隐藏部分条件</a></div>
 </div>
 
 
