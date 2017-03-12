@@ -35,7 +35,7 @@ function BaseController($scope, $state, $http, AppHash, Settings, HLShortcuts) {
                 }
             });
 
-            new window.Intercom('update', {email: currentUser.email});
+            //new window.Intercom('update', {email: currentUser.email});
         });
 
         $scope.$on('$stateChangeSuccess', _setPreviousState);
@@ -79,7 +79,7 @@ function BaseController($scope, $state, $http, AppHash, Settings, HLShortcuts) {
 
         // For some reason we need to do two update calls to display messages
         // when they should.
-        new window.Intercom('update', {email: currentUser.email});
+        //new window.Intercom('update', {email: currentUser.email});
     }
 
     function _contentLoadedActions() {
