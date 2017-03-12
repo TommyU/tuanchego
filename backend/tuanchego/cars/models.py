@@ -77,7 +77,7 @@ class Car(BaseModel):
 		('5',u'30万以上'),
 		('u',u'未知'),
 		])
-	displacement = models.DecimalField(default=0, max_digits=2, decimal_places=1, null=True, blank=True, verbose_name=u'排量(L)',choices=[
+	displacement = models.DecimalField(default=0, max_digits=2, decimal_places=0, null=True, blank=True, verbose_name=u'排量(L)',choices=[
 		(1, '<1.3'), 
 		(2, '1.3'), 
 		(3, '1.4'), 
