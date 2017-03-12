@@ -114,7 +114,8 @@ CRON_CLASSES = [
     #"cars.cron.RefreshCarPriceJob",
     #"cars.cron.RefreshCarSizeJob",
     #"cars.cron.RefreshCarGearboxJob",
-    "cars.cron.RefreshCarDispatchJob",
+    #"cars.cron.RefreshCarDispatchJob",
     #"cars.cron.RefreshCarOriginJob",
+    "cars.cron.DownloadCarImgs",
     # ...
 ]

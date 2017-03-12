@@ -1,12 +1,20 @@
 # -*- coding:utf-8 -*-
 from django_cron import CronJobBase, Schedule
 import urllib2
+from urlparse import urlparse
 from pyquery import PyQuery as pq
 from lxml.html import HtmlElement
 from .models import Brand,Serie,Car
 import traceback
 import datetime
 import time
+import thread
+import os
+from os import makedirs
+import threading
+STATIC_DIR = os.path.dirname(os.path.dirname(__file__))
+LOCK = threading.Lock()
+
 
 def _get_page_dom_proxy(targetUrl):
     # 代理服务器
@@ -644,3 +652,80 @@ class RefreshCarOriginJob(RefreshCarAttrJob):
         lis_index, 1 ~ len(self.target_list)
         """
         car_obj.origin = str(list_index-1)
+
+class DownloadCarImgs(CronJobBase):
+    RUN_EVERY_MINS = 1 # every 2 hours
+    schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
+    code = 'cars.cron.DownloadCarImgs'    # a unique code
+
+    def download_imgs(self, _img_list, name='thread1'):
+        """
+        _img_list: [(logo_url, img_url, car_obj),(....)...]
+        download to the static file dir
+        """
+        def _ensure_dir(full_path):
+            """
+            确保路径存在，无则建立
+            """
+            p = full_path[:full_path.rfind('/')]
+            with LOCK:
+                if not os.path.exists(p):
+                    makedirs(p)
+
+        def _download_resource(url):
+            """
+            url: http://pic.tuanche.com/car/20160607/14652910143466292_o.jpg
+            """
+            full_path = os.path.join(STATIC_DIR, 'static')+urlparse(url).path
+            _ensure_dir(full_path)
+            req = urllib2.Request(url)
+            req.add_header('Referer','http://www.tuanche.com/')
+            req.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0')
+            resp = urllib2.urlopen(req)
+            content = resp.read()
+            with open(full_path, 'wb') as f:
+                f.write(content)
+
+        def _dispatch_download(_img_list,name):
+            """
+            http://pic.tuanche.com/car/20160607/14652910143466292_o.jpg
+            """
+            print('thread [%s] started! %d logo&imgs to download'%(name,len(_img_list)))
+            i=0
+            try:
+                for logo,img,car_obj in _img_list:
+                    try:
+                        _download_resource(logo)
+                        print('\tdownloaded logo from url:%s'%logo)
+                        car_obj.logo_url = '/static'+urlparse(logo).path
+                        _download_resource(img)
+                        car_obj.img_path = '/static'+urlparse(img).path
+                        print('\tdownloaded img from url:%s'%img)
+                        car_obj.save()
+                        i+=1
+                    except:
+                        print(traceback.format_exc())
+                        #exit(0)
+                        print('\tdownload failed!(logo:%s , img:%s'%(logo,img))
+            except:
+                print(traceback.format_exc())
+
+            print('thread [%s] ended! %d img&logo downloaded!'%(name, i))
+
+        _dispatch_download(_img_list,name)
+        #th = thread.start_new_thread(_dispatch_download, (_img_list,name))
+
+    def do(self):
+        """
+        download imgs(logo/car img) from location specified by Car.logo_url and Car.img_path
+        """
+        try:
+            print("[%s] looking for cars whoes images not downloaded...."%(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+            cars =  Car.objects.filter(logo_url__startswith='http://pic.tuanche.com')
+            img_list=[(x.logo_url, x.img_path, x) for x in cars]
+            count = len(img_list)
+            if count:
+                self.download_imgs(img_list[0:count/2])
+                self.download_imgs(img_list[count/2:], 'thread2')
+        except:
+            print(traceback.format_exc())
