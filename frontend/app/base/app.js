@@ -33,6 +33,8 @@ angular.module('app', [
     'app.cars',
     'app.sellcar',
     'app.info',
+    'app.applybrand',
+    'app.applycar',
 
     // Directives
     'app.directives',
