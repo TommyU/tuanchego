@@ -1,0 +1,103 @@
+<link href="css/register.css" rel="stylesheet" type="text/css">
+
+<div class="main">
+    <div class="container padt10"> 
+        <div class="b_login">
+            <div class="hd"> 免费注册 </div>
+            <div class="bd clearfix">
+                <div class="m_rt">
+                    <div class="p1"> 已有团车账号？<a href="/login/toLogin">登录</a> </div>
+                    <div class="p2">您也可以关注团车微信，了解最新团购信息；</div>
+                    <div class="p3"><img src="http://static.tuanchegou.com/newstatic//uc/images/weixin-big-v1.png" alt=""></div>
+                </div>
+                <div class="m_lf">
+                    <div class="b_form_nt">
+                    	<form id="reg_form" class="yanzheng-form">
+                             <input id="phoneType" value="0" type="hidden">
+                             <div class="crl_group yanzheng-form-sode">
+                                <div class="crl_lab">验证码:</div>
+                                <div class="controls">
+                                    <div class="q_inpbox">
+                                        <input id="code_txt" maxlength="4" class="inp" name="codeImg" type="text">
+                                        <img style="margin-left:10px;vertical-align:middle;*vertical-align:4px;" id="codeImg" class=" code_img" src="http://www.tuanchegou.com/service/verifycode?1430115614204">  
+                                        <span style="left:350px;" class="help-inline"><i style="display: none;" id="codeImgSuccess" class="success"></i></span>
+                                        <div id="tip" class="tip" style="display: none;">验证码输入错误！</div>
+                                    </div>
+                                </div>                                                              
+                            </div>
+                            
+                            <div class="crl_group">
+                                <div class="crl_lab">手机号</div>
+                                <div class="controls">
+                                    <div class="q_inpbox">
+                                        <input name="phone" id="phone" class="inp" value="" type="text">
+                                        <span class="help-inline phonevalid"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crl_group">
+                                <div class="crl_lab">&nbsp;</div>
+                                <div class="controls">
+                                     <a href="javascript:;" class="g-btn g-btn-l g-btn-aid" id="getvalidateCode"><span>免费获取短信验证码</span></a>
+                                     <span style="display:inline-block; height:32px; line-height:32px; color:red; margin-left:10px;" id="textMsg"></span>
+                                </div>
+                            </div>
+                            <div class="crl_group">
+                                <div class="crl_lab">短信确认码</div>
+                                <div class="controls">
+                                    <div class="q_inpbox">
+                                        <input name="verify" id="smscode" class="inp" value="" type="text">
+                                        <span class="help-inline phonevalid"><label><i id="validateCodeIcon" class="red"></i></label></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crl_group">
+                                <div class="crl_lab">创建密码</div>
+                                <div class="controls">
+                                    <div class="q_inpbox">
+                                        <input name="password" class="inp" value="" id="passwordstrenth" type="password">
+                                       <span class="help-inline phonevalid"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crl_group">
+                                <div class="crl_lab">&nbsp;</div>
+                                <div class="controls">
+                                    <div class="m_mm">
+                                       	 密码强度:&nbsp;<span class="m_strong"><i id="passwordStrengthDiv" class="i_step0"></i></span>
+                                    </div>
+                                    <div><span class="yyy">弱</span><span class="yyy">中</span><span class="yyy">强</span></div>
+                                </div>
+                            </div>
+                            <div class="crl_group">
+                                <div class="crl_lab">确认密码</div>
+                                <div class="controls">
+                                    <div class="q_inpbox">
+                                        <input name="pwdv" id="repassword" class="inp" value="" type="password">
+                                          <input name="source" value="1" type="hidden">
+                                        <span class="help-inline phonevalid"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crl_group">
+                                <div class="crl_lab">&nbsp;</div>
+                                <div class="controls">
+                                    <div class="m_txt">
+                                        <label for="agree">
+                                            <input name="protocol" id="agree" class="inp_chk" checked="checked" type="checkbox">我已阅读并同意《<a id="btn" href="javascript:void(0);">网络服务协议</a>》
+                                        </label>
+                                        <span id="errorArea" class="red"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crl_group crl_group_submit">
+                                <div class="crl_lab">&nbsp;</div>
+                                <div class="controls"><a class="g-btn g-btn-xl g-btn-sure submit-btn" href="javascript:" id="registerBtn" name="registerBtn"><span>&nbsp;&nbsp;立即注册&nbsp;&nbsp;</span></a></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

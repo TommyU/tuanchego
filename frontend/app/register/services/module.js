@@ -1,0 +1,1 @@
+angular.module('app.register.services', ['ngResource']);
