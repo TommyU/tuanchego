@@ -1,31 +1,31 @@
-angular.module('app.register').config(registerConfig); 
+angular.module('app.tuan').config(tuanConfig); 
 
-registerConfig.$inject = ['$stateProvider'];
-function registerConfig($stateProvider) {
-    $stateProvider.state('base.register', {
-        url: '/register',
+tuanConfig.$inject = ['$stateProvider'];
+function tuanConfig($stateProvider) {
+    $stateProvider.state('base.tuan', {
+        url: '/tuan',
         views: {
             '@': {
-                templateUrl: 'register/controllers/index.html',
-                controller: RegisterController,
+                templateUrl: 'tuan/controllers/index.html',
+                controller: TuanController,
                 controllerAs: 'vm',
             },
         },
         ncyBreadcrumb: {
-            label: 'Register',
+            label: 'Tuan',
         },
     });
 }
 
-angular.module('app.register').controller('RegisterController', RegisterController);
+angular.module('app.tuan').controller('TuanController', TuanController);
 
-RegisterController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage',
+TuanController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage',
     'Settings', 'User', 'UserTeams'];
-function RegisterController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage,
+function TuanController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage,
                             Settings, User, UserTeams) {
     var vm = this;
 
-    vm.storage = new LocalStorage('register');
+    vm.storage = new LocalStorage('tuan');
    
 
     init();

@@ -30,12 +30,15 @@ angular.module('app', [
     'app.templates',
     'app.home',
     'app.brand',
+    'app.tuan',
     'app.cars',
     'app.sellcar',
     'app.info',
     'app.register',
+    'app.login',
     'app.applybrand',
     'app.applycar',
+    'app.newenergy',
 
     // Directives
     'app.directives',

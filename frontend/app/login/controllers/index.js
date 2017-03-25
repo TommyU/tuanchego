@@ -1,31 +1,31 @@
-angular.module('app.register').config(registerConfig); 
+angular.module('app.login').config(loginConfig); 
 
-registerConfig.$inject = ['$stateProvider'];
-function registerConfig($stateProvider) {
-    $stateProvider.state('base.register', {
-        url: '/register',
+loginConfig.$inject = ['$stateProvider'];
+function loginConfig($stateProvider) {
+    $stateProvider.state('base.login', {
+        url: '/login',
         views: {
             '@': {
-                templateUrl: 'register/controllers/index.html',
-                controller: RegisterController,
+                templateUrl: 'login/controllers/index.html',
+                controller: LoginController,
                 controllerAs: 'vm',
             },
         },
         ncyBreadcrumb: {
-            label: 'Register',
+            label: 'Login',
         },
     });
 }
 
-angular.module('app.register').controller('RegisterController', RegisterController);
+angular.module('app.login').controller('LoginController', LoginController);
 
-RegisterController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage',
+LoginController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage',
     'Settings', 'User', 'UserTeams'];
-function RegisterController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage,
+function LoginController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage,
                             Settings, User, UserTeams) {
     var vm = this;
 
-    vm.storage = new LocalStorage('register');
+    vm.storage = new LocalStorage('login');
    
 
     init();

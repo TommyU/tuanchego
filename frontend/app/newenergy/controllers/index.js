@@ -1,31 +1,31 @@
-angular.module('app.register').config(registerConfig); 
+angular.module('app.newenergy').config(newenergyConfig); 
 
-registerConfig.$inject = ['$stateProvider'];
-function registerConfig($stateProvider) {
-    $stateProvider.state('base.register', {
-        url: '/register',
+newenergyConfig.$inject = ['$stateProvider'];
+function newenergyConfig($stateProvider) {
+    $stateProvider.state('base.newenergy', {
+        url: '/newenergy',
         views: {
             '@': {
-                templateUrl: 'register/controllers/index.html',
-                controller: RegisterController,
+                templateUrl: 'newenergy/controllers/index.html',
+                controller: NewEnergyController,
                 controllerAs: 'vm',
             },
         },
         ncyBreadcrumb: {
-            label: 'Register',
+            label: 'NewEnergy',
         },
     });
 }
 
-angular.module('app.register').controller('RegisterController', RegisterController);
+angular.module('app.newenergy').controller('NewEnergyController', NewEnergyController);
 
-RegisterController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage',
+NewEnergyController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage',
     'Settings', 'User', 'UserTeams'];
-function RegisterController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage,
+function NewEnergyController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage,
                             Settings, User, UserTeams) {
     var vm = this;
 
-    vm.storage = new LocalStorage('register');
+    vm.storage = new LocalStorage('newenengy');
    
 
     init();

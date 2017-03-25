@@ -1,0 +1,112 @@
+<link href="css/register.css" rel="stylesheet" type="text/css">
+
+<!--login head S-->
+<div class="load-header">
+    <div class="wrap1200 mc clearfix">
+        <a href="http://bj.www.tuanche.com/" class="header-logo fl">团车网</a>
+        <p class="fl red">欢迎登录</p>
+    </div>    
+</div>
+<!--login head E-->
+
+<!--login contain S-->
+<div class="login-contain">
+<div class="wrap1200 mc">
+    <div class="login fr">
+        <ul class="login_common">
+            <li>
+                <a href="javascript:void(0)" class="login_common_cur" data-flag="zhanghao">
+                    账号密码登录
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" data-flag="quick">
+                    手机快捷登录
+                </a>
+            </li>
+        </ul>
+        <div class="login-line"></div>
+        <div class="login-wrap">
+          <!-- 账号密码登陆登录 -->
+                <div class="login-zhanghao">
+                    <form id="loginForm" class="Form" method="" action="">
+                        <div class="clearfix login-form">
+                            <div class="clearfix login-form1">
+                                <em class="fl login-icon zhanghao"></em>
+                                <input class="fl login-txt login_zhanghao" name="phone" id="phone" value="" placeholder="账号" onkeyup="delError()" type="text">
+                                <span class="help-inline"></span>
+                            </div>    
+                            <div class="clearfix login-form2">
+                                <em class="fl login-icon password"></em>
+                                <input class="fl login-txt login_password" name="password" id="password" placeholder="密码" onkeyup="delError()" type="password">
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="clearfix login-form-check">
+                            <label for="" class="except">
+                               <input id="" name="isKeepPhone" type="checkbox">记住账号
+                            </label>
+                            <label for="" class="except">
+                               <input id="J_gender1" name="isAutoLogin" type="checkbox">下次自动登录
+                            </label>
+                            <p class="fr">
+                               <a href="javascript:void(0)" onclick="findpsw()" class="red f16">忘记密码</a>
+                                <input name="loginType" id="loginType" value="0" type="hidden"> 
+                               <input name="returnUrl" value="http://bj.tuanche.com/tuan/" type="hidden">
+                            </p>             
+                        </div>
+                        <div>
+                            <input id="loginBtn" class="loginF-submit submit-btn" value="登录" type="button">
+                        </div>
+                        <div class="mc zhuce">
+                            <p>
+                                <a href="http://uc.tuanche.com//register/toRegister">立即注册</a>
+                            </p>
+                        </div>   
+                    </form>
+                </div>
+             <!-- 账号密码登陆登录 -->
+                <!-- 手机快捷登录 -->
+                <div class="login-quick" style="display:none">
+                
+                   <form method="" action="" id="quik-Form" class="Form">
+                        <input id="phoneType" value="1" type="hidden">
+                        <div class="clearfix login-form">
+                            <div class="clearfix login-form1">
+                                <input id="myPhone" class="fl login-txt login_phone" name="phone" placeholder="手机号" type="text">
+                                <input name="loginType" value="3" type="hidden">
+                                <input name="returnUrl" value="http://bj.tuanche.com/tuan/" type="hidden">
+                                <span class="help-inline"></span>
+                            </div>    
+                            <div class="clearfix login-form1">
+                                <input id="code_txt" class="fl login_yanzheng" name="codeImg" placeholder="验证码" type="text">
+                                <img style="margin-left: 10px; vertical-align: middle;*vertical-align:4px;" id="codeImg" class=" code_img" src="http://www.tuanche.com/service/verifycode?1430115614204">
+                                <span style="*vertical-align:10px;" class="help-inline"><i style="display: none;" id="codeImgSuccess" class="success"></i></span>
+                                <div id="tip" class="tip" style="display: none;">验证码输入错误！</div>
+                            </div>
+                            
+                            <div class="clearfix login-form2">
+                                <input class="fl login_yanzheng infoSure" name="loginCode" placeholder="短信确认码" type="text">
+                                <div class="info-queren">
+                                    <button id="getvalidateCode" class="duanxin-btn" type="button">发送短信确认码</button>
+                                </div>
+                                <div class="info-jishi"></div>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <input id="quick-btn" class="loginF-submit" value="登录" type="button">
+                        </div>
+                        <div class="mc quick-zhuce">
+                            <p>
+                                <a href="http://uc.tuanche.com//register/toRegister">立即注册</a>
+                            </p>
+                        </div>   
+                    </form>
+                </div>
+            <!-- 手机快捷登录 -->
+        </div>
+    </div>
+</div>    
+</div>
+<!--login contain E-->

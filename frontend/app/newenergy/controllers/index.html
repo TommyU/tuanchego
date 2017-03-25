@@ -1,0 +1,834 @@
+<link href="css/newenergy.css" rel="stylesheet" type="text/css">
+
+<div class="P-success" style="display: none;">
+    <div class="P-sucInfo">
+        <p id="poptitle"></p>
+        <span id="popmsg"></span>
+    </div>
+    <div class="p-selSite">
+        <p class="p-tips">温馨提示：请选择离您较近的团购地址！</p>
+        <input id="applyId" type="hidden">
+        
+        <div class="p-siteinC"><input class="" placeholder="" value="海淀区羊坊店路21号瑞海大厦B3" name="addr" type="text"></div>
+        <div class="p-siteinC"><input class="" placeholder="" value="海淀区清河四拨子东方美都汽配城东门展厅3号" name="addr" type="text"></div><!--error-->
+    </div>
+    <p class="p-error" style="display:none;">请选择地址！</p>
+    <a id="popbtn" class="p-btnSite" href="#">确定</a>
+</div>
+
+<!-- pop S -->
+<div class="pop">
+    <div class="popC" id="kuaisubm">
+        <form novalidate="novalidate" id="indexForm">
+            <input name="cityId" id="cityId" value="10" type="hidden">
+            <input name="brandId" class="brandVal" value="29" type="hidden">
+            <input name="o" class="brandVal" value="29" type="hidden">
+            <input name="sourceId" value="1" type="hidden">
+            <div class="P-tips">购车免费送<i>3000</i>元礼包</div>
+            <div class="inC">
+                <select name="styleId" class="carstyleVal">
+                    <option data-brandid="29" value="32107">吉利帝豪EV</option>
+                    <option data-brandid="27" value="31371">奇瑞eQ</option>
+                    <option data-brandid="27" value="32300">小蚂蚁</option>
+                    <option data-brandid="37" value="32131">江淮iEV4</option>
+<!--                    <option data-brandid="37" value="32132">江淮iEV5</option> -->
+<!--                    <option data-brandid="37" value="32119">江淮iEV6S</option> -->
+                    <option data-brandid="37" value="32302">江淮iEV6e</option>
+                    <option data-brandid="37" value="32301">江淮iEV7</option>
+                    <option data-brandid="25" value="127">比亚迪e6</option>
+                    <option data-brandid="25" value="32129">比亚迪秦EV</option>
+                    <option data-brandid="25" value="32314">比亚迪宋EV</option>
+                    <option data-brandid="25" value="32130">比亚迪e5</option>
+                    <option data-brandid="119" value="32127">北汽新能源EV160</option>
+<!--                    <option data-brandid="119" value="32128">北汽新能源EV200</option> -->
+                    <option data-brandid="119" value="32095">北汽新能源EU260</option>
+                    <option data-brandid="119" value="32294">北汽新能源EX260</option>
+                    <option data-brandid="119" value="32139">北汽新能源EX200</option>
+                    <option data-brandid="119" value="32288">北汽新能源EC180</option>
+                    <option data-brandid="165" value="13863">腾势</option>
+                    <option data-brandid="23" value="32089">长安逸动EV</option>
+                    <option data-brandid="62" value="30322">启辰晨风E30</option>
+                    <option data-brandid="177" value="32067">知豆D2</option>
+                    <option data-brandid="15" value="13045">荣威E50</option>
+                    <option data-brandid="15" value="32317">荣威RX50</option>
+                    <option data-brandid="71" value="32120">华泰iEV230</option>
+                    <option data-brandid="71" value="32121">华泰XEV260</option>
+                </select>
+            </div>
+            <div class="inC">
+                <input class="username" value="请输入姓名" maxlength="15" name="userName" onfocus="if (this.value =='请输入姓名'){this.value =''}" onblur="if (this.value ==''){this.value='请输入姓名'}" type="text">
+            </div>
+            <div class="inC">
+                <input aria-required="true" class="phoneb" value="请输入手机号码" maxlength="11" name="userTel" onfocus="if (this.value =='请输入手机号码'){this.value =''}" onblur="if (this.value ==''){this.value='请输入手机号码'}" type="text">
+            </div>
+            
+            <div class="PClose"><a id="supopcolsebtn"></a></div> 
+            <input value="" id="code" name="code" class="scode" type="hidden">
+            <input id="url" name="url" type="hidden">
+            <input name="bmtype" value="activity_newenergy" type="hidden">
+            <input name="position" value="4" type="hidden">
+            <input name="isQd" value="1" type="hidden">
+            <a class="p-btn">快速报名</a>
+        </form>
+    </div>
+</div>
+<!-- pop E -->
+
+<!-- w S -->
+<div class="w">
+    <div class="padtop">
+        <ul class="sellPoint">
+            <li class="ico-point01">
+                <p>低价保证</p>
+                
+                        <span>挑报价最低4S店合作</span>
+                    
+            </li>
+            <li class="ico-point02">
+                <p>车源保证</p>
+                <span>甄选本地优质正规4S店</span>
+            </li>
+            <li class="ico-point03">
+                <p>全国联保</p>
+                <span>正规4S店均可维修保养</span>
+            </li>
+            <li class="ico-point04">
+                <p>优先提车</p>
+                <span>享有优先提车权</span>
+            </li>
+            <!-- 
+            <li class="ico-point05">
+                <p>售后维权</p>
+                <span>质量问题，团车网协助解决</span>
+            </li> -->
+            <li class="ico-point06">
+                <p>亿元保障金</p>
+                <span>买贵赔三倍差价</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- w E -->
+
+<!-- w S -->
+<div class="w">
+    <ul class="hotlink Bjhotlink">
+        
+        <!-- <li class="hotT"><span>10万<br>以内</span></li>
+        <li><span><a href="/newenergy/c31371">奇瑞<br>eQ</a></span></li>
+        <li><span><a href="/newenergy/c32132">江淮<br>iEV5</a></span></li>
+        <li><span><a href="/newenergy/c32131">江淮<br>iEV4</a></span></li>
+        <li><span><a href="/newenergy/c32127">北汽<br>EV160</a></span></li>
+        <li class="hotT"><span>10-15<br>万</span></li>
+        <li><span><a href="/newenergy/c32107">吉利帝豪<br>EV</a></span></li>
+        <li><span><a href="/newenergy/c32119">江淮<br>iEV6S</a></span></li>
+        <li><span><a href="/newenergy/c32130">比亚迪<br>e5 300</a></span></li>
+        <li><span><a href="/newenergy/c32128">北汽<br>EV200</a></span></li>
+        <li><span><a href="/newenergy/c32095">北汽<br>EU260</a></span></li>
+        <li><span><a href="/newenergy/c32139">北汽<br>EX200</a></span></li>
+        <li class="hotT"><span>15-25<br>万</span></li>
+        <li><span><a href="/newenergy/c32129">比亚迪<br>秦EV</a></span></li>
+        <li><span><a href="/newenergy/c32089">长安逸动<br>EV</a></span></li>
+        <li><span><a href="/newenergy/c127">比亚迪<br>e6</a></span></li>
+        <li><span class="Lineh"><a href="/newenergy/c13863">腾势</a></span></li>
+        <li><span><a href="/newenergy/c30322">启辰晨风<br>E30</a></span></li> -->
+        
+        
+        <li class="hotT"><span>10万<br>以内</span></li>
+        <li><span><a href="/newenergy/c31371">奇瑞<br>eQ</a></span></li>
+        <li><span><a href="/newenergy/c32131">江淮<br>iEV4</a></span></li>
+<!--         <li class="hotUpMore"> -->
+<!--            <span><a href="javascript:void(0)">江淮</a></span> -->
+<!--            <em></em> -->
+<!--            <div class="hotUpSlid"> -->
+<!--                <samp><a href="/newenergy/c32132">iEV5</a></samp> -->
+<!--                <samp><a href="/newenergy/c32131">iEV4</a></samp> -->
+<!--            </div> -->
+<!--         </li> -->
+        <li><span><a href="/newenergy/c32127">北汽<br>EV160</a></span></li>
+        <li><span><a href="/newenergy/c32067">知豆<br>D2</a></span></li>
+        <li><span><a href="/newenergy/c13045">荣威<br>E50</a></span></li>
+        <li class="hotT"><span>10-15<br>万</span></li>
+        <li><span><a href="/newenergy/c32120">华泰<br>iEV230</a></span></li>
+        <li><span><a href="/newenergy/c32107">吉利帝豪<br>EV</a></span></li>
+<!--         <li><span><a href="/newenergy/c32119">江淮<br>iEV6S</a></span></li> -->
+        <li><span><a href="/newenergy/c32130">比亚迪<br>e5 300</a></span></li>
+        <li><span><a href="/newenergy/c32139">北汽<br>EX200</a></span></li>
+<!--         <li class="hotUpMore"> -->
+<!--            <span><a href="javascript:void(0)">北汽</a></span> -->
+<!--            <em></em> -->
+<!--            <div class="hotUpSlid"> -->
+<!--                <samp><a href="/newenergy/c32128">EV200</a></samp> -->
+<!--                <samp><a href="/newenergy/c32139">EX200</a></samp> -->
+<!--            </div> -->
+<!--         </li> -->
+        <li class="hotT"><span>15-25<br>万</span></li>
+        <li><span><a href="/newenergy/c32121">华泰<br>XEV260</a></span></li>
+        <li class="hotUpMore">
+            <span><a href="javascript:void(0)">比亚迪</a></span>
+            <em></em>
+            <div class="hotUpSlid">
+                <samp><a href="/newenergy/c32129">秦EV</a></samp>
+                <samp><a href="/newenergy/c127">e6</a></samp>
+            </div>
+        </li>
+        <li><span><a href="/newenergy/c32089">长安逸动<br>EV</a></span></li>
+        <li><span><a href="/newenergy/c30322">启辰晨风<br>e30</a></span></li>
+        <li><span class="Lineh"><a href="/newenergy/c13863">腾势</a></span></li>
+    </ul>
+</div>
+<!-- w E -->
+
+<!-- w S -->
+<div class="w">
+    <dl class="time">
+        <dt>距离活动结束还有</dt>
+        <dd>
+            <p><span id="day">01</span><i>天</i></p>
+            <p><span id="hour">05</span><i>时</i></p>
+            <p><span id="minute">45</span><i>分</i></p>
+            <p><span id="second">20</span><i>秒</i></p>
+        </dd>
+    </dl>
+</div>
+<!-- w E -->
+
+<!-- w S -->
+<div class="w">
+    <!-- listC S -->
+    <div class="listC">
+        <div class="fl carBox"><img onclick="div_click('c32107')" src="http://static.tuanche.com/newEnergy/img/car01.png" alt=""></div>
+        <div class="fr carInfo">
+            <dl class="carT" onclick="div_click('c32107')">
+                <dt>吉利帝豪EV</dt>
+                <dd>
+                    <p><span>火热度：</span><em></em><em></em><em></em><em></em><em></em></p>
+                    <p>已报名：<i id="signupnum32107">2529</i>人</p>
+                </dd>
+            </dl>
+            <div class="proBar"><em style="width:30%;"></em></div>
+            <div class="cartext">
+                <p>续航里程：300公里</p>
+<!--                 <p>补贴：<i>--</i>万</p> -->
+                <p>补贴：暂无数据</p>
+                <p>厂家指导价：<i class="fpas">暂无数据</i></p>
+<!--                 <p>北京售价：<i class="f20">--</i>万</p> -->
+                <p>北京售价：13.98万</p>
+                <p>团车价：<i class="f24">更优惠</i></p>
+                <div class="P-gyh">
+                    <em class="P-gyharrow"></em>
+                    <dl>
+                        <dt>团车价</dt>
+                        <dd>保证<i>低于</i>北京售价!</dd>
+                        <dd>保证是<i>全城底价!</i></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="list-entry">
+                <form novalidate="novalidate" id="indexForm1" action="http://www.tuanche.com/service/signup/apply" method="post">
+                    <input name="cityId" id="cityId" value="10" type="hidden">
+                    <input name="brandId" value="29" type="hidden">
+                    <input name="styleId" value="32107" type="hidden">
+                    <input class="w130 username" value="请输入姓名" maxlength="15" name="userName" onfocus="if (this.value =='请输入姓名'){this.value =''}" onblur="if (this.value ==''){this.value='请输入姓名'}" type="text">
+                    <input aria-required="true" class="w220 phoneb" value="请输入手机号码" maxlength="11" name="userTel" onfocus="if (this.value =='请输入手机号码'){this.value =''}" onblur="if (this.value ==''){this.value='请输入手机号码'}" type="text">
+                    <input value="" id="code" name="code" class="scode" type="hidden">
+                    <input id="url" name="url" type="hidden">
+                    <input name="bmtype" value="activity_newenergy" type="hidden">
+                    <input name="position" value="1" type="hidden">
+                    <input name="isQd" value="1" type="hidden">
+                    <input name="sourceId" value="1" type="hidden">
+                    <a class="btn-entry bottomSignup">立即报名</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- listC E -->
+    <!-- listC S -->
+    <div class="listC">
+        <div class="fl carInfo">
+            <dl class="carT" onclick="div_click('c31371')">
+                <dt>奇瑞eQ</dt>
+                <dd>
+                    <p><span>多少人想买：</span><i>42476</i>人</p>
+                    <p>已报名：<i id="signupnum31371">1008</i>人</p>
+                </dd>
+            </dl>
+            <div class="proBar"><em style="width:30%;"></em></div>
+            <div class="cartext">
+                <p>续航里程：200公里</p>
+                <p>补贴：<i>5.4</i>万</p>
+                <p>厂家指导价：<i class="fpas">暂无数据</i></p>
+                <p>北京售价：<i class="f20">7.18</i>万</p>
+                <p>团车价：<i class="f24">更优惠</i></p>
+                <div class="P-gyh">
+                    <em class="P-gyharrow"></em>
+                    <dl>
+                        <dt>团车价</dt>
+                        <dd>保证<i>低于</i>北京售价!</dd>
+                        <dd>保证是<i>全城底价!</i></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="list-entry">
+                
+                <form novalidate="novalidate" id="indexForm2" action="http://www.tuanche.com/service/signup/apply" method="post">
+                    <input name="cityId" id="cityId" value="10" type="hidden">
+                    <input name="brandId" value="27" type="hidden">
+                    <input name="styleId" value="31371" type="hidden">
+                    <input class="w130 username" value="请输入姓名" maxlength="15" name="userName" onfocus="if (this.value =='请输入姓名'){this.value =''}" onblur="if (this.value ==''){this.value='请输入姓名'}" type="text">
+                    <input aria-required="true" class="w220 phoneb" value="请输入手机号码" maxlength="11" name="userTel" onfocus="if (this.value =='请输入手机号码'){this.value =''}" onblur="if (this.value ==''){this.value='请输入手机号码'}" type="text">
+                    <input value="" id="code" name="code" class="scode" type="hidden">
+                    <input id="url" name="url" type="hidden">
+                    <input name="bmtype" value="activity_newenergy" type="hidden">
+                    <input name="position" value="1" type="hidden">
+                    <input name="isQd" value="1" type="hidden">
+                    <input name="sourceId" value="1" type="hidden">
+                    <a class="btn-entry bottomSignup">立即报名</a>
+                </form>
+            </div>
+        </div>
+        <div class="fr carBox carBox02" onclick="div_click('c31371')"><img src="http://static.tuanche.com/newEnergy/img/car02.png" alt=""></div>
+    </div>
+    <!-- listC E -->
+    <!-- listC S -->
+<!--     <div class="listC"> -->
+
+<!--         <div class="fr carInfo"> -->
+<!--             <dl class="carT" onclick="div_click('c32128')"> -->
+<!--                 <dt>北汽新能源 EV200</dt> -->
+<!--                 <dd> -->
+<!--                     <p><span>火热度：</span><em></em><em></em><em></em><em></em><em></em></p> -->
+<!--                     <p>已报名：<i id="signupnum32128"></i>人</p> -->
+<!--                 </dd> -->
+<!--             </dl> -->
+<!--             <div class="proBar"><em style="width:30%;"></em></div> -->
+<!--             <div class="cartext"> -->
+<!--                 <p>续航里程：200公里</p> -->
+<!--                 <p>补贴：<i>9</i>万</p> -->
+<!--                 <p>厂家指导价：<i class="fpas">20.89万</i></p> -->
+<!--                 <p>北京售价：<i class="f20">11.69</i>万</p> -->
+<!--                 <p>团车价：<i class="f24">更优惠</i></p> -->
+<!--                 <div class="P-gyh"> -->
+<!--                    <em class="P-gyharrow"></em> -->
+<!--                    <dl> -->
+<!--                        <dt>团车价</dt> -->
+<!--                        <dd>保证<i>低于</i>北京售价!</dd> -->
+<!--                        <dd>保证是<i>全城底价!</i></dd> -->
+<!--                    </dl> -->
+<!--                </div> -->
+<!--             </div> -->
+<!--             <div class="list-entry"> -->
+
+<!--                    <input type="hidden" name="cityId" id="cityId" value="10"/> -->
+<!--                    <input type="hidden" name="brandId" value="119"/> -->
+<!--                    <input type="hidden" name="styleId" value="32128"/> -->
+<!--                    <input class="w130 username" type="text" value="请输入姓名" maxlength="15" name="userName" onfocus="if (this.value =='请输入姓名'){this.value =''}" onblur="if (this.value ==''){this.value='请输入姓名'}" /> -->
+<!--                    <input class="w220 phoneb" type="text" value="请输入手机号码" maxlength="11" name="userTel" onfocus="if (this.value =='请输入手机号码'){this.value =''}" onblur="if (this.value ==''){this.value='请输入手机号码'}" /> -->
+<!--                    <input type="hidden" id="code" name="code" class="scode"/> -->
+<!--                    <input type="hidden" id="url" name="url"/> -->
+<!--                    <input type="hidden" name="bmtype"  value="activity_newenergy"/> -->
+<!--                    <input type="hidden" name="position" value="1"/> -->
+<!--                    <input type="hidden" name="isQd" value="1"/> -->
+
+<!--                    <a class="btn-entry bottomSignup">立即报名</a> -->
+<!--                </form> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+    <!-- listC E -->
+    
+    <!-- listC S -->
+    <div class="listC">
+        <div class="fl carBox" onclick="div_click('c127')"><img src="http://static.tuanche.com/newEnergy/img/car04.png" alt=""></div>
+        <div class="fr carInfo">
+            <dl class="carT" onclick="div_click('c127')">
+                <dt>比亚迪 e6  精英版</dt>
+                <dd>
+                    <p><span>多少人想买：</span><i>50485</i>人</p>
+                    <p>已报名：<i id="signupnum127">2253</i>人</p>
+                </dd>
+            </dl>
+            <div class="proBar"><em style="width:30%;"></em></div>
+            <div class="cartext">
+                <p>续航里程：400公里</p>
+                <p>补贴：<i>10</i>万</p>
+                <p>厂家指导价：<i class="fpas">33万</i></p>
+                <p>北京售价：<i class="f20">23</i>万</p>
+                <p>团车价：<i class="f24">更优惠</i></p>
+                <div class="P-gyh">
+                    <em class="P-gyharrow"></em>
+                    <dl>
+                        <dt>团车价</dt>
+                        <dd>保证<i>低于</i>北京售价!</dd>
+                        <dd>保证是<i>全城底价!</i></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="list-entry">
+                <form novalidate="novalidate" id="indexForm4" action="http://www.tuanche.com/service/signup/apply" method="post">
+                    <input name="cityId" id="cityId" value="10" type="hidden">
+                    <input name="brandId" value="25" type="hidden">
+                    <input name="styleId" value="127" type="hidden">
+                    <input class="w130 username" value="请输入姓名" maxlength="15" name="userName" onfocus="if (this.value =='请输入姓名'){this.value =''}" onblur="if (this.value ==''){this.value='请输入姓名'}" type="text">
+                    <input aria-required="true" class="w220 phoneb" value="请输入手机号码" maxlength="11" name="userTel" onfocus="if (this.value =='请输入手机号码'){this.value =''}" onblur="if (this.value ==''){this.value='请输入手机号码'}" type="text">
+                    <input value="" id="code" name="code" class="scode" type="hidden">
+                    <input id="url" name="url" type="hidden">
+                    <input name="bmtype" value="activity_newenergy" type="hidden">
+                    <input name="position" value="1" type="hidden">
+                    <input name="isQd" value="1" type="hidden">
+                    <input name="sourceId" value="1" type="hidden">
+                    <a class="btn-entry bottomSignup">立即报名</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- listC E -->
+    <!-- listC S -->
+<!--     <div class="listC"> -->
+
+<!--         <div class="fr carInfo"> -->
+<!--             <dl class="carT" onclick="div_click('c32132')"> -->
+<!--                 <dt>江淮IEV5</dt> -->
+<!--                 <dd> -->
+<!--                     <p><span>火热度：</span><em></em><em></em><em></em><em></em><em></em></p> -->
+<!--                     <p>已报名：<i id="signupnum32132"></i>人</p> -->
+<!--                 </dd> -->
+<!--             </dl> -->
+<!--             <div class="proBar"><em style="width:30%;"></em></div> -->
+<!--             <div class="cartext"> -->
+<!--                 <p>续航里程：200公里</p> -->
+<!--                 <p>补贴：<i>--</i>万</p> -->
+<!--                 <p>补贴：暂无数据</p> -->
+<!--                 <p>厂家指导价：<i class="fpas">17.98万</i></p> -->
+<!--                  <p>北京售价：<i class="f20">--</i>万</p> --> 
+<!--                 <p>北京售价：暂无数据</p> -->
+<!--                 <p>团车价：<i class="f24">更优惠</i></p> -->
+<!--                 <div class="P-gyh"> -->
+<!--                    <em class="P-gyharrow"></em> -->
+<!--                    <dl> -->
+<!--                        <dt>团车价</dt> -->
+<!--                        <dd>保证<i>低于</i>北京售价!</dd> -->
+<!--                        <dd>保证是<i>全城底价!</i></dd> -->
+<!--                    </dl> -->
+<!--                </div> -->
+<!--             </div> -->
+<!--             <div class="list-entry"> -->
+
+<!--                    <input type="hidden" name="cityId" id="cityId" value="10"/> -->
+<!--                    <input type="hidden" name="brandId" value="37"/> -->
+<!--                    <input type="hidden" name="styleId" value="32132"/> -->
+<!--                    <input class="w130 username" type="text" value="请输入姓名" maxlength="15" name="userName" onfocus="if (this.value =='请输入姓名'){this.value =''}" onblur="if (this.value ==''){this.value='请输入姓名'}" /> -->
+<!--                    <input class="w220 phoneb" type="text" value="请输入手机号码" maxlength="11" name="userTel" onfocus="if (this.value =='请输入手机号码'){this.value =''}" onblur="if (this.value ==''){this.value='请输入手机号码'}" /> -->
+<!--                    <input type="hidden" id="code" name="code" class="scode"/> -->
+<!--                    <input type="hidden" id="url" name="url"/> -->
+<!--                    <input type="hidden" name="bmtype"  value="activity_newenergy"/> -->
+<!--                    <input type="hidden" name="position" value="1"/> -->
+<!--                    <input type="hidden" name="isQd" value="1"/> -->
+
+<!--                    <a class="btn-entry bottomSignup">立即报名</a> -->
+<!--                </form> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+    <!-- listC E -->
+</div>
+<!-- w E -->
+<!-- 新增begin -->
+<div class="w">
+    <ul class="list04 Bjlist04">
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a href="#">北汽新能源  EV160</a><a class="btn-entry bottomSignup" data-styleid="32127">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>续航里程：160公里</p>
+                    <p>补贴：9万</p>
+                    <p>北京售价：<i class="f24">￥8.78</i>万<i class="fpas PL60">17.18万</i></p>
+                </div>
+                <div class="imgBox" onclick="div_click('c32127')"><a><img src="http://static.tuanche.com/newEnergy/img/bjcar/ev160.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32095')">北汽新能源EU260</a><a class="btn-entry bottomSignup" data-styleid="32095">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>电池质保：8年／15万公里</p>
+                    <p>补贴：<i>6.6</i>万</p>
+                    <p>北京售价：<i class="f24">¥13.99</i>万<i class="fpas PL60">20.59万</i></p>
+                </div>
+                <div class="imgBox" onclick="div_click('c32095')"><a href="#"><img src="http://static.tuanche.com/newEnergy/img/bjcar/eu260.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32139')">北汽新能源EX200</a><a class="btn-entry bottomSignup" data-styleid="32139">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>车身结构：5门5座SUV</p>
+                    <p>补贴：9万</p>
+                    <p>北京售价：<i class="f24">¥11.69</i>万<i class="fpas PL60">20.89万</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32139')"><img src="http://static.tuanche.com/newEnergy/img/bjcar/ex200.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32131')">江淮IEV4</a><a class="btn-entry bottomSignup" data-styleid="32131">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>电池质保：8年／15万公里</p>
+                    <p>补贴：暂无数据</p>
+                    <p>北京售价：<i class="f24">¥6.95</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32131')"><img src="http://static.tuanche.com/newEnergy/img/bjcar/iev4.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32089')">长安逸动EV 2016款豪华型</a><a class="btn-entry bottomSignup" data-styleid="32089">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>续航里程：200公里</p>
+                    <p>补贴：6.6万</p>
+                    <p>北京售价：<i class="f24">¥9.99万</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox" onclick="div_click('c32089')"><a><img src="http://static.tuanche.com/newEnergy/img/adcar06.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c13863')">腾势   时尚版/尊贵版</a><a class="btn-entry bottomSignup" data-styleid="13863">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>续航里程：400公里</p>
+                    <p>补贴：暂无数据</p>
+                    <p>北京售价：<i class="f24">36.68</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox" onclick="div_click('c13863')"><a><img src="http://static.tuanche.com/newEnergy/img/adcar07.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a href="#">比亚迪e5   300  豪华型</a><a class="btn-entry bottomSignup" href="#">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>电池质保：终身</p>
+                    <p>整车质保：6年/15万</p>
+                    <p>北京售价：<i class="f24">¥13.98</i>万<i class="fpas PL60">23.98万</i></p>
+                </div>
+                <div class="imgBox"><a href="#"><img src="http://static.tuanche.com/newEnergy/img/adcar09.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32129')">比亚迪 秦EV 300 尊贵型</a><a class="btn-entry bottomSignup" data-styleid="32129">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>电池质保：终身</p>
+                    <p>续航里程：305公里</p>
+                    <p>北京售价：<i class="f24">¥16.98</i>万<i class="fpas PL60">26.98万</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32129')"><img src="http://static.tuanche.com/newEnergy/img/adcar010.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32314')">比亚迪 宋EV</a><a class="btn-entry bottomSignup" data-styleid="32314">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>电池质保：暂无数据</p>
+                    <p>整车质保：暂无数据</p>
+                    <p>北京售价：<i class="f24">暂无数据</i><i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32314')"><img src="http://static.tuanche.com/newEnergy/img/bjcar/bydSEV.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32317')">荣威 RX50</a><a class="btn-entry bottomSignup" data-styleid="32317">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>电池质保：暂无数据</p>
+                    <p>续航里程：暂无数据</p>
+                    <p>北京售价：<i class="f24">暂无数据</i><i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32317')"><img src="http://static.tuanche.com/newEnergy/img/bjcar/RX50.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32067')">知豆 D2</a><a class="btn-entry bottomSignup" data-styleid="32067">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>电池质保：8年或12万</p>
+                    <p>整车质保：3年或10万</p>
+                    <p>北京售价：<i class="f24">5.68</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32067')"><img src="http://static.tuanche.com/newEnergy/img/adcar011.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c13045')">荣威 E50</a><a class="btn-entry bottomSignup" data-styleid="13045">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>电池质保：5年或10万</p>
+                    <p>续航里程：170公里</p>
+                    <p>北京售价：<i class="f24">¥9.89</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c13045')"><img src="http://static.tuanche.com/newEnergy/img/adcar012.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32120')">华泰 iEV230精英</a><a class="btn-entry bottomSignup" data-styleid="32120">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>补贴：暂无数据</p>
+                    <p>续航里程：230公里</p>
+                    <p>北京售价：<i class="f24">12.85</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32120')"><img src="http://static.tuanche.com/newEnergy/img/adcar013.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32121')">华泰 XEV260</a><a class="btn-entry bottomSignup" data-styleid="32121">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>补贴：6.6万</p>
+                    <p>续航里程：266公里</p>
+                    <p>北京售价：<i class="f24">¥14.98</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32121')"><img src="http://static.tuanche.com/newEnergy/img/adcar014.jpg" alt=""></a></div>
+            </div>
+        </li>
+
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32300')">奇瑞 小蚂蚁</a><a class="btn-entry bottomSignup" data-styleid="32300">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>补贴：5.4万</p>
+                    <p>续航里程：180公里</p>
+                    <p>北京售价：<i class="f24">暂无数据</i><i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32300')"><img src="http://static.tuanche.com/newEnergy/img/adcar016.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32302')">江淮 iev6e</a><a class="btn-entry bottomSignup" data-styleid="32302">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>补贴：5.4万</p>
+                    <p>续航里程：152公里</p>
+                    <p>北京售价：<i class="f24">5.95</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32302')"><img src="http://static.tuanche.com/newEnergy/img/adcar017.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32301')">江淮 iev7</a><a class="btn-entry bottomSignup" data-styleid="32301">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>补贴：5.4万</p>
+                    <p>续航里程：200公里</p>
+                    <p>北京售价：<i class="f24">8.95</i>万<i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32301')"><img src="http://static.tuanche.com/newEnergy/img/adcar018.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32288')">北汽新能源-EC180</a><a class="btn-entry bottomSignup" data-styleid="32288">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>补贴：10.2万</p>
+                    <p>续航里程：156公里</p>
+                    <p>北京售价：<i class="f24">¥4.98</i>万<i class="fpas PL60">15.18万</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32288')"><img src="http://static.tuanche.com/newEnergy/img/adcar019.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li class="mr">
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c32294')">北汽新能源-EX260</a><a class="btn-entry bottomSignup" data-styleid="32294">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>补贴：6.6万</p>
+                    <p>续航里程：240公里</p>
+                    <p>北京售价：<i class="f24">12.69</i>万<i class="fpas PL60">19.29万</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c32294')"><img src="http://static.tuanche.com/newEnergy/img/adcar020.jpg" alt=""></a></div>
+            </div>
+        </li>
+        <li>
+            <div class="w590">
+                <div class="Tcar T500"><h3><a onclick="div_click('c30322')">启辰晨风E30 领风版／领航版</a><a class="btn-entry bottomSignup" data-styleid="30322">立即报名</a></h3></div>
+                <div class="cartext02">
+                    <p>续航里程：200公里</p>
+                    <p>补贴：暂无数据</p>
+                    <p>北京售价：<i class="f24">暂无数据</i><i class="fpas PL60">暂无数据</i></p>
+                </div>
+                <div class="imgBox"><a onclick="div_click('c30322')"><img src="http://static.tuanche.com/newEnergy/img/bjcar/qcE30.jpg" alt=""></a></div>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 新增 end-->
+
+
+        <!-- w S -->
+        <div class="w shadow">
+            <div class="indexT"><h2>热门资讯</h2></div>
+            <ul class="hotlist">
+                <li><i>【热门推荐】</i><a href="http://tuanche.com/zx-xny/586827.html">如何购买新能源汽车</a></li>
+                <li><i>【热门推荐】</i><a href="http://tuanche.com/zx-xny/586826.html">购买电动汽车需要什么条件</a></li>
+                <li><i>【精选资讯】</i><a href="http://tuanche.com/zx-xny/586825.html">北京新能源汽车目录及车型有哪些</a></li>
+                <li><i>【热门推荐】</i><a href="http://tuanche.com/zx-xny/586823.html">汽车补贴政策明细一览</a></li>
+                <li><i>【热门推荐】</i><a href="http://tuanche.com/zx-xny/586821.html">新能源汽车价格表</a></li>
+                <li><i>【精选咨询】</i><a href="http://tuanche.com/zx-xny/586820.html">2016新能源汽车报价</a></li>
+                <li><i>【热门推荐】</i><a href="http://tuanche.com/zx-xny/586818.html">新能源电动汽车最大续航里程是多少</a></li>
+                <li><i>【热门推荐】</i><a href="http://tuanche.com/zx-xny/586737.html">新能源汽车补贴标准</a></li>
+                <li><i>【精选咨询】</i><a href="http://tuanche.com/zx-xny/586824.html">北京新能源汽车补贴政策</a></li>
+            </ul>
+        </div>
+        <!-- w E -->
+    
+<div class="w ad"><a href="javascript:void(0);"><img src="http://static.tuanche.com/newEnergy/img/ad.jpg" alt=""></a></div>
+<!-- w S -->
+<div class="w shadow mt30">
+    <div class="indexT"><h2>优势PK</h2></div>
+    <div class="ysC">
+        <dl>
+            <dt>团车优势</dt>
+            <dd>省时省力 报名即可到4S店低价提车</dd>
+            <dd>不用砍价 直接获取最真实的低价</dd>
+            <dd>低价承诺 确保成交价不高于底价 </dd>
+            <dd>24小时 专属服务顾问为您答疑</dd>
+        </dl>
+        <dl class="other">
+            <dt>传统劣势</dt>
+            <dd>需要到多家4s店咨询，花时间又累人</dd>
+            <dd>会被忽悠 可能会被宰</dd>
+            <dd>可能会碰到黑心经销商漫天要价</dd>
+            <dd>不买车 退还定金不方便</dd>
+        </dl>
+        <div class="reg">
+            <form novalidate="novalidate" id="indexForm6">
+                <input name="cityId" id="cityId" value="10" type="hidden">
+                <input name="brandId" class="brandVal" value="29" type="hidden">
+                <input name="sourceId" value="1" type="hidden">
+                <div class="reglist">
+                    <span>品牌:</span>
+                    <div class="inC">
+                        <select name="styleId" class="carstyleVal" id="bottomCarStyle">
+                            <option data-brandid="29" value="32107">吉利帝豪EV</option>
+                           <option data-brandid="27" value="31371">奇瑞eQ</option>
+                           <option data-brandid="27" value="32300">小蚂蚁</option>
+                           <option data-brandid="37" value="32131">江淮iEV4</option>
+<!--                           <option data-brandid="37" value="32132">江淮iEV5</option> -->
+<!--                           <option data-brandid="37" value="32119">江淮iEV6S</option> -->
+                           <option data-brandid="37" value="32302">江淮iEV6e</option>
+                           <option data-brandid="37" value="32301">江淮iEV7</option>
+                           <option data-brandid="25" value="127">比亚迪e6</option>
+                           <option data-brandid="25" value="32129">比亚迪秦EV</option>
+                           <option data-brandid="25" value="32314">比亚迪宋EV</option>
+                           <option data-brandid="25" value="32130">比亚迪e5</option>
+                           <option data-brandid="119" value="32127">北汽新能源EV160</option>
+<!--                           <option data-brandid="119" value="32128">北汽新能源EV200</option> -->
+                           <option data-brandid="119" value="32095">北汽新能源EU260</option>
+                           <option data-brandid="119" value="32294">北汽新能源EX260</option>
+                           <option data-brandid="119" value="32139">北汽新能源EX200</option>
+                           <option data-brandid="119" value="32288">北汽新能源EC180</option>
+                           <option data-brandid="165" value="13863">腾势</option>
+                           <option data-brandid="23" value="32089">长安逸动EV</option>
+                           <option data-brandid="62" value="30322">启辰晨风E30</option>
+                           <option data-brandid="177" value="32067">知豆D2</option>
+                           <option data-brandid="15" value="13045">荣威E50</option>
+                           <option data-brandid="15" value="32317">荣威RX50</option>
+                           <option data-brandid="71" value="32120">华泰iEV230</option>
+                           <option data-brandid="71" value="32121">华泰XEV260</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="reglist">
+                    <span>姓名:</span>
+                    <div class="inC">
+                        <input class="username" value="请输入姓名" maxlength="15" name="userName" onfocus="if (this.value =='请输入姓名'){this.value =''}" onblur="if (this.value ==''){this.value='请输入姓名'}" type="text">
+                    </div>
+                </div>
+                <div class="reglist">
+                    <span>手机号:</span>
+                    <div class="inC">
+                        <input aria-required="true" class="phoneb" value="请输入手机号码" maxlength="11" name="userTel" onfocus="if (this.value =='请输入手机号码'){this.value =''}" onblur="if (this.value ==''){this.value='请输入手机号码'}" type="text">
+                    </div>
+                </div>
+                <div class="btn-reg">
+                    <input value="" id="code" name="code" class="scode" type="hidden">
+                    <input id="url" name="url" type="hidden">
+                    <input name="bmtype" value="activity_newenergy" type="hidden">
+                    <input name="position" value="2" type="hidden">
+                    <input name="isQd" value="1" type="hidden">
+                    <a class="p-btn">快速报名</a>
+                    <p>团购价格：团购现场公布</p>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+<!-- w E -->
+
+<!-- w S -->
+<div class="w shadow">
+    <div class="indexT"><h2>充电桩分布（公共电桩共：802个）</h2></div>
+    <div class="map">
+        <div class="mapBox">
+            <iframe scrolling="no" src="http://tuanche.com/newenergy/map" frameborder="0" height="100%" width="100%"></iframe>
+        </div>
+    </div>
+</div>
+<!-- w E -->
+
+        <!-- foot S -->
+        <div class="foot">
+            <div class="w">
+                <div class="CRinfoL">
+                    <dl>
+                        <dt><a href="http://www.tuanche.com/" target="_blank">团车网</a></dt>
+                        <dd>
+                            <p><a href="http://bj.tuanche.com/" target="_blank">地区团车网</a></p>
+                    <p><a href="http://bj.tuanche.com/rrc" target="_blank">高价卖车</a></p>
+                            <p><a href="http://tuanche.com/che" target="_blank">品牌大全</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http://tuanche.com/about/" target="_blank">关于团车</a></dt>
+                        <dd>
+                            <p><a href="http://tuanche.com/about/" target="_blank">关于我们</a></p>
+                            <p><a href="http://tuanche.com/about_3.shtml" target="_blank">联系我们</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http://tuanche.com/about_zhaopin.html" target="_blank">加入团车</a></dt>
+                        <dd>
+                            <p><a href="http://tuanche.com/about_zhaopin.html" target="_blank">加入我们</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http://tuanche.com/about_hezuo.html" target="_blank">商务合作</a></dt>
+                        <dd>
+                            <p><a href="http://tuanche.com/about_hezuo.html" target="_blank">申请合作</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="http://tuanche.com/about_weiquan.html" target="_blank">其他</a></dt>
+                        <dd>
+                            <p><a href="http://tuanche.com/about_weiquan.html" target="_blank">维权声明</a></p>
+                            <p><a href="http://tuanche.com/about_weiquan.html" target="_blank">我要投诉</a></p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="CRinfoR">
+                    <div class="CRinfoRinfo">
+                        <p>400-1501-501</p>
+                        <span>周一至周日：9：00-18：00</span>
+                        <samp><a href="tencent://message/?Menu=yes&amp;uin=938060437&amp;Service=58&amp;SigT=A7F6FEA02730C98844DD5F7A4313382BD14C7A3F7C080101A2A2BE924F16760A3F52A75FD78516CE7CEFDCFF87A5B45CF6A328D95ABF7FE936AA4C42F8D4D22C0E547206EDFF8A8461342209D70013EF166E434F52F756BEB6099E8699F412D157EC3B1AD7694B87EA23BA52D70B134ECB9CA9C7ACCD2419&amp;SigU=30E5D5233A443AB200557F2F7B70D32561266139A081E88BA549E55D56CCDE1B0F0A3518D48D7ABCC6E9AEF2042E41B2C8D9B4A7A3EF179E11803C1A5C3261FE8D33E574EC9E8794">在线客服</a></samp>
+                    </div>
+                    <div class="CRweixin">
+                        <p><a href="#"><img src="http://static.tuanche.com/newEnergy/img/weixin-pc.png" alt=""></a></p>
+                        <p><a href="#"><img src="http://static.tuanche.com/newEnergy/img/weixin-app.png" alt=""></a></p>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>团车互联网信息服务（北京）有限公司©2016 翻版必究&nbsp;&nbsp;| &nbsp;京ICP备12044574号-2</p>
+                    <p>电信与信息服务业务经营许可证：京ICP证130329</p>
+                </div>
+            </div>
+        </div>
+        <!-- foot E -->
