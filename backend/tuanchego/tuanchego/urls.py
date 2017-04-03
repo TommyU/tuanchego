@@ -21,3 +21,11 @@ urlpatterns = urlpatterns + patterns(
     url(r'admin/', include(xadmin.site.urls)),
     url(r'^$', BaseView.as_view(), name='base_view'),
     )
+
+##=============api===============
+import users.urls
+urlpatterns = urlpatterns + patterns(
+    '',
+    url(r'api/user/', include(users.urls)),
+
+)

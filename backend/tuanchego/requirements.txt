@@ -11,3 +11,5 @@ django-cron
 pytz
 xlwt
 pyquery
+jsonschema==2.6.0
+requests==2.13.0

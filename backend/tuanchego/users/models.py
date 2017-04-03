@@ -25,7 +25,7 @@ class SmsMsg(BaseModel):
 	phone = models.CharField(max_length=16, null=True, blank=True, verbose_name=u'手机号')
 	msg = models.CharField(max_length=256, null=True, blank=True, verbose_name=u'信息' )
 	data = models.CharField(max_length=32, null=True, blank=True, verbose_name=u'验证数据' )
-	valid_to = models.DateTimeField(null=True, blank=True, verbose_name=u'失效时间')
+	valid_to = models.IntegerField(null=True, blank=True, verbose_name=u'失效时间')
 	used =  models.NullBooleanField(null = True, blank=True,  verbose_name=u'验证数据是否用过了', default = False )
 
 	def __str__(self):
