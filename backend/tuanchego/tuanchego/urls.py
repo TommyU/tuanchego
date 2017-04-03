@@ -29,3 +29,10 @@ urlpatterns = urlpatterns + patterns(
     url(r'api/user/', include(users.urls)),
 
 )
+
+import cars.urls
+urlpatterns = urlpatterns + patterns(
+    '',
+    url(r'api/cars/', include(cars.urls)),
+
+)
