@@ -36,3 +36,10 @@ urlpatterns = urlpatterns + patterns(
     url(r'api/cars/', include(cars.urls)),
 
 )
+
+import activities.urls
+urlpatterns = urlpatterns + patterns(
+    '',
+    url(r'api/acts/', include(activities.urls)),
+
+)

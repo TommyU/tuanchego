@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 import xadmin
-from .models import Acitity,AcitityComments,Application
+from .models import Activity,ActivityComments,Application
 
-class AcitityAdmin(object):
+class ActivityAdmin(object):
     list_display = ('id','city','brand', 'serie','name','start_date','end_date','customer_qty')
     list_display_links = ('name',)
 
@@ -10,9 +10,9 @@ class AcitityAdmin(object):
     list_filter =('city','brand','serie')
     readonly_fields = ('id',)
 
-xadmin.site.register(Acitity, AcitityAdmin)
+xadmin.site.register(Activity, ActivityAdmin)
 
-class AcitityCommentsAdmin(object):
+class ActivityCommentsAdmin(object):
     list_display = ('id', 'activity','user', 'DOS','serie')
     list_display_links = ('id',)
 
@@ -20,7 +20,7 @@ class AcitityCommentsAdmin(object):
     list_filter =('activity','serie')
     readonly_fields = ('id',)
 
-xadmin.site.register(AcitityComments, AcitityCommentsAdmin)
+xadmin.site.register(ActivityComments, ActivityCommentsAdmin)
 
 class ApplicationAdmin(object):
     list_display = ('id', 'activity','name', 'phone','way','target_brand','target_serie','target_version')
