@@ -4,11 +4,11 @@ from cars.models import Car
 from django.core.paginator import Paginator
 import datetime
 
-def db_get_brand_acts(city_id, brand_id=-1, page_index=1, page_size=24):
+def db_get_brand_acts(city_id, brand_id=-1, page_index=1, page_size=5):
 	"""按品牌输出活动列表"""
 	queryset = Activity.objects.all().filter(city=city_id, act_type='0')
 	if brand_id!=-1:
-		queryset = queryset.fitler(brand=brand_id)
+		queryset = queryset.filter(brand=brand_id)
 	else:
 		queryset = queryset.filter(is_hot=True)
 
@@ -22,6 +22,7 @@ def db_get_brand_acts(city_id, brand_id=-1, page_index=1, page_size=24):
 	lines = []
 	now = datetime.datetime.now()
 	for line in page:
+		hot_cars=[]
 		for car in line.cars.all():
 			hot_cars.append({
 					'id':car.id,
@@ -31,7 +32,8 @@ def db_get_brand_acts(city_id, brand_id=-1, page_index=1, page_size=24):
 		lines.append({
 				'brand_logo':line.brand.logo_url,
 				'brand_name':line.brand.name,
-				'status':u'筹备中' if now<=line.start_date or now else u'进行中',
+				'act_name':line.name,
+				'status':u'筹备中' if not line.start_date or now<=line.start_date or now else u'进行中',
 				'joined_cnt':line.customer_qty or 0,
 				'date':line.act_day and line.act_day.strftime('%Y-%m-%d') or '',
 				'total_cut':'%.2f'%float(line.total_cut),

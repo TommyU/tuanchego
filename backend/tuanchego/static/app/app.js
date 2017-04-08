@@ -25692,11 +25692,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         angular.module('app.brand').controller('BrandController', BrandController);
 
-        BrandController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage', 'Settings', 'User', 'UserTeams'];
-        function BrandController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage, Settings, User, UserTeams) {
+        BrandController.$inject = ['$scope', 'BrandService'];
+        function BrandController($scope, BrandService) {
             var vm = this;
-
-            vm.storage = new LocalStorage('brand');
 
             init();
             _setupWatchers();
@@ -25704,10 +25702,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             //////
 
             function init() {
-                // This timeout is needed because by loading from LocalStorage isn't fast enough.
-                $timeout(function () {
-                    //初始化的一些动作
-                }, 50);
+                vm.city_id = 1; //TODO
+                vm.table = {
+                    page: 1, // Current page of pagination: 1-index.
+                    pageSize: 5, // Number of items per page.
+                    totalItems: 0 // Total number of items.
+                };
             }
 
             function _setupWatchers() {
@@ -25715,25 +25715,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                  * 一组变量onchange监听
                  * 
                  */
-                $scope.$watchGroup(['vm.var1', 'vm.var2', 'vm.varn'], function () {
+                $scope.$watchGroup(['vm.table.page', 'vm.brand'], function () {
                     //都会执行的函数1();
                     //都会执行的函数2();
+                    load_data();
                 });
-
-                /**
-                 * 数组集合onchange的监听
-                 */
-                $scope.$watchCollection('vm.table.visibility', function () {
-                    //都会执行的函数1();
-                });
-
-                /**
-                 *单一变量onchange监听
-                 */
-                $scope.$watch('vm.filterList', function () {
-                    //都会执行的函数1();
-                }, true);
             }
+
+            function load_data() {
+                BrandService.getBrandActs({
+                    city_id: vm.city_id,
+                    brand: vm.brand,
+                    page_index: vm.table.page,
+                    page_size: vm.table.pageSize
+                }, function (response_data) {
+                    vm.acts = response_data.acts;
+                    vm.table.items = response_data.acts;
+                    vm.table.totalItems = response_data.cnt;
+                    vm.table.page = response_data.page_index;
+                });
+            }
+
+            vm.brand_classes = [];
+            for (var i = 0; i < 173; i++) {
+                vm.brand_classes.push("");
+            }
+            vm.change_brand = function (val) {
+                vm.brand = val;
+                if (val == "") {
+                    vm.brand_class_all = 'cur';
+                } else {
+                    vm.brand_class_all = "";
+                }
+
+                for (var i = 0; i < 173; i++) {
+                    vm.brand_classes[i] = "";
+                }
+
+                vm.brand_classes[val] = "cur";
+            };
+            vm.class_initial = function (initial) {
+                if (vm.brand_initial == initial) {
+                    return "red_bor";
+                }
+                return "";
+            };
         }
     }, {}] }, {}, [1]);})(angular);
 (function(angular){'use strict';"use strict";
@@ -25751,138 +25777,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
-        angular.module('app.brand.services').factory('Case', Case);
+        angular.module('app.brand.services').factory('BrandService', BrandService);
 
-        Case.$inject = ['$resource', 'CacheFactory', 'HLCache', 'HLResource', 'HLUtils'];
-        function Case($resource, CacheFactory, HLCache, HLResource, HLUtils) {
-            var _case = $resource('/api/cases/:id/', {}, {
-                search: {
-                    url: '/search/search/',
-                    method: 'GET',
-                    params: {
-                        type: 'cases_case'
-                    },
-                    transformResponse: function transformResponse(data) {
-                        var jsonData = angular.fromJson(data);
-                        var objects = [];
-                        if (jsonData && jsonData.hits && jsonData.hits.length > 0) {
-                            jsonData.hits.forEach(function (obj) {
-                                objects.push(obj);
-                            });
-                        }
-
-                        return {
-                            objects: objects,
-                            total: jsonData.total
-                        };
-                    }
-                },
-                update: {
-                    method: 'PUT',
-                    params: {
-                        id: '@id'
-                    }
-                },
-                patch: {
-                    method: 'PATCH',
-                    params: {
-                        id: '@id'
-                    }
-                },
-                getCaseTypes: {
-                    isArray: true,
-                    cache: CacheFactory.get('dataCache'),
-                    url: '/api/cases/types/'
-                },
-                getStatuses: {
-                    cache: CacheFactory.get('dataCache'),
-                    url: '/api/cases/statuses/',
-                    transformResponse: function transformResponse(data) {
-                        var statusData = angular.fromJson(data);
-
-                        angular.forEach(statusData.results, function (status) {
-                            if (status.name === 'Closed') {
-                                _case.closedStatus = status;
+        BrandService.$inject = ['$http'];
+        function BrandService($http) {
+            return {
+                getBrandActs: function getBrandActs(condition, callback, error_callback) {
+                    $http.post('/api/acts/by_brand', {
+                        brand_id: condition.brand,
+                        lid: condition.city_id,
+                        page_index: condition.page_index,
+                        page_size: condition.page_size
+                    }).then(function (response) {
+                        if (response.data.error == undefined) {
+                            callback(response.data);
+                        } else {
+                            console.log(response.data.error);
+                            if (error_callback != undefined) {
+                                error_callback(response.data);
                             }
-                        });
-
-                        return statusData;
-                    }
-                },
-                query: {
-                    isArray: false
+                        }
+                    }, function (response) {});
                 }
-            });
-
-            _case.create = create;
-            _case.getCases = getCases;
-            _case.getCasePriorities = getCasePriorities;
-            _case.updateModel = updateModel;
-
-            /////////
-
-            function create() {
-                var expires = moment().add(1, 'week'); // default expiry date is a week from now
-
-                return new _case({
-                    billing_checked: false,
-                    priority: 0,
-                    expires: expires,
-                    tags: []
-                });
-            }
-
-            function updateModel(data, field, caseObject) {
-                var patchPromise;
-                var args = HLResource.createArgs(data, field, caseObject);
-
-                if (field === 'name') {
-                    Settings.page.setAllTitles('detail', data);
-                }
-
-                patchPromise = HLResource.patch('Case', args).$promise;
-
-                return patchPromise;
-            }
-
-            /**
-             * getCases() gets the cases from the search backend through a promise
-             *
-             * @param orderColumn {string}: Current sorting of cases.
-             * @param orderedAsc {boolean}: Current ordering.
-             * @param filterQuery {string}: Contains the filters which are used in Elasticsearch.
-             * @param searchQuery {string}: Current filter on the caselist.
-             * @param page {number=1}: Current page of pagination.
-             * @param pageSize {number=100}: Current page size of pagination.
-             *
-             * @returns Promise object: when promise is completed:
-             *      {
-             *          cases {Array}: Paginated cases objects.
-             *          total {number}: Total number of case objects.
-             *      }
-             */
-            function getCases(orderColumn, orderedAsc, filterQuery) {
-                var searchQuery = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-                var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 1;
-                var pageSize = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 100;
-
-                return _case.search({
-                    q: searchQuery,
-                    page: page - 1,
-                    size: pageSize,
-                    sort: HLUtils.getSorting(orderColumn, orderedAsc),
-                    filterquery: filterQuery
-                }, function (data) {
-                    return data;
-                }).$promise;
-            }
-
-            function getCasePriorities() {
-                // Hardcoded because these are the only case priorities.
-                return [{ id: 0, name: 'Low', dateIncrement: 5 }, { id: 1, name: 'Medium', dateIncrement: 3 }, { id: 2, name: 'High', dateIncrement: 1 }, { id: 3, name: 'Critical', dateIncrement: 0 }];
-            }
-
-            return _case;
+            };
         }
     }, {}] }, {}, [1]);})(angular);
 (function(angular){'use strict';"use strict";
@@ -25933,8 +25850,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             function init() {
                 vm.price_level = '';
-                vm.page_index = 1;
-                vm.page_size = 24;
+
+                vm.table = {
+                    page: 1, // Current page of pagination: 1-index.
+                    pageSize: 24, // Number of items per page.
+                    totalItems: 0 // Total number of items.
+                };
             }
 
             function load_data() {
@@ -25945,10 +25866,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     displacement: vm.displacement,
                     gearbox: vm.gearbox,
                     country: vm.country,
-                    page_index: vm.page_index,
-                    page_size: vm.page_size
+                    page_index: vm.table.page,
+                    page_size: vm.table.pageSize
                 }, function (response_data) {
                     vm.cars = response_data.cars;
+                    vm.table.items = response_data.cars;
+                    vm.table.totalItems = response_data.cnt;
+                    vm.table.page = response_data.page_index;
                 });
             }
 
@@ -25957,16 +25881,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                  * 一组变量onchange监听
                  * 
                  */
-                $scope.$watchGroup(['vm.price_level', 'vm.size', 'vm.displacement', 'vm.gearbox', 'vm.country', 'vm.page_index', 'vm.brand'], function () {
+                $scope.$watchGroup(['vm.price_level', 'vm.size', 'vm.displacement', 'vm.gearbox', 'vm.country', 'vm.table.page', 'vm.brand'], function () {
                     load_data();
+                    //vm.table.page=1;
                 });
 
                 /**
                  *单一变量onchange监听
                  */
-                $scope.$watch('vm.price_level', function () {
+                $scope.$watch('vm.table.page', function () {
                     //都会执行的函数1();
-
+                    //load_data();
                 }, true);
             }
 

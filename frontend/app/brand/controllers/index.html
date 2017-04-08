@@ -8,7 +8,7 @@
         </div>
         <div class="tc_choice_tabs clearfix">            
             <dl id="brandLetter" class="tc_choice_tab clearfix">
-                <dt><h1 class="fl">品牌</h1><span class="fl">：</span></dt>
+                <dt ng-init="vm.brand_initial='A'"><h1 class="fl">品牌</h1><span class="fl">：</span></dt>
                 
                   
                 
@@ -17,494 +17,296 @@
                 <dd><a rel="" href="javascript:void(0);">全部</a></dd>
                 
                 
-                      <dd><a rel="A" href="javascript:void(0);">A</a></dd>
+                      <dd><a rel="a" href="javascript:void(0);" ng-mouseover="vm.brand_initial='A'" ng-class="vm.class_initial('A')">A</a></dd>
             
-                      <dd><a rel="B" href="javascript:void(0);">B</a></dd>
+                      <dd><a rel="b" href="javascript:void(0);" ng-mouseover="vm.brand_initial='B'" ng-class="vm.class_initial('B')">B</a></dd>
             
-                      <dd><a rel="C" href="javascript:void(0);">C</a></dd>
+                      <dd><a rel="c" href="javascript:void(0);" ng-mouseover="vm.brand_initial='C'" ng-class="vm.class_initial('C')">C</a></dd>
             
-                      <dd><a rel="D" href="javascript:void(0);">D</a></dd>
+                      <dd><a rel="d" href="javascript:void(0);" ng-mouseover="vm.brand_initial='D'" ng-class="vm.class_initial('D')">D</a></dd>
             
-                      <dd><a rel="F" href="javascript:void(0);">F</a></dd>
+                      <dd><a rel="f" href="javascript:void(0);" ng-mouseover="vm.brand_initial='F'" ng-class="vm.class_initial('F')">F</a></dd>
             
-                      <dd><a rel="G" href="javascript:void(0);">G</a></dd>
+                      <dd><a rel="g" href="javascript:void(0);" ng-mouseover="vm.brand_initial='G'" ng-class="vm.class_initial('G')">G</a></dd>
             
-                      <dd><a rel="H" href="javascript:void(0);">H</a></dd>
+                      <dd><a rel="h" href="javascript:void(0);" ng-mouseover="vm.brand_initial='H'" ng-class="vm.class_initial('H')">H</a></dd>
             
-                      <dd><a rel="J" href="javascript:void(0);">J</a></dd>
+                      <dd><a rel="j" href="javascript:void(0);" ng-mouseover="vm.brand_initial='J'" ng-class="vm.class_initial('J')">J</a></dd>
             
-                      <dd><a rel="K" href="javascript:void(0);">K</a></dd>
+                      <dd><a rel="k" href="javascript:void(0);" ng-mouseover="vm.brand_initial='K'" ng-class="vm.class_initial('K')">K</a></dd>
             
-                      <dd><a rel="L" href="javascript:void(0);">L</a></dd>
+                      <dd><a rel="l" href="javascript:void(0);" ng-mouseover="vm.brand_initial='L'" ng-class="vm.class_initial('L')">L</a></dd>
             
-                      <dd><a rel="M" href="javascript:void(0);">M</a></dd>
+                      <dd><a rel="m" href="javascript:void(0);" ng-mouseover="vm.brand_initial='M'" ng-class="vm.class_initial('M')">M</a></dd>
             
-                      <dd><a rel="N" href="javascript:void(0);">N</a></dd>
+                      <dd><a rel="n" href="javascript:void(0);" ng-mouseover="vm.brand_initial='N'" ng-class="vm.class_initial('N')">N</a></dd>
             
-                      <dd><a rel="O" href="javascript:void(0);">O</a></dd>
+                      <dd><a rel="o" href="javascript:void(0);" ng-mouseover="vm.brand_initial='O'" ng-class="vm.class_initial('O')">O</a></dd>
             
-                      <dd><a rel="Q" href="javascript:void(0);">Q</a></dd>
+                      <dd><a rel="q" href="javascript:void(0);" ng-mouseover="vm.brand_initial='Q'" ng-class="vm.class_initial('Q')">Q</a></dd>
             
-                      <dd><a rel="R" href="javascript:void(0);">R</a></dd>
+                      <dd><a rel="r" href="javascript:void(0);" ng-mouseover="vm.brand_initial='R'" ng-class="vm.class_initial('R')">R</a></dd>
             
-                      <dd><a rel="S" href="javascript:void(0);">S</a></dd>
+                      <dd><a rel="s" href="javascript:void(0);" ng-mouseover="vm.brand_initial='S'" ng-class="vm.class_initial('S')">S</a></dd>
             
-                      <dd><a rel="W" href="javascript:void(0);">W</a></dd>
+                      <dd><a rel="w" href="javascript:void(0);" ng-mouseover="vm.brand_initial='W'" ng-class="vm.class_initial('W')">W</a></dd>
             
-                      <dd><a rel="X" href="javascript:void(0);">X</a></dd>
+                      <dd><a rel="x" href="javascript:void(0);" ng-mouseover="vm.brand_initial='X'" ng-class="vm.class_initial('X')">X</a></dd>
             
-                      <dd><a rel="Y" href="javascript:void(0);">Y</a></dd>
+                      <dd><a rel="y" href="javascript:void(0);" ng-mouseover="vm.brand_initial='Y'" ng-class="vm.class_initial('Y')">Y</a></dd>
             
-                      <dd><a rel="Z" href="javascript:void(0);">Z</a></dd>
+                      <dd><a rel="z" href="javascript:void(0);" ng-mouseover="vm.brand_initial='Z'" ng-class="vm.class_initial('Z')">Z</a></dd>
             
             </dl>
              <div id="brandLetterCar" class="clearfix brandLetterCar brandLetterCarNo">
               
-                 <a rel="d" class="styleName1 " href="http://sz.tuanchegou.com/f1/">大众</a>
-            
-                 <a rel="r" class="styleName1 " href="http://sz.tuanchegou.com/f2/">日产</a>
-            
-                 <a rel="s" class="styleName1 " href="http://sz.tuanchegou.com/f3/">斯柯达</a>
-            
-                 <a rel="x" class="styleName1 " href="http://sz.tuanchegou.com/f4/">现代</a>
-            
-                 <a rel="f" class="styleName1 " href="http://sz.tuanchegou.com/f5/">福特</a>
-            
-                 <a rel="b" class="styleName1 " href="http://sz.tuanchegou.com/f6/">标致</a>
-            
-                 <a rel="x" class="styleName1 " href="http://sz.tuanchegou.com/f7/">雪铁龙</a>
-            
-                 <a rel="b" class="styleName1 " href="http://sz.tuanchegou.com/f8/">别克</a>
-            
-                 <a rel="x" class="styleName1 " href="http://sz.tuanchegou.com/f9/">雪佛兰</a>
-            
-                 <a rel="b" class="styleName1 " href="http://sz.tuanchegou.com/f10/">本田</a>
-            
-                 <a rel="f" class="styleName1 " href="http://sz.tuanchegou.com/f11/">丰田</a>
-            
-                 <a rel="r" class="styleName1 " href="http://sz.tuanchegou.com/f12/">荣威</a>
-            
-                 <a rel="m" class="styleName1 " href="http://sz.tuanchegou.com/f13/">MG</a>
-            
-                 <a rel="m" class="styleName1 " href="http://sz.tuanchegou.com/f14/">马自达</a>
-            
-                 <a rel="l" class="styleName1 " href="http://sz.tuanchegou.com/f15/">铃木</a>
-            
-                 <a rel="q" class="styleName1 " href="http://sz.tuanchegou.com/f16/">起亚</a>
-            
-                 <a rel="d" class="styleName1 " href="http://sz.tuanchegou.com/f17/">东南</a>
-            
-                 <a rel="c" class="styleName1 " href="http://sz.tuanchegou.com/f18/">长安</a>
-            
-                 <a rel="c" class="styleName1 " href="http://sz.tuanchegou.com/f19/">长城</a>
-            
-                 <a rel="b" class="styleName1 " href="http://sz.tuanchegou.com/f20/">比亚迪</a>
-            
-                 <a rel="y" class="styleName1 " href="http://sz.tuanchegou.com/f21/">一汽</a>
-            
-                 <a rel="q" class="styleName1 " href="http://sz.tuanchegou.com/f22/">奇瑞</a>
-            
-                 <a rel="b" class="styleName1 " href="http://sz.tuanchegou.com/f23/">奔腾</a>
-            
-                 <a rel="j" class="styleName1 " href="http://sz.tuanchegou.com/f24/">吉利汽车</a>
-            
-                 <a rel="a" class="styleName1 " href="http://sz.tuanchegou.com/f25/">奥迪</a>
-            
-                 <a rel="b" class="styleName1 " href="http://sz.tuanchegou.com/f26/">宝马</a>
-            
-                 <a rel="b" class="styleName1 " href="http://sz.tuanchegou.com/f27/">奔驰</a>
-            
-                 <a rel="k" class="styleName1 " href="http://sz.tuanchegou.com/f28/">克莱斯勒</a>
-            
-                 <a rel="l" class="styleName1 " href="http://sz.tuanchegou.com/f29/">雷诺</a>
-            
-                 <a rel="w" class="styleName1 " href="http://sz.tuanchegou.com/f30/">沃尔沃</a>
-             
-            
-                 <a rel="j" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f31/">江淮</a>
-            
-                 <a rel="z" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f32/">中华</a>
-            
-                 <a rel="s" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f33/">斯巴鲁</a>
-            
-                 <a rel="l" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f34/">路虎</a>
-            
-                 <a rel="l" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f35/">雷克萨斯</a>
-            
-                 <a rel="b" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f36/">保时捷</a>
-            
-                 <a rel="s" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f37/">三菱</a>
-            
-                 <a rel="y" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f38/">英菲尼迪</a>
-            
-                 <a rel="h" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f39/">悍马</a>
-            
-                 <a rel="j" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f40/">Jeep</a>
-            
-                 <a rel="h" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f41/">海马</a>
-            
-                 <a rel="d" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f42/">东风风神</a>
-            
-                 <a rel="l" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f43/">力帆</a>
-            
-                 <a rel="g" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f44/">广汽传祺</a>
-            
-                 <a rel="q" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f46/">启辰</a>
-            
-                 <a rel="j" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f47/">捷豹</a>
-            
-                 <a rel="o" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f48/">讴歌</a>
-            
-                 <a rel="m" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f49/">MINI</a>
-            
-                 <a rel="b" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f50/">宝骏</a>
-            
-                 <a rel="f" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f51/">菲亚特</a>
-            
-                 <a rel="s" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f52/">双龙</a>
-            
-                 <a rel="n" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f53/">纳智捷</a>
-            
-                 <a rel="h" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f54/">华泰</a>
-            
-                 <a rel="k" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f55/">凯迪拉克</a>
-            
-                 <a rel="r" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f56/">瑞麟</a>
-            
-                 <a rel="s" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f57/">smart</a>
-            
-                 <a rel="b" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f59/">北京汽车</a>
-            
-                 <a rel="d" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f61/">道奇</a>
-            
-                 <a rel="b" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f62/">北汽威旺</a>
-            
-                 <a rel="w" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f70/">五菱汽车</a>
-            
-                 <a rel="d" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f71/">DS</a>
-            
-                 <a rel="z" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f72/">众泰</a>
-            
-                 <a rel="j" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f73/">金杯</a>
-            
-                 <a rel="m" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f76/">玛莎拉蒂</a>
-            
-                 <a rel="g" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f79/">观致</a>
-            
-                 <a rel="b" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f83/">北汽新能源</a>
-            
-                 <a rel="d" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f87/">东风风度</a>
-            
-                 <a rel="l" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f111/">林肯</a>
-            
-                 <a rel="s" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f127/">上汽大通</a>
-            
-                 <a rel="z" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f137/">知豆</a>
-            
-                 <a rel="b" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f170/">宝沃</a>
-            
-                 <a rel="h" class="styleName alphabet_hide hide " href="http://sz.tuanchegou.com/f171/">汉腾</a>
-            
-            <span rel="other"><a class="styleName" href="javascript:void(0);" id="alphabet_toggle_btn">展开全部<i></i></a></span>
+                <span ng-click="vm.change_brand(1)" ng-hide="vm.brand_initial!='A'"><a rel="A" data-hot="" ng-class="vm.brand_classes[1]" href="javascript:void(0);">奥迪</a></span>
+<span ng-click="vm.change_brand(2)" ng-hide="vm.brand_initial!='A'"><a rel="A" data-hot="" ng-class="vm.brand_classes[2]" href="javascript:void(0);">阿斯顿·马丁</a></span>
+<span ng-click="vm.change_brand(3)" ng-hide="vm.brand_initial!='A'"><a rel="A" data-hot="" ng-class="vm.brand_classes[3]" href="javascript:void(0);">阿尔法·罗密欧</a></span>
+<span ng-click="vm.change_brand(4)" ng-hide="vm.brand_initial!='A'"><a rel="A" data-hot="" ng-class="vm.brand_classes[4]" href="javascript:void(0);">AC Schnitzer</a></span>
+<span ng-click="vm.change_brand(5)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[5]" href="javascript:void(0);">标致</a></span>
+<span ng-click="vm.change_brand(6)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[6]" href="javascript:void(0);">别克</a></span>
+<span ng-click="vm.change_brand(7)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[7]" href="javascript:void(0);">本田</a></span>
+<span ng-click="vm.change_brand(8)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[8]" href="javascript:void(0);">比亚迪</a></span>
+<span ng-click="vm.change_brand(9)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[9]" href="javascript:void(0);">奔腾</a></span>
+<span ng-click="vm.change_brand(10)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[10]" href="javascript:void(0);">宝马</a></span>
+<span ng-click="vm.change_brand(11)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[11]" href="javascript:void(0);">奔驰</a></span>
+<span ng-click="vm.change_brand(12)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[12]" href="javascript:void(0);">保时捷</a></span>
+<span ng-click="vm.change_brand(13)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[13]" href="javascript:void(0);">宝骏</a></span>
+<span ng-click="vm.change_brand(14)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[14]" href="javascript:void(0);">北京汽车</a></span>
+<span ng-click="vm.change_brand(15)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[15]" href="javascript:void(0);">北汽威旺</a></span>
+<span ng-click="vm.change_brand(16)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[16]" href="javascript:void(0);">布加迪</a></span>
+<span ng-click="vm.change_brand(17)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[17]" href="javascript:void(0);">宾利</a></span>
+<span ng-click="vm.change_brand(18)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[18]" href="javascript:void(0);">巴博斯</a></span>
+<span ng-click="vm.change_brand(19)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[19]" href="javascript:void(0);">保斐利</a></span>
+<span ng-click="vm.change_brand(20)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[20]" href="javascript:void(0);">宝龙</a></span>
+<span ng-click="vm.change_brand(21)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[21]" href="javascript:void(0);">北汽幻速</a></span>
+<span ng-click="vm.change_brand(22)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[22]" href="javascript:void(0);">北汽制造</a></span>
+<span ng-click="vm.change_brand(23)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[23]" href="javascript:void(0);">北汽新能源</a></span>
+<span ng-click="vm.change_brand(24)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[24]" href="javascript:void(0);">宝沃</a></span>
+<span ng-click="vm.change_brand(25)" ng-hide="vm.brand_initial!='B'"><a rel="B" data-hot="" ng-class="vm.brand_classes[25]" href="javascript:void(0);">比速汽车</a></span>
+<span ng-click="vm.change_brand(26)" ng-hide="vm.brand_initial!='C'"><a rel="C" data-hot="" ng-class="vm.brand_classes[26]" href="javascript:void(0);">长安</a></span>
+<span ng-click="vm.change_brand(27)" ng-hide="vm.brand_initial!='C'"><a rel="C" data-hot="" ng-class="vm.brand_classes[27]" href="javascript:void(0);">长城</a></span>
+<span ng-click="vm.change_brand(28)" ng-hide="vm.brand_initial!='C'"><a rel="C" data-hot="" ng-class="vm.brand_classes[28]" href="javascript:void(0);">长安商用</a></span>
+<span ng-click="vm.change_brand(29)" ng-hide="vm.brand_initial!='C'"><a rel="C" data-hot="" ng-class="vm.brand_classes[29]" href="javascript:void(0);">成功汽车</a></span>
+<span ng-click="vm.change_brand(30)" ng-hide="vm.brand_initial!='C'"><a rel="C" data-hot="" ng-class="vm.brand_classes[30]" href="javascript:void(0);">昌河</a></span>
+<span ng-click="vm.change_brand(31)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[31]" href="javascript:void(0);">大众</a></span>
+<span ng-click="vm.change_brand(32)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[32]" href="javascript:void(0);">东南</a></span>
+<span ng-click="vm.change_brand(33)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[33]" href="javascript:void(0);">东风风神</a></span>
+<span ng-click="vm.change_brand(34)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[34]" href="javascript:void(0);">东风</a></span>
+<span ng-click="vm.change_brand(35)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[35]" href="javascript:void(0);">道奇</a></span>
+<span ng-click="vm.change_brand(36)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[36]" href="javascript:void(0);">DS</a></span>
+<span ng-click="vm.change_brand(37)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[37]" href="javascript:void(0);">东风风行</a></span>
+<span ng-click="vm.change_brand(38)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[38]" href="javascript:void(0);">大发</a></span>
+<span ng-click="vm.change_brand(39)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[39]" href="javascript:void(0);">东风风度</a></span>
+<span ng-click="vm.change_brand(40)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[40]" href="javascript:void(0);">东风小康</a></span>
+<span ng-click="vm.change_brand(41)" ng-hide="vm.brand_initial!='D'"><a rel="D" data-hot="" ng-class="vm.brand_classes[41]" href="javascript:void(0);">Dacia</a></span>
+<span ng-click="vm.change_brand(42)" ng-hide="vm.brand_initial!='F'"><a rel="F" data-hot="" ng-class="vm.brand_classes[42]" href="javascript:void(0);">福特</a></span>
+<span ng-click="vm.change_brand(43)" ng-hide="vm.brand_initial!='F'"><a rel="F" data-hot="" ng-class="vm.brand_classes[43]" href="javascript:void(0);">丰田</a></span>
+<span ng-click="vm.change_brand(44)" ng-hide="vm.brand_initial!='F'"><a rel="F" data-hot="" ng-class="vm.brand_classes[44]" href="javascript:void(0);">菲亚特</a></span>
+<span ng-click="vm.change_brand(45)" ng-hide="vm.brand_initial!='F'"><a rel="F" data-hot="" ng-class="vm.brand_classes[45]" href="javascript:void(0);">法拉利</a></span>
+<span ng-click="vm.change_brand(46)" ng-hide="vm.brand_initial!='F'"><a rel="F" data-hot="" ng-class="vm.brand_classes[46]" href="javascript:void(0);">福迪</a></span>
+<span ng-click="vm.change_brand(47)" ng-hide="vm.brand_initial!='F'"><a rel="F" data-hot="" ng-class="vm.brand_classes[47]" href="javascript:void(0);">福汽启腾</a></span>
+<span ng-click="vm.change_brand(48)" ng-hide="vm.brand_initial!='F'"><a rel="F" data-hot="" ng-class="vm.brand_classes[48]" href="javascript:void(0);">福田</a></span>
+<span ng-click="vm.change_brand(49)" ng-hide="vm.brand_initial!='F'"><a rel="F" data-hot="" ng-class="vm.brand_classes[49]" href="javascript:void(0);">Fisker</a></span>
+<span ng-click="vm.change_brand(50)" ng-hide="vm.brand_initial!='G'"><a rel="G" data-hot="" ng-class="vm.brand_classes[50]" href="javascript:void(0);">广汽传祺</a></span>
+<span ng-click="vm.change_brand(51)" ng-hide="vm.brand_initial!='G'"><a rel="G" data-hot="" ng-class="vm.brand_classes[51]" href="javascript:void(0);">广汽吉奥</a></span>
+<span ng-click="vm.change_brand(52)" ng-hide="vm.brand_initial!='G'"><a rel="G" data-hot="" ng-class="vm.brand_classes[52]" href="javascript:void(0);">观致</a></span>
+<span ng-click="vm.change_brand(53)" ng-hide="vm.brand_initial!='G'"><a rel="G" data-hot="" ng-class="vm.brand_classes[53]" href="javascript:void(0);">GMC</a></span>
+<span ng-click="vm.change_brand(54)" ng-hide="vm.brand_initial!='G'"><a rel="G" data-hot="" ng-class="vm.brand_classes[54]" href="javascript:void(0);">光冈</a></span>
+<span ng-click="vm.change_brand(55)" ng-hide="vm.brand_initial!='G'"><a rel="G" data-hot="" ng-class="vm.brand_classes[55]" href="javascript:void(0);">Gumpert</a></span>
+<span ng-click="vm.change_brand(56)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[56]" href="javascript:void(0);">悍马</a></span>
+<span ng-click="vm.change_brand(57)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[57]" href="javascript:void(0);">海马</a></span>
+<span ng-click="vm.change_brand(58)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[58]" href="javascript:void(0);">华泰</a></span>
+<span ng-click="vm.change_brand(59)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[59]" href="javascript:void(0);">红旗</a></span>
+<span ng-click="vm.change_brand(60)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[60]" href="javascript:void(0);">海格</a></span>
+<span ng-click="vm.change_brand(61)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[61]" href="javascript:void(0);">恒天</a></span>
+<span ng-click="vm.change_brand(62)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[62]" href="javascript:void(0);">黄海</a></span>
+<span ng-click="vm.change_brand(63)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[63]" href="javascript:void(0);">华普</a></span>
+<span ng-click="vm.change_brand(64)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[64]" href="javascript:void(0);">哈飞</a></span>
+<span ng-click="vm.change_brand(65)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[65]" href="javascript:void(0);">华颂</a></span>
+<span ng-click="vm.change_brand(66)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[66]" href="javascript:void(0);">Hennessey</a></span>
+<span ng-click="vm.change_brand(67)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[67]" href="javascript:void(0);">华骐</a></span>
+<span ng-click="vm.change_brand(68)" ng-hide="vm.brand_initial!='H'"><a rel="H" data-hot="" ng-class="vm.brand_classes[68]" href="javascript:void(0);">汉腾</a></span>
+<span ng-click="vm.change_brand(69)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[69]" href="javascript:void(0);">吉利汽车</a></span>
+<span ng-click="vm.change_brand(70)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[70]" href="javascript:void(0);">江淮</a></span>
+<span ng-click="vm.change_brand(71)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[71]" href="javascript:void(0);">Jeep</a></span>
+<span ng-click="vm.change_brand(72)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[72]" href="javascript:void(0);">捷豹</a></span>
+<span ng-click="vm.change_brand(73)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[73]" href="javascript:void(0);">金杯</a></span>
+<span ng-click="vm.change_brand(74)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[74]" href="javascript:void(0);">江铃集团轻汽</a></span>
+<span ng-click="vm.change_brand(75)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[75]" href="javascript:void(0);">金旅</a></span>
+<span ng-click="vm.change_brand(76)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[76]" href="javascript:void(0);">九龙</a></span>
+<span ng-click="vm.change_brand(77)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[77]" href="javascript:void(0);">江铃</a></span>
+<span ng-click="vm.change_brand(78)" ng-hide="vm.brand_initial!='J'"><a rel="J" data-hot="" ng-class="vm.brand_classes[78]" href="javascript:void(0);">金龙</a></span>
+<span ng-click="vm.change_brand(79)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[79]" href="javascript:void(0);">克莱斯勒</a></span>
+<span ng-click="vm.change_brand(80)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[80]" href="javascript:void(0);">凯迪拉克</a></span>
+<span ng-click="vm.change_brand(81)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[81]" href="javascript:void(0);">卡尔森</a></span>
+<span ng-click="vm.change_brand(82)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[82]" href="javascript:void(0);">KTM</a></span>
+<span ng-click="vm.change_brand(83)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[83]" href="javascript:void(0);">卡威</a></span>
+<span ng-click="vm.change_brand(84)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[84]" href="javascript:void(0);">科尼赛克</a></span>
+<span ng-click="vm.change_brand(85)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[85]" href="javascript:void(0);">开瑞</a></span>
+<span ng-click="vm.change_brand(86)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[86]" href="javascript:void(0);">凯翼</a></span>
+<span ng-click="vm.change_brand(87)" ng-hide="vm.brand_initial!='K'"><a rel="K" data-hot="" ng-class="vm.brand_classes[87]" href="javascript:void(0);">凯佰赫</a></span>
+<span ng-click="vm.change_brand(88)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[88]" href="javascript:void(0);">铃木</a></span>
+<span ng-click="vm.change_brand(89)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[89]" href="javascript:void(0);">雷诺</a></span>
+<span ng-click="vm.change_brand(90)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[90]" href="javascript:void(0);">路虎</a></span>
+<span ng-click="vm.change_brand(91)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[91]" href="javascript:void(0);">雷克萨斯</a></span>
+<span ng-click="vm.change_brand(92)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[92]" href="javascript:void(0);">力帆</a></span>
+<span ng-click="vm.change_brand(93)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[93]" href="javascript:void(0);">兰博基尼</a></span>
+<span ng-click="vm.change_brand(94)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[94]" href="javascript:void(0);">路特斯</a></span>
+<span ng-click="vm.change_brand(95)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[95]" href="javascript:void(0);">林肯</a></span>
+<span ng-click="vm.change_brand(96)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[96]" href="javascript:void(0);">劳斯莱斯</a></span>
+<span ng-click="vm.change_brand(97)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[97]" href="javascript:void(0);">陆风</a></span>
+<span ng-click="vm.change_brand(98)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[98]" href="javascript:void(0);">猎豹汽车</a></span>
+<span ng-click="vm.change_brand(99)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[99]" href="javascript:void(0);">雷丁</a></span>
+<span ng-click="vm.change_brand(100)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[100]" href="javascript:void(0);">陆地方舟</a></span>
+<span ng-click="vm.change_brand(101)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[101]" href="javascript:void(0);">劳伦士</a></span>
+<span ng-click="vm.change_brand(102)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[102]" href="javascript:void(0);">理念</a></span>
+<span ng-click="vm.change_brand(103)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[103]" href="javascript:void(0);">莲花汽车</a></span>
+<span ng-click="vm.change_brand(104)" ng-hide="vm.brand_initial!='L'"><a rel="L" data-hot="" ng-class="vm.brand_classes[104]" href="javascript:void(0);">朗世</a></span>
+<span ng-click="vm.change_brand(105)" ng-hide="vm.brand_initial!='M'"><a rel="M" data-hot="" ng-class="vm.brand_classes[105]" href="javascript:void(0);">MG</a></span>
+<span ng-click="vm.change_brand(106)" ng-hide="vm.brand_initial!='M'"><a rel="M" data-hot="" ng-class="vm.brand_classes[106]" href="javascript:void(0);">马自达</a></span>
+<span ng-click="vm.change_brand(107)" ng-hide="vm.brand_initial!='M'"><a rel="M" data-hot="" ng-class="vm.brand_classes[107]" href="javascript:void(0);">MINI</a></span>
+<span ng-click="vm.change_brand(108)" ng-hide="vm.brand_initial!='M'"><a rel="M" data-hot="" ng-class="vm.brand_classes[108]" href="javascript:void(0);">玛莎拉蒂</a></span>
+<span ng-click="vm.change_brand(109)" ng-hide="vm.brand_initial!='M'"><a rel="M" data-hot="" ng-class="vm.brand_classes[109]" href="javascript:void(0);">迈凯伦</a></span>
+<span ng-click="vm.change_brand(110)" ng-hide="vm.brand_initial!='M'"><a rel="M" data-hot="" ng-class="vm.brand_classes[110]" href="javascript:void(0);">摩根</a></span>
+<span ng-click="vm.change_brand(111)" ng-hide="vm.brand_initial!='M'"><a rel="M" data-hot="" ng-class="vm.brand_classes[111]" href="javascript:void(0);">迈巴赫</a></span>
+<span ng-click="vm.change_brand(112)" ng-hide="vm.brand_initial!='N'"><a rel="N" data-hot="" ng-class="vm.brand_classes[112]" href="javascript:void(0);">纳智捷</a></span>
+<span ng-click="vm.change_brand(113)" ng-hide="vm.brand_initial!='N'"><a rel="N" data-hot="" ng-class="vm.brand_classes[113]" href="javascript:void(0);">南京金龙</a></span>
+<span ng-click="vm.change_brand(114)" ng-hide="vm.brand_initial!='N'"><a rel="N" data-hot="" ng-class="vm.brand_classes[114]" href="javascript:void(0);">Noble</a></span>
+<span ng-click="vm.change_brand(115)" ng-hide="vm.brand_initial!='O'"><a rel="O" data-hot="" ng-class="vm.brand_classes[115]" href="javascript:void(0);">讴歌</a></span>
+<span ng-click="vm.change_brand(116)" ng-hide="vm.brand_initial!='O'"><a rel="O" data-hot="" ng-class="vm.brand_classes[116]" href="javascript:void(0);">欧宝</a></span>
+<span ng-click="vm.change_brand(117)" ng-hide="vm.brand_initial!='O'"><a rel="O" data-hot="" ng-class="vm.brand_classes[117]" href="javascript:void(0);">欧朗</a></span>
+<span ng-click="vm.change_brand(118)" ng-hide="vm.brand_initial!='P'"><a rel="P" data-hot="" ng-class="vm.brand_classes[118]" href="javascript:void(0);">佩奇奥</a></span>
+<span ng-click="vm.change_brand(119)" ng-hide="vm.brand_initial!='P'"><a rel="P" data-hot="" ng-class="vm.brand_classes[119]" href="javascript:void(0);">帕加尼</a></span>
+<span ng-click="vm.change_brand(120)" ng-hide="vm.brand_initial!='Q'"><a rel="Q" data-hot="" ng-class="vm.brand_classes[120]" href="javascript:void(0);">起亚</a></span>
+<span ng-click="vm.change_brand(121)" ng-hide="vm.brand_initial!='Q'"><a rel="Q" data-hot="" ng-class="vm.brand_classes[121]" href="javascript:void(0);">奇瑞</a></span>
+<span ng-click="vm.change_brand(122)" ng-hide="vm.brand_initial!='Q'"><a rel="Q" data-hot="" ng-class="vm.brand_classes[122]" href="javascript:void(0);">启辰</a></span>
+<span ng-click="vm.change_brand(123)" ng-hide="vm.brand_initial!='Q'"><a rel="Q" data-hot="" ng-class="vm.brand_classes[123]" href="javascript:void(0);">前途</a></span>
+<span ng-click="vm.change_brand(124)" ng-hide="vm.brand_initial!='R'"><a rel="R" data-hot="" ng-class="vm.brand_classes[124]" href="javascript:void(0);">日产</a></span>
+<span ng-click="vm.change_brand(125)" ng-hide="vm.brand_initial!='R'"><a rel="R" data-hot="" ng-class="vm.brand_classes[125]" href="javascript:void(0);">荣威</a></span>
+<span ng-click="vm.change_brand(126)" ng-hide="vm.brand_initial!='R'"><a rel="R" data-hot="" ng-class="vm.brand_classes[126]" href="javascript:void(0);">瑞麟</a></span>
+<span ng-click="vm.change_brand(127)" ng-hide="vm.brand_initial!='R'"><a rel="R" data-hot="" ng-class="vm.brand_classes[127]" href="javascript:void(0);">如虎</a></span>
+<span ng-click="vm.change_brand(128)" ng-hide="vm.brand_initial!='R'"><a rel="R" data-hot="" ng-class="vm.brand_classes[128]" href="javascript:void(0);">瑞麒</a></span>
+<span ng-click="vm.change_brand(129)" ng-hide="vm.brand_initial!='R'"><a rel="R" data-hot="" ng-class="vm.brand_classes[129]" href="javascript:void(0);">Rinspeed</a></span>
+<span ng-click="vm.change_brand(130)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[130]" href="javascript:void(0);">斯柯达</a></span>
+<span ng-click="vm.change_brand(131)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[131]" href="javascript:void(0);">斯巴鲁</a></span>
+<span ng-click="vm.change_brand(132)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[132]" href="javascript:void(0);">三菱</a></span>
+<span ng-click="vm.change_brand(133)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[133]" href="javascript:void(0);">双龙</a></span>
+<span ng-click="vm.change_brand(134)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[134]" href="javascript:void(0);">smart</a></span>
+<span ng-click="vm.change_brand(135)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[135]" href="javascript:void(0);">萨博</a></span>
+<span ng-click="vm.change_brand(136)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[136]" href="javascript:void(0);">世爵</a></span>
+<span ng-click="vm.change_brand(137)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[137]" href="javascript:void(0);">双环</a></span>
+<span ng-click="vm.change_brand(138)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[138]" href="javascript:void(0);">上汽大通</a></span>
+<span ng-click="vm.change_brand(139)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[139]" href="javascript:void(0);">陕汽通家</a></span>
+<span ng-click="vm.change_brand(140)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[140]" href="javascript:void(0);">Scion</a></span>
+<span ng-click="vm.change_brand(141)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[141]" href="javascript:void(0);">SPIRRA</a></span>
+<span ng-click="vm.change_brand(142)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[142]" href="javascript:void(0);">SSC</a></span>
+<span ng-click="vm.change_brand(143)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[143]" href="javascript:void(0);">上海</a></span>
+<span ng-click="vm.change_brand(144)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[144]" href="javascript:void(0);">赛麟</a></span>
+<span ng-click="vm.change_brand(145)" ng-hide="vm.brand_initial!='S'"><a rel="S" data-hot="" ng-class="vm.brand_classes[145]" href="javascript:void(0);">斯威汽车</a></span>
+<span ng-click="vm.change_brand(146)" ng-hide="vm.brand_initial!='T'"><a rel="T" data-hot="" ng-class="vm.brand_classes[146]" href="javascript:void(0);">腾势</a></span>
+<span ng-click="vm.change_brand(147)" ng-hide="vm.brand_initial!='T'"><a rel="T" data-hot="" ng-class="vm.brand_classes[147]" href="javascript:void(0);">特斯拉</a></span>
+<span ng-click="vm.change_brand(148)" ng-hide="vm.brand_initial!='T'"><a rel="T" data-hot="" ng-class="vm.brand_classes[148]" href="javascript:void(0);">泰卡特</a></span>
+<span ng-click="vm.change_brand(149)" ng-hide="vm.brand_initial!='W'"><a rel="W" data-hot="" ng-class="vm.brand_classes[149]" href="javascript:void(0);">沃尔沃</a></span>
+<span ng-click="vm.change_brand(150)" ng-hide="vm.brand_initial!='W'"><a rel="W" data-hot="" ng-class="vm.brand_classes[150]" href="javascript:void(0);">五菱汽车</a></span>
+<span ng-click="vm.change_brand(151)" ng-hide="vm.brand_initial!='W'"><a rel="W" data-hot="" ng-class="vm.brand_classes[151]" href="javascript:void(0);">五十铃</a></span>
+<span ng-click="vm.change_brand(152)" ng-hide="vm.brand_initial!='W'"><a rel="W" data-hot="" ng-class="vm.brand_classes[152]" href="javascript:void(0);">威麟</a></span>
+<span ng-click="vm.change_brand(153)" ng-hide="vm.brand_initial!='W'"><a rel="W" data-hot="" ng-class="vm.brand_classes[153]" href="javascript:void(0);">威兹曼</a></span>
+<span ng-click="vm.change_brand(154)" ng-hide="vm.brand_initial!='W'"><a rel="W" data-hot="" ng-class="vm.brand_classes[154]" href="javascript:void(0);">沃克斯豪尔</a></span>
+<span ng-click="vm.change_brand(155)" ng-hide="vm.brand_initial!='X'"><a rel="X" data-hot="" ng-class="vm.brand_classes[155]" href="javascript:void(0);">现代</a></span>
+<span ng-click="vm.change_brand(156)" ng-hide="vm.brand_initial!='X'"><a rel="X" data-hot="" ng-class="vm.brand_classes[156]" href="javascript:void(0);">雪铁龙</a></span>
+<span ng-click="vm.change_brand(157)" ng-hide="vm.brand_initial!='X'"><a rel="X" data-hot="" ng-class="vm.brand_classes[157]" href="javascript:void(0);">雪佛兰</a></span>
+<span ng-click="vm.change_brand(158)" ng-hide="vm.brand_initial!='X'"><a rel="X" data-hot="" ng-class="vm.brand_classes[158]" href="javascript:void(0);">西雅特</a></span>
+<span ng-click="vm.change_brand(159)" ng-hide="vm.brand_initial!='X'"><a rel="X" data-hot="" ng-class="vm.brand_classes[159]" href="javascript:void(0);">新凯</a></span>
+<span ng-click="vm.change_brand(160)" ng-hide="vm.brand_initial!='Y'"><a rel="Y" data-hot="" ng-class="vm.brand_classes[160]" href="javascript:void(0);">一汽</a></span>
+<span ng-click="vm.change_brand(161)" ng-hide="vm.brand_initial!='Y'"><a rel="Y" data-hot="" ng-class="vm.brand_classes[161]" href="javascript:void(0);">英菲尼迪</a></span>
+<span ng-click="vm.change_brand(162)" ng-hide="vm.brand_initial!='Y'"><a rel="Y" data-hot="" ng-class="vm.brand_classes[162]" href="javascript:void(0);">英致</a></span>
+<span ng-click="vm.change_brand(163)" ng-hide="vm.brand_initial!='Y'"><a rel="Y" data-hot="" ng-class="vm.brand_classes[163]" href="javascript:void(0);">野马汽车</a></span>
+<span ng-click="vm.change_brand(164)" ng-hide="vm.brand_initial!='Y'"><a rel="Y" data-hot="" ng-class="vm.brand_classes[164]" href="javascript:void(0);">依维柯</a></span>
+<span ng-click="vm.change_brand(165)" ng-hide="vm.brand_initial!='Y'"><a rel="Y" data-hot="" ng-class="vm.brand_classes[165]" href="javascript:void(0);">永源</a></span>
+<span ng-click="vm.change_brand(166)" ng-hide="vm.brand_initial!='Y'"><a rel="Y" data-hot="" ng-class="vm.brand_classes[166]" href="javascript:void(0);">亚琛施纳泽</a></span>
+<span ng-click="vm.change_brand(167)" ng-hide="vm.brand_initial!='Z'"><a rel="Z" data-hot="" ng-class="vm.brand_classes[167]" href="javascript:void(0);">中华</a></span>
+<span ng-click="vm.change_brand(168)" ng-hide="vm.brand_initial!='Z'"><a rel="Z" data-hot="" ng-class="vm.brand_classes[168]" href="javascript:void(0);">众泰</a></span>
+<span ng-click="vm.change_brand(169)" ng-hide="vm.brand_initial!='Z'"><a rel="Z" data-hot="" ng-class="vm.brand_classes[169]" href="javascript:void(0);">中兴</a></span>
+<span ng-click="vm.change_brand(170)" ng-hide="vm.brand_initial!='Z'"><a rel="Z" data-hot="" ng-class="vm.brand_classes[170]" href="javascript:void(0);">知豆</a></span>
+<span ng-click="vm.change_brand(171)" ng-hide="vm.brand_initial!='Z'"><a rel="Z" data-hot="" ng-class="vm.brand_classes[171]" href="javascript:void(0);">Zenvo</a></span>
+<span ng-click="vm.change_brand(172)" ng-hide="vm.brand_initial!='Z'"><a rel="Z" data-hot="" ng-class="vm.brand_classes[172]" href="javascript:void(0);">之诺</a></span>
+            
+                <!-- <span rel="other"><a class="styleName" href="javascript:void(0);" id="alphabet_toggle_btn">展开全部<i></i></a></span> -->
             </div>
             <div class="carstyle clearfix">
               
             </div>
             
         </div>
+
         <div class="brandUl-wrap">
           <ul id="brandUl" class="brandUl">
           
-              <li class="clearfix brandUl-li">
+            <li class="clearfix brandUl-li" ng-repeat="act in vm.acts">
                   <div class="fl brandInfo">
                       <em class="brandInfo-jiao"></em>
                       <div class="brandInfo-img">
-                          <img src="car/20160421/14612049268912628_s.jpg" data-url="car/20160421/14612049268912628_s.jpg" class="scrollLoading">
-                        </div>
-                        <div class="brandInfo-name">
-                          北京奔驰
-                        </div>
-                        <div class="f14">
+                          <img src="{{act.brand_logo}}" class="scrollLoading">
+                      </div>
+                      <div class="brandInfo-name">
+                          {{act.act_name}}
+                      </div>
+                      <div class="f14">
                           
                             <p>
-                                本期报名：<span class="f20 red">365</span>人
+                                本期报名：<span class="f20 red">{{act.joined_cnt}}</span>人
                             </p>
                             
                              
-                            <p>2017年3月11日</p>
+                            <p>{{act.date}}</p>
                           
                         
-                              <p class="red">已累积为团友节省：1,559.5万</p>
+                              <p class="red">已累积为团友节省：{{act.total_cut}}万</p>
                             
-                        </div>
-                    </div>
-                    <div class="fl brandView">
-                      <img class="brandView-img scrollLoading" src="car/20160923/14746238993452068.jpg" data-url="car/20160923/14746238993452068.jpg">
-                        <div class="brandView-info">
-                          <label>热门车型</label>
+                      </div>
+                  </div>
+                  <div class="fl brandView">
+                    <img class="brandView-img scrollLoading" src="{{act.img[0]}}">
+                    <div class="brandView-info">
+                        <label>热门车型</label>
                             <ul>
                               
-                               <li><a href="http://sz.tuanchegou.com/c389/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奔驰SLK级</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c391/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奔驰GL级</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c416/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奔驰SL级</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c390/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奔驰M级</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c388/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奔驰A级</a></li>
+                               <li ng-repeat="car in act.hot_cars"><a href="{{car.act_link}}" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_self">{{car.name}}</a></li>
                           
                             </ul>
-                        </div>
-                        <div class="tuanGo">                          
-                          <a pl="pg=brandIndex&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandImg" class="tuanGo-link" href="http://sz.tuanchegou.com/b33/tuan/" target="_blank">
+                    </div>
+                    
+                    <div class="tuanGo">                          
+                      <a pl="pg=brandIndex&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandImg" class="tuanGo-link" href="{{act.link}}" target="_self">
                                 去团购<em></em>
-                            </a>
-                        </div>                        
-                    </div>
-                </li>
+                      </a>
+                    </div>                        
+                  </div>
+            </li>
                 
-              <li class="clearfix brandUl-li">
-                  <div class="fl brandInfo">
-                      <em class="brandInfo-jiao"></em>
-                      <div class="brandInfo-img">
-                          <img src="car/20160421/14612048991063020_s.jpg" data-url="car/20160421/14612048991063020_s.jpg" class="scrollLoading">
-                        </div>
-                        <div class="brandInfo-name">
-                          宝马
-                        </div>
-                        <div class="f14">
-                          
-                            <p>
-                                本期报名：<span class="f20 red">314</span>人
-                            </p>
-                            
-                             
-                            <p>2017年3月11日</p>
-                          
-                        
-                              <p class="red">已累积为团友节省：3,679.92万</p>
-                            
-                        </div>
-                    </div>
-                    <div class="fl brandView">
-                      <img class="brandView-img scrollLoading" src="car/20160923/1474616606412808.jpg" data-url="car/20160923/1474616606412808.jpg">
-                        <div class="brandView-info">
-                          <label>热门车型</label>
-                            <ul>
-                              
-                               <li><a href="http://sz.tuanchegou.com/c12562/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">宝马316i</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c308/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">宝马X1</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c299/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">宝马7系</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c311/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">宝马X5</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c310/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">宝马X3</a></li>
-                          
-                            </ul>
-                        </div>
-                        <div class="tuanGo">                          
-                          <a pl="pg=brandIndex&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandImg" class="tuanGo-link" href="http://sz.tuanchegou.com/b32/tuan/" target="_blank">
-                                去团购<em></em>
-                            </a>
-                        </div>                        
-                    </div>
-                </li>
-                
-              <li class="clearfix brandUl-li">
-                  <div class="fl brandInfo">
-                      <em class="brandInfo-jiao"></em>
-                      <div class="brandInfo-img">
-                          <img src="car/20160421/14612051324506050_s.jpg" data-url="car/20160421/14612051324506050_s.jpg" class="scrollLoading">
-                        </div>
-                        <div class="brandInfo-name">
-                          一汽奥迪
-                        </div>
-                        <div class="f14">
-                          
-                            <p>
-                                本期报名：<span class="f20 red">210</span>人
-                            </p>
-                            
-                             
-                            <p>2017年3月11日</p>
-                          
-                        
-                              <p class="red">已累积为团友节省：3,529.93万</p>
-                            
-                        </div>
-                    </div>
-                    <div class="fl brandView">
-                      <img class="brandView-img scrollLoading" src="car/20161124/14799534603457470.jpg" data-url="car/20161124/14799534603457470.jpg">
-                        <div class="brandView-info">
-                          <label>热门车型</label>
-                            <ul>
-                              
-                               <li><a href="http://sz.tuanchegou.com/c165/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奥迪A6L</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c167/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奥迪Q5</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c305/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奥迪S5</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c288/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奥迪A3</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c300/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">奥迪A5</a></li>
-                          
-                            </ul>
-                        </div>
-                        <div class="tuanGo">                          
-                          <a pl="pg=brandIndex&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandImg" class="tuanGo-link" href="http://sz.tuanchegou.com/b31/tuan/" target="_blank">
-                                去团购<em></em>
-                            </a>
-                        </div>                        
-                    </div>
-                </li>
-                
-              <li class="clearfix brandUl-li">
-                  <div class="fl brandInfo">
-                      <em class="brandInfo-jiao"></em>
-                      <div class="brandInfo-img">
-                          <img src="car/20170222/14877501162593049_s.jpg" data-url="car/20170222/14877501162593049_s.jpg" class="scrollLoading">
-                        </div>
-                        <div class="brandInfo-name">
-                          一汽丰田
-                        </div>
-                        <div class="f14">
-                          
-                            <p>
-                                本期报名：<span class="f20 red">207</span>人
-                            </p>
-                            
-                             
-                            <p>2017年3月11日</p>
-                          
-                        
-                              <p class="red">已累积为团友节省：1,039.5万</p>
-                            
-                        </div>
-                    </div>
-                    <div class="fl brandView">
-                      <img class="brandView-img scrollLoading" src="car/20161101/14779628572232256.jpg" data-url="car/20161101/14779628572232256.jpg">
-                        <div class="brandView-info">
-                          <label>热门车型</label>
-                            <ul>
-                              
-                               <li><a href="http://sz.tuanchegou.com/c70/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">普锐斯</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c69/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">兰德酷路泽</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c76/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">卡罗拉</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c71/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">普拉多</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c73/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">皇冠</a></li>
-                          
-                            </ul>
-                        </div>
-                        <div class="tuanGo">                          
-                          <a pl="pg=brandIndex&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandImg" class="tuanGo-link" href="http://sz.tuanchegou.com/b14/tuan/" target="_blank">
-                                去团购<em></em>
-                            </a>
-                        </div>                        
-                    </div>
-                </li>
-                
-              <li class="clearfix brandUl-li">
-                  <div class="fl brandInfo">
-                      <em class="brandInfo-jiao"></em>
-                      <div class="brandInfo-img">
-                          <img src="car/20160418/14609487507725370_s.jpg" data-url="car/20160418/14609487507725370_s.jpg" class="scrollLoading">
-                        </div>
-                        <div class="brandInfo-name">
-                          比亚迪
-                        </div>
-                        <div class="f14">
-                          
-                            <p>
-                                本期报名：<span class="f20 red">195</span>人
-                            </p>
-                            
-                             
-                            <p>2017年3月11日</p>
-                          
-                        
-                              <p class="red">已累积为团友节省：286.56万</p>
-                            
-                        </div>
-                    </div>
-                    <div class="fl brandView">
-                      <img class="brandView-img scrollLoading" src="car/20170120/14849032526472062.jpg" data-url="car/20170120/14849032526472062.jpg">
-                        <div class="brandView-info">
-                          <label>热门车型</label>
-                            <ul>
-                              
-                               <li><a href="http://sz.tuanchegou.com/c928/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">速锐</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c127/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">比亚迪e6</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c31359/tuan" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">唐</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c134/tuan/" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">比亚迪F3</a></li>
-                          
-                               <li><a href="http://sz.tuanchegou.com/c31481/tuan" pl="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandStyleName&amp;pl=brandImg" target="_blank">宋</a></li>
-                          
-                            </ul>
-                        </div>
-                        <div class="tuanGo">                          
-                          <a pl="pg=brandIndex&amp;pl=brandImg" pln="pg=brandIndex&amp;pl=brandImg" class="tuanGo-link" href="http://sz.tuanchegou.com/b25/tuan/" target="_blank">
-                                去团购<em></em>
-                            </a>
-                        </div>                        
-                    </div>
-                </li>
-                
-            </ul>
+          </ul>
         </div>
-        <div class="clearfix pagenav">
-            
-             
-             <div class="clearfix pagenav">
-      <div class="tc_page_con">
-           
-          
-          
-              <a class="active" href="http://sz.tuanchegou.com/brand">1</a>
-          
-              
-            <a href="http://sz.tuanchegou.com/brandn2/">2</a>  
-            
-          
-              
-            <a href="http://sz.tuanchegou.com/brandn3/">3</a>  
-            
-          
-              
-            <a href="http://sz.tuanchegou.com/brandn4/">4</a>  
-            
-          
-              
-            <a href="http://sz.tuanchegou.com/brandn5/">5</a>  
-            
-          
-              
-            <a href="http://sz.tuanchegou.com/brandn6/">6</a>  
-            
-          
-              
-            <a href="http://sz.tuanchegou.com/brandn7/">7</a>  
-            
-          
-          
-          
-            <a href="javascript:void(0);">...</a>
-            <a href="http://sz.tuanchegou.com/brandn2/">下一页<i class="page_right_ico"></i></a>  
-      
-    </div>
-</div>
-          
+
+        <style type="text/css">
+        .brand_pager{
+          clear:left;
+          text-align: center;
+        }
+        .brand_pager li{
+          min-width: 30px !important;
+          float: left;
+          line-height: 30px;
+          text-align: center;
+          max-width: 120px;
+          margin-left:10px;
+        }
+        </style>
+        <div class="brand_pager">
+                <hl-pagination values="vm.table"></hl-pagination>
         </div>
+
     </div>
     <!-- main-left end-->
 

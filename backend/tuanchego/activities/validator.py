@@ -16,8 +16,10 @@ INT_STRNIG={
 get_brand_acts_schema={
 	"type":"object",
 	"properties":{
-		"brand_id":INT_STRNIG,
-		"lid":INT_STRNIG
+		"brand_id":UINT32,
+		"lid":UINT32,
+		'page_index':UINT32,
+		'page_size':UINT32
 	},
 	"required":["lid"]
 }

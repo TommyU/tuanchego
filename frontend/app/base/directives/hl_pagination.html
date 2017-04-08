@@ -1,8 +1,11 @@
-<div class="row">
-    <div class="col-md-7">
-        Showing {{ (values.page - 1) * values.pageSize }} to {{ values.page -1 >= values.totalItems / values.pageSize - 1 ? (values.totalItems | number) : values.page * values.pageSize }} of {{ values.totalItems | number }} records
-    </div>
-    <div class="col-md-5" ng-if="values.totalItems > values.pageSize">
-        <ul class="pull-right margin-0" uib-pagination total-items="values.totalItems" ng-model="values.page" items-per-page="values.pageSize" max-size="5"></ul>
-    </div>
+<style type="text/css">
+ul.tc_page_list >li.active{
+	background-color: red;
+	color:white;
+}
+</style>
+<div class="tc_page_wrap clearfix">
+	<div class="tc_page_con" ng-if="values.totalItems > values.pageSize">
+	    <ul class="tc_page_list" uib-pagination total-items="values.totalItems" ng-model="values.page" items-per-page="values.pageSize" max-size="5" next-text="下一页" previous-text="上一页"></ul>
+	</div>
 </div>

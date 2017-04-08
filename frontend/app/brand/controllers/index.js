@@ -19,14 +19,10 @@ function brandConfig($stateProvider) {
 
 angular.module('app.brand').controller('BrandController', BrandController);
 
-BrandController.$inject = ['$filter', '$scope', '$state', '$timeout', 'Case', 'HLFilters', 'LocalStorage',
-    'Settings', 'User', 'UserTeams'];
-function BrandController($filter, $scope, $state, $timeout, Case, HLFilters, LocalStorage,
-                            Settings, User, UserTeams) {
+BrandController.$inject = ['$scope', 'BrandService'];
+function BrandController($scope, BrandService) {
     var vm = this;
 
-    vm.storage = new LocalStorage('brand');
-   
 
     init();
     _setupWatchers();
@@ -34,39 +30,67 @@ function BrandController($filter, $scope, $state, $timeout, Case, HLFilters, Loc
     //////
 
     function init() {
-        // This timeout is needed because by loading from LocalStorage isn't fast enough.
-        $timeout(function() {
-            //初始化的一些动作
-        }, 50);
+        vm.city_id=1;//TODO
+        vm.table = {
+            page: 1,  // Current page of pagination: 1-index.
+            pageSize: 5,  // Number of items per page.
+            totalItems: 0 // Total number of items.
+        };
     }
 
-    function _setupWatchers() {
+    function _setupWatchers(){
         /**
          * 一组变量onchange监听
          * 
          */
         $scope.$watchGroup([
-            'vm.var1',
-            'vm.var2',
-            'vm.varn',
+            'vm.table.page',
+            'vm.brand'
         ], function() {
             //都会执行的函数1();
             //都会执行的函数2();
+            load_data();
         });
-
-        /**
-         * 数组集合onchange的监听
-         */
-        $scope.$watchCollection('vm.table.visibility', function() {
-            //都会执行的函数1();
-        });
-
-        /**
-         *单一变量onchange监听
-         */
-        $scope.$watch('vm.filterList', function() {
-            //都会执行的函数1();
-        }, true);
     }
+
+    function load_data(){
+        BrandService.getBrandActs({
+            city_id:vm.city_id, 
+            brand:vm.brand,
+            page_index:vm.table.page,
+            page_size:vm.table.pageSize
+        }, function(response_data){
+            vm.acts = response_data.acts;
+            vm.table.items = response_data.acts;
+            vm.table.totalItems = response_data.cnt;
+            vm.table.page = response_data.page_index;
+        });
+    }
+
+
+    vm.brand_classes=[];
+    for(var i=0;i<173;i++){
+        vm.brand_classes.push("");
+    }
+    vm.change_brand=function(val){
+        vm.brand=val;
+        if(val==""){
+            vm.brand_class_all='cur';
+        }else{
+            vm.brand_class_all="";
+        }
+        
+        for(var i=0;i<173;i++){
+            vm.brand_classes[i]="";
+        }
+
+        vm.brand_classes[val]="cur";
+    }
+    vm.class_initial = function(initial){
+        if(vm.brand_initial==initial){
+            return "red_bor";
+        }
+        return "";
+    };
 
 }

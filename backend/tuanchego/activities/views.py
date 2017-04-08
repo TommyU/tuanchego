@@ -6,9 +6,12 @@ from .validator import *
 from .db_manager import *
 
 @log(log_result=False)
-@parse_param(get_brand_acts_schema, method="GET")
+@parse_param(get_brand_acts_schema, method="POST")
 def get_brand_acts(request, data ,*arg, **kwargs):
-	return db_get_brand_acts(data.get('brand_id',''))
+	return db_get_brand_acts(data.get('lid',''),
+		data.get('brand_id',''),
+		data.get('page_index',1),
+		data.get('page_size',5))
 
 @log(log_result=False)
 @parse_param(get_car_acts_schema, method="GET")

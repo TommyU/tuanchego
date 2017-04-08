@@ -32,8 +32,12 @@ function CarsController($scope, CarService) {
 
     function init() {
         vm.price_level='';
-        vm.page_index=1;
-        vm.page_size=24;
+
+        vm.table = {
+            page: 1,  // Current page of pagination: 1-index.
+            pageSize: 24,  // Number of items per page.
+            totalItems: 0 // Total number of items.
+        };
     }
 
     function load_data(){
@@ -44,10 +48,13 @@ function CarsController($scope, CarService) {
             displacement:vm.displacement,
             gearbox:vm.gearbox,
             country:vm.country,
-            page_index:vm.page_index,
-            page_size:vm.page_size
+            page_index:vm.table.page,
+            page_size:vm.table.pageSize
         }, function(response_data){
             vm.cars = response_data.cars;
+            vm.table.items = response_data.cars;
+            vm.table.totalItems = response_data.cnt;
+            vm.table.page = response_data.page_index;
         });
     }
 
@@ -62,18 +69,19 @@ function CarsController($scope, CarService) {
             'vm.displacement',
             'vm.gearbox',
             'vm.country',
-            'vm.page_index',
+            'vm.table.page',
             'vm.brand'
         ], function() {
             load_data();
+            //vm.table.page=1;
         });
 
         /**
          *单一变量onchange监听
          */
-        $scope.$watch('vm.price_level', function() {
+        $scope.$watch('vm.table.page', function() {
             //都会执行的函数1();
-           
+           //load_data();
         }, true);
     }
 
