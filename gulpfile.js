@@ -114,7 +114,7 @@ var config = {
             multipass: true,
         },
     },
-    env: process.env.NODE_ENV || 'production',
+    env: "dev"//process.env.NODE_ENV || 'production',
 };
 
 var isProduction = (config.env === 'production');

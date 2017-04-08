@@ -5,7 +5,7 @@ from .validator import *
 from .db_manager import *
 
 @log(log_result=False)
-@parse_param(get_cars_schema, method="GET")
+@parse_param(get_cars_schema, method="POST")
 def get_cars(request, data ,*arg, **kwargs):
 	return db_get_cars(data.get('price',''), 
 		data.get('size',''), 

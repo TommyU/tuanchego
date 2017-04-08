@@ -14,27 +14,27 @@ get_cars_schema={
 	"properties":{
 		"price":{
 			"type":"string",
-			"pattern": "^[0-5]{1,1}$"
+			"pattern": "^[0-5]{0,1}$"
 		},
 		"size":{
 			"type":"string",
-			"pattern": "^[0-8]{1,1}$"
+			"pattern": "^[0-8]{0,1}$"
 		},
 		"brand":UINT32,
 		"dispatchment":{
 			"type":"number",
-			"pattern": "^[1-9]{1,1}$"
+			"pattern": "^[1-9]{0,1}$"
 		},
 		"gearbox":{
 			"type":"string",
-			"pattern": "^[0-4]{1,1}$"
+			"pattern": "^[0-4]{0,1}$"
 		},
 		"country":{
 			"type":"string",
-			"pattern": "^[0-7]{1,1}$"
+			"pattern": "^[0-7]{0,1}$"
 		},
 	},
-	"required":[]
+	#"required":[]
 }
 
 get_car_info_schema={
