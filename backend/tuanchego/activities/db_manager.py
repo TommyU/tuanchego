@@ -77,7 +77,7 @@ def db_get_car_acts(city_id, brand_id=-1,price='',size='',page_index=1, page_siz
 	for line in page:
 		lines.append({
 				'act_name':line.name,
-				'act_status':u'筹备中' if now<=line.start_date or now else u'进行中',
+				'act_status':u'筹备中',# if now<=line.start_date or now else u'进行中',
 				'joined_cnt':line.customer_qty or 0,
 				'date':line.act_day and line.act_day.strftime('%Y-%m-%d') or '',
 				'total_cut':'%.2f'%float(line.total_cut),
