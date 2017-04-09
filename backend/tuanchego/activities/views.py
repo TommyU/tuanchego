@@ -9,7 +9,7 @@ from .db_manager import *
 @parse_param(get_brand_acts_schema, method="POST")
 def get_brand_acts(request, data ,*arg, **kwargs):
 	return db_get_brand_acts(data.get('lid',''),
-		data.get('brand_id',''),
+		data.get('brand_id',-1),
 		data.get('page_index',1),
 		data.get('page_size',5))
 
