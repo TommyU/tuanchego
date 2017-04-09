@@ -73,7 +73,7 @@ def db_get_car_acts(city_id, brand_id=-1,price='',size='',page_index=1, page_siz
 
 	cnt = queryset.count()
 	lines = []
-	now = datetime.datetime.now()
+	now = pytz.utc.localize(datetime.datetime.now())
 	for line in page:
 		lines.append({
 				'act_name':line.name,
