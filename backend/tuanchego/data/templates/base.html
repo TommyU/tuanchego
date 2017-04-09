@@ -1,6 +1,7 @@
 {% load i18n staticfiles %}
 
 <!DOCTYPE html>
+{% csrf_token %}
 {% block html-tag %}<html lang="en" ng-app="app" ng-controller="BaseController">{% endblock html-tag %}
     <!-- BEGIN HEAD -->
     <head>
