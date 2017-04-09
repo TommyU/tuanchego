@@ -3,6 +3,7 @@ from .models import Activity,ActivityComments,Application
 from cars.models import Car
 from django.core.paginator import Paginator
 import datetime
+import pytz
 
 def db_get_brand_acts(city_id, brand_id=-1, page_index=1, page_size=5):
 	"""按品牌输出活动列表"""
